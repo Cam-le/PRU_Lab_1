@@ -342,9 +342,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1395204484902489438, guid: dde97f77276832645bda6aeed49a6a31, type: 3}
+      propertyPath: bounceSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395204484902489438, guid: dde97f77276832645bda6aeed49a6a31, type: 3}
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 239947601}
+    - target: {fileID: 1395204484902489438, guid: dde97f77276832645bda6aeed49a6a31, type: 3}
+      propertyPath: bounceHeight
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4395546547679181780, guid: dde97f77276832645bda6aeed49a6a31, type: 3}
       propertyPath: m_Name
       value: Player

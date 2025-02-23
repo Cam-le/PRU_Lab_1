@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Color _specialTileColor = Color.yellow;
 
     // Define the path coordinates (can be modified in inspector)
+    // These coordinates create a snake-like path moving up and right
     [SerializeField]
     private Vector2Int[] _pathPositions = new Vector2Int[]
     {
@@ -39,7 +40,7 @@ public class GridManager : MonoBehaviour
         SetupCamera();
     }
 
-    private void GenerateGrid()
+    void GenerateGrid()
     {
         // Generate only the path tiles
         foreach (var position in _pathPositions)
@@ -54,7 +55,6 @@ public class GridManager : MonoBehaviour
             var nextTile = _tiles[_pathPositions[i + 1]];
 
             // You can store the next tile reference or setup visual indicators here
-            // For demo purposes, we'll just set the color
             currentTile.Init(false);
             currentTile.SetColor(_pathColor);
         }
@@ -65,6 +65,7 @@ public class GridManager : MonoBehaviour
             if (_tiles.ContainsKey(specialPos))
             {
                 _tiles[specialPos].SetColor(_specialTileColor);
+                _tiles[specialPos].tileType = Tile.TileType.Special;
             }
         }
     }
@@ -99,5 +100,12 @@ public class GridManager : MonoBehaviour
                 return _pathPositions[i + 1];
         }
         return currentPos; // Return same position if at end
+    }
+
+    public Tile GetTileAtPosition(Vector2Int position)
+    {
+        if (_tiles.ContainsKey(position))
+            return _tiles[position];
+        return null;
     }
 }
