@@ -98,6 +98,12 @@ public class QuestionManager : MonoBehaviour
     // Kiểm tra đáp án khi bấm nút
     void CheckAnswer(int selectedIndex)
     {
+        // Reset màu sắc tất cả các nút trước khi check
+        foreach (Button button in answerButtons)
+        {
+            button.GetComponent<Image>().color = Color.white;
+        }
+
         if (selectedIndex == currentQuestion.correctAnswerIndex)
         {
             answerButtons[selectedIndex].GetComponent<Image>().color = Color.green; // Đáp án đúng: Xanh
@@ -138,7 +144,7 @@ public class QuestionManager : MonoBehaviour
         DisplayQuestion();
     }
 
-    // Chuyển sang câu hỏi tiếp theo (tuỳ ý, bạn có thể thêm logic load câu mới)
+    // Chuyển sang câu hỏi tiếp theo
     void NextQuestion()
     {
         successScreen.SetActive(false);
