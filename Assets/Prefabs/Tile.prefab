@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93962264, g: 0.06205042, b: 0.06205042, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,10 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ba03b9211f01a4198d838c678ad840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseColor: {r: 0.043396115, g: 0.48785305, b: 1, a: 1}
-  _offsetColor: {r: 0.027450979, g: 1, b: 0.96698487, a: 1}
   _renderer: {fileID: 2323510467295542341}
   _highlight: {fileID: 8860529928624777034}
+  OnTileEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  tileType: 0
 --- !u!1 &8860529928624777034
 GameObject:
   m_ObjectHideFlags: 0

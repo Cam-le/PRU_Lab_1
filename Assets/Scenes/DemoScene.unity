@@ -415,6 +415,9 @@ MonoBehaviour:
   gizmoSize: 0.3
   connectWithLines: 1
   pathContainer: {fileID: 0}
+  tileSpacing: 1
+  snapToGrid: 1
+  includeControlPoints: 1
   pathPoints:
   - {fileID: 2099614784}
   - {fileID: 684683837}
