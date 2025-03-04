@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16b7a9b6da8770147a4f8ef17ac1669a
+guid: c04dbc9c42cd010419a2509a18598df9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9136831801623935642
-    second: RollDiceRemakeRemovebg_0
+      213: 6214665260621044747
+    second: trangquynh_object_falling_game_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RollDiceRemakeRemovebg_0
+      name: trangquynh_object_falling_game_0
       rect:
         serializedVersion: 2
-        x: 98
-        y: 43
-        width: 373
-        height: 372
+        x: 76
+        y: 0
+        width: 164
+        height: 382
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66586bba2e3733180800000000000000
-      internalID: -9136831801623935642
+      spriteID: b0c1749b02dee3650800000000000000
+      internalID: 6214665260621044747
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      RollDiceRemakeRemovebg_0: -9136831801623935642
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

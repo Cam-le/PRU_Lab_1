@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 16b7a9b6da8770147a4f8ef17ac1669a
+guid: 1541b2535b3a83946b4490a5a156e702
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9136831801623935642
-    second: RollDiceRemakeRemovebg_0
+      213: -2568212192572625928
+    second: FrogIdle_0
+  - first:
+      213: 7351838228016042390
+    second: FrogIdle_1
+  - first:
+      213: -4300553751643984844
+    second: FrogIdle_2
+  - first:
+      213: 3746843534900328216
+    second: FrogIdle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RollDiceRemakeRemovebg_0
+      name: FrogIdle_0
       rect:
         serializedVersion: 2
-        x: 98
-        y: 43
-        width: 373
-        height: 372
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66586bba2e3733180800000000000000
-      internalID: -9136831801623935642
+      spriteID: 8fba1e92e90eb5cd0800000000000000
+      internalID: -2568212192572625928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogIdle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691980baae9f60660800000000000000
+      internalID: 7351838228016042390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogIdle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c69cfe52d5154c0800000000000000
+      internalID: -4300553751643984844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogIdle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 817f3b6e7567ff330800000000000000
+      internalID: 3746843534900328216
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9b339be22bfa004439c7aae689fb2fdb
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RollDiceRemakeRemovebg_0: -9136831801623935642
+      FrogIdle_0: -2568212192572625928
+      FrogIdle_1: 7351838228016042390
+      FrogIdle_2: -4300553751643984844
+      FrogIdle_3: 3746843534900328216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16b7a9b6da8770147a4f8ef17ac1669a
+guid: 398a7677bed6f1f41bd8ef73ede2f35c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9136831801623935642
-    second: RollDiceRemakeRemovebg_0
+      213: -205270267638800340
+    second: heart_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RollDiceRemakeRemovebg_0
+      name: heart_0
       rect:
         serializedVersion: 2
-        x: 98
-        y: 43
-        width: 373
-        height: 372
+        x: 0
+        y: 0
+        width: 923
+        height: 799
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66586bba2e3733180800000000000000
-      internalID: -9136831801623935642
+      spriteID: c20a07677cbb62df0800000000000000
+      internalID: -205270267638800340
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      RollDiceRemakeRemovebg_0: -9136831801623935642
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

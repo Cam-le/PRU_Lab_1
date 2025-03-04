@@ -1,0 +1,3255 @@
+fileFormatVersion: 2
+guid: 17e8096c40a44d94ebe634cb09381694
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7642457318954420226
+    second: items-foodicons-transparent_0
+  - first:
+      213: -6801234499570444544
+    second: items-foodicons-transparent_1
+  - first:
+      213: 4807642072459981369
+    second: items-foodicons-transparent_2
+  - first:
+      213: -470665807823746801
+    second: items-foodicons-transparent_3
+  - first:
+      213: 8272252746708537442
+    second: items-foodicons-transparent_4
+  - first:
+      213: 6382344277597897389
+    second: items-foodicons-transparent_5
+  - first:
+      213: 5159431024058048060
+    second: items-foodicons-transparent_6
+  - first:
+      213: 1188556950567395570
+    second: items-foodicons-transparent_7
+  - first:
+      213: 678981310139938761
+    second: items-foodicons-transparent_8
+  - first:
+      213: -8062872769331875457
+    second: items-foodicons-transparent_9
+  - first:
+      213: 83451417065870814
+    second: items-foodicons-transparent_10
+  - first:
+      213: -6825720327407998170
+    second: items-foodicons-transparent_11
+  - first:
+      213: 8836520493924978116
+    second: items-foodicons-transparent_12
+  - first:
+      213: 5615139066491174557
+    second: items-foodicons-transparent_13
+  - first:
+      213: 2073831860552532127
+    second: items-foodicons-transparent_14
+  - first:
+      213: 6653894404464899652
+    second: items-foodicons-transparent_15
+  - first:
+      213: 6989849239800424348
+    second: items-foodicons-transparent_16
+  - first:
+      213: 5976601240310374708
+    second: items-foodicons-transparent_17
+  - first:
+      213: 5095372932766814534
+    second: items-foodicons-transparent_18
+  - first:
+      213: -2120986330090470856
+    second: items-foodicons-transparent_19
+  - first:
+      213: 6168785394128949900
+    second: items-foodicons-transparent_20
+  - first:
+      213: 7580946796248669085
+    second: items-foodicons-transparent_21
+  - first:
+      213: -4709648899528895296
+    second: items-foodicons-transparent_22
+  - first:
+      213: 2967101018263081590
+    second: items-foodicons-transparent_23
+  - first:
+      213: 1096326040023482486
+    second: items-foodicons-transparent_24
+  - first:
+      213: 7787481155127738926
+    second: items-foodicons-transparent_25
+  - first:
+      213: -5293384061497752643
+    second: items-foodicons-transparent_26
+  - first:
+      213: 1877031681806162824
+    second: items-foodicons-transparent_27
+  - first:
+      213: -4227643138937121566
+    second: items-foodicons-transparent_28
+  - first:
+      213: -3305876219119254949
+    second: items-foodicons-transparent_29
+  - first:
+      213: -4382760222880042420
+    second: items-foodicons-transparent_30
+  - first:
+      213: 4941498895604854777
+    second: items-foodicons-transparent_31
+  - first:
+      213: 518320718305167999
+    second: items-foodicons-transparent_32
+  - first:
+      213: 7303556953244250716
+    second: items-foodicons-transparent_33
+  - first:
+      213: 2830613397427389526
+    second: items-foodicons-transparent_34
+  - first:
+      213: -4754390705143509329
+    second: items-foodicons-transparent_35
+  - first:
+      213: 4326890405479563599
+    second: items-foodicons-transparent_36
+  - first:
+      213: -3334546730207147066
+    second: items-foodicons-transparent_37
+  - first:
+      213: -8725408154046563520
+    second: items-foodicons-transparent_38
+  - first:
+      213: 2147014626111574103
+    second: items-foodicons-transparent_39
+  - first:
+      213: 4604906793179496332
+    second: items-foodicons-transparent_40
+  - first:
+      213: 7596350850156300406
+    second: items-foodicons-transparent_41
+  - first:
+      213: -7148031810777298766
+    second: items-foodicons-transparent_42
+  - first:
+      213: -4807227660004272370
+    second: items-foodicons-transparent_43
+  - first:
+      213: -8492951699718644959
+    second: items-foodicons-transparent_44
+  - first:
+      213: -1569638889343018000
+    second: items-foodicons-transparent_45
+  - first:
+      213: -2353986746434468659
+    second: items-foodicons-transparent_46
+  - first:
+      213: 8589267500209063749
+    second: items-foodicons-transparent_47
+  - first:
+      213: 4310584684810264302
+    second: items-foodicons-transparent_48
+  - first:
+      213: -7099826011874123987
+    second: items-foodicons-transparent_49
+  - first:
+      213: -7102175878788883984
+    second: items-foodicons-transparent_50
+  - first:
+      213: 6349887954908869117
+    second: items-foodicons-transparent_51
+  - first:
+      213: 1477638197061159579
+    second: items-foodicons-transparent_52
+  - first:
+      213: 796576454642718780
+    second: items-foodicons-transparent_53
+  - first:
+      213: -4593388854683267125
+    second: items-foodicons-transparent_54
+  - first:
+      213: 2288549024545476181
+    second: items-foodicons-transparent_55
+  - first:
+      213: 6234609250968988625
+    second: items-foodicons-transparent_56
+  - first:
+      213: -1079285791788559493
+    second: items-foodicons-transparent_57
+  - first:
+      213: 7082830838511719553
+    second: items-foodicons-transparent_58
+  - first:
+      213: -1291586261736246837
+    second: items-foodicons-transparent_59
+  - first:
+      213: -6655996607149382249
+    second: items-foodicons-transparent_60
+  - first:
+      213: 7552898299343163585
+    second: items-foodicons-transparent_61
+  - first:
+      213: 8568300074211408316
+    second: items-foodicons-transparent_62
+  - first:
+      213: 3285191533350088671
+    second: items-foodicons-transparent_63
+  - first:
+      213: 4248104044009066425
+    second: items-foodicons-transparent_64
+  - first:
+      213: -7578647855237001965
+    second: items-foodicons-transparent_65
+  - first:
+      213: 949596745081417682
+    second: items-foodicons-transparent_66
+  - first:
+      213: -2160702949243667017
+    second: items-foodicons-transparent_67
+  - first:
+      213: -8415935890751726294
+    second: items-foodicons-transparent_68
+  - first:
+      213: 8216858247069033825
+    second: items-foodicons-transparent_69
+  - first:
+      213: -846396514915402895
+    second: items-foodicons-transparent_70
+  - first:
+      213: -7336790729650561378
+    second: items-foodicons-transparent_71
+  - first:
+      213: 1726525608798075883
+    second: items-foodicons-transparent_72
+  - first:
+      213: -8886234831414707720
+    second: items-foodicons-transparent_73
+  - first:
+      213: 6445993731717254269
+    second: items-foodicons-transparent_74
+  - first:
+      213: -1259497615009197868
+    second: items-foodicons-transparent_75
+  - first:
+      213: 8100168254021908137
+    second: items-foodicons-transparent_76
+  - first:
+      213: -8702575493749274290
+    second: items-foodicons-transparent_77
+  - first:
+      213: 1838796003576669187
+    second: items-foodicons-transparent_78
+  - first:
+      213: -4842121075155233750
+    second: items-foodicons-transparent_79
+  - first:
+      213: -3169227778967452875
+    second: items-foodicons-transparent_80
+  - first:
+      213: -914535164824435015
+    second: items-foodicons-transparent_81
+  - first:
+      213: 7314921383261115832
+    second: items-foodicons-transparent_82
+  - first:
+      213: -3911584668281418301
+    second: items-foodicons-transparent_83
+  - first:
+      213: -332854332459209594
+    second: items-foodicons-transparent_84
+  - first:
+      213: 9010807549780764658
+    second: items-foodicons-transparent_85
+  - first:
+      213: -6055065778854081967
+    second: items-foodicons-transparent_86
+  - first:
+      213: -527222577150790808
+    second: items-foodicons-transparent_87
+  - first:
+      213: -1656756984366625796
+    second: items-foodicons-transparent_88
+  - first:
+      213: 8424169440080731191
+    second: items-foodicons-transparent_89
+  - first:
+      213: 241054395086782022
+    second: items-foodicons-transparent_90
+  - first:
+      213: -6897000071735123486
+    second: items-foodicons-transparent_91
+  - first:
+      213: -1477781828619261211
+    second: items-foodicons-transparent_92
+  - first:
+      213: -6856098764751353288
+    second: items-foodicons-transparent_93
+  - first:
+      213: -355440157655688013
+    second: items-foodicons-transparent_94
+  - first:
+      213: -3408220913621375671
+    second: items-foodicons-transparent_95
+  - first:
+      213: -5329319541114720581
+    second: items-foodicons-transparent_96
+  - first:
+      213: -1035450483277088003
+    second: items-foodicons-transparent_97
+  - first:
+      213: -7630475406407737120
+    second: items-foodicons-transparent_98
+  - first:
+      213: 4181096506110416132
+    second: items-foodicons-transparent_99
+  - first:
+      213: -4820681848674659840
+    second: items-foodicons-transparent_100
+  - first:
+      213: 1893280506566094911
+    second: items-foodicons-transparent_101
+  - first:
+      213: 5042995927361622188
+    second: items-foodicons-transparent_102
+  - first:
+      213: 5000268352289075804
+    second: items-foodicons-transparent_103
+  - first:
+      213: 3540866221071545085
+    second: items-foodicons-transparent_104
+  - first:
+      213: 384196281091652808
+    second: items-foodicons-transparent_105
+  - first:
+      213: -1846515144017056795
+    second: items-foodicons-transparent_106
+  - first:
+      213: -3529336396310670195
+    second: items-foodicons-transparent_107
+  - first:
+      213: -2528162987078202068
+    second: items-foodicons-transparent_108
+  - first:
+      213: 7765523071013600599
+    second: items-foodicons-transparent_109
+  - first:
+      213: 824609782182874929
+    second: items-foodicons-transparent_110
+  - first:
+      213: -6150082890887774610
+    second: items-foodicons-transparent_111
+  - first:
+      213: -5496596157350250682
+    second: items-foodicons-transparent_112
+  - first:
+      213: -4478461737268742982
+    second: items-foodicons-transparent_113
+  - first:
+      213: -2868169315905656500
+    second: items-foodicons-transparent_114
+  - first:
+      213: -1920507248939058358
+    second: items-foodicons-transparent_115
+  - first:
+      213: 3802292142797018301
+    second: items-foodicons-transparent_116
+  - first:
+      213: 184412212305499898
+    second: items-foodicons-transparent_117
+  - first:
+      213: -697275917820472729
+    second: items-foodicons-transparent_118
+  - first:
+      213: -6973821602965703185
+    second: items-foodicons-transparent_119
+  - first:
+      213: 5511414650419863319
+    second: items-foodicons-transparent_120
+  - first:
+      213: 3879180678529914463
+    second: items-foodicons-transparent_121
+  - first:
+      213: -1956333103644243339
+    second: items-foodicons-transparent_122
+  - first:
+      213: 4190504966304011762
+    second: items-foodicons-transparent_123
+  - first:
+      213: 5158348925138555992
+    second: items-foodicons-transparent_124
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: items-foodicons-transparent_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef733a45f8980f590800000000000000
+      internalID: -7642457318954420226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 224
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007d8f2d1492d91a0800000000000000
+      internalID: -6801234499570444544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93233303efc28b240800000000000000
+      internalID: 4807642072459981369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f094eb401fbd779f0800000000000000
+      internalID: -470665807823746801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 225
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 260dfcb7b02fcc270800000000000000
+      internalID: 8272252746708537442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 226
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2487c2e44a29850800000000000000
+      internalID: 6382344277597897389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 230
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3e1c183e2bf99740800000000000000
+      internalID: 5159431024058048060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f024e1df3a9e7010800000000000000
+      internalID: 1188556950567395570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7350877e93c6900800000000000000
+      internalID: 678981310139938761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f71bdca6febea1090800000000000000
+      internalID: -8062872769331875457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5d6362f9a782100800000000000000
+      internalID: 83451417065870814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62beea4c68b2641a0800000000000000
+      internalID: -6825720327407998170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 226
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd8bd24290a1aa70800000000000000
+      internalID: 8836520493924978116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_13
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 224
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9eff9e0b3bfced40800000000000000
+      internalID: 5615139066491174557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 224
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f900f1ce61bb7cc10800000000000000
+      internalID: 2073831860552532127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_15
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 224
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446f61ff4b1675c50800000000000000
+      internalID: 6653894404464899652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97a6db89dee00160800000000000000
+      internalID: 6989849239800424348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431ebd4a92721f250800000000000000
+      internalID: 5976601240310374708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641d4b79fa666b640800000000000000
+      internalID: 5095372932766814534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8328f759b2eb092e0800000000000000
+      internalID: -2120986330090470856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_20
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 192
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c829ca0e1adeb9550800000000000000
+      internalID: 6168785394128949900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b998312fee43960800000000000000
+      internalID: 7580946796248669085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c455c65747f3aeb0800000000000000
+      internalID: -4709648899528895296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_23
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 193
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672554ed7a24d2920800000000000000
+      internalID: 2967101018263081590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 196
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6704c9d89bee63f00800000000000000
+      internalID: 1096326040023482486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_25
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 194
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22007ac9d0b21c60800000000000000
+      internalID: 7787481155127738926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_26
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db346badd3f1a86b0800000000000000
+      internalID: -5293384061497752643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_27
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bd532ae5e8c0a10800000000000000
+      internalID: 1877031681806162824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 195
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e41982d6f46455c0800000000000000
+      internalID: -4227643138937121566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_29
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 196
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b524cff081b2f12d0800000000000000
+      internalID: -3305876219119254949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_30
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42f5835cce4d23c0800000000000000
+      internalID: -4382760222880042420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_31
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 194
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff238a701bb39440800000000000000
+      internalID: 4941498895604854777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 161
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a0e4672f1713700800000000000000
+      internalID: 518320718305167999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5235f26a527b5560800000000000000
+      internalID: 7303556953244250716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 162
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6540f1243eb584720800000000000000
+      internalID: 2830613397427389526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_35
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 165
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae8080f7d2050eb0800000000000000
+      internalID: -4754390705143509329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_36
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 160
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41c7a026e33c0c30800000000000000
+      internalID: 4326890405479563599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_37
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 160
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb00138a6f49b1d0800000000000000
+      internalID: -3334546730207147066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_38
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 161
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bf1c9538f19e680800000000000000
+      internalID: -8725408154046563520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_39
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 164
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750d2f45d6abbcd10800000000000000
+      internalID: 2147014626111574103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f3f3f945ae7ef30800000000000000
+      internalID: 4604906793179496332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_41
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 160
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6788dccd9d8ab6960800000000000000
+      internalID: 7596350850156300406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_42
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b84d63a0f61dcc90800000000000000
+      internalID: -7148031810777298766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_43
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 160
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07530bb9eb494db0800000000000000
+      internalID: -4807227660004272370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_44
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 161
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12b58bb3d69f22a80800000000000000
+      internalID: -8492951699718644959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_45
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb12171fb5873ae0800000000000000
+      internalID: -1569638889343018000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_46
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 163
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4cbcca685f45fd0800000000000000
+      internalID: -2353986746434468659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_47
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 164
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547c4c69845333770800000000000000
+      internalID: 8589267500209063749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeeda50bee542db30800000000000000
+      internalID: 4310584684810264302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_49
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f1a23dbd9587d90800000000000000
+      internalID: -7099826011874123987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_50
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 128
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9d07ccaa0007d90800000000000000
+      internalID: -7102175878788883984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df1ffdba3755f1850800000000000000
+      internalID: 6349887954908869117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_52
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 128
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a01628c10a18410800000000000000
+      internalID: 1477638197061159579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c385b67a0120e0b00800000000000000
+      internalID: 796576454642718780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_54
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf8d596c210140c0800000000000000
+      internalID: -4593388854683267125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_55
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e891b663f82cf10800000000000000
+      internalID: 2288549024545476181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_56
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dbee55d418c58650800000000000000
+      internalID: 6234609250968988625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_57
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 131
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7311596a4b9501f0800000000000000
+      internalID: -1079285791788559493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_58
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1845ca50f154b4260800000000000000
+      internalID: 7082830838511719553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_59
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 128
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1bf68532d531ee0800000000000000
+      internalID: -1291586261736246837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_60
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 131
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795e7acc95621a3a0800000000000000
+      internalID: -6655996607149382249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_61
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0500d7cf841d860800000000000000
+      internalID: 7552898299343163585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_62
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 130
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9f25c4587b8e670800000000000000
+      internalID: 8568300074211408316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_63
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 129
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfe37c3b48579d20800000000000000
+      internalID: 3285191533350088671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf8f00ee1c44fa30800000000000000
+      internalID: 4248104044009066425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_65
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d82d6ddeb33d690800000000000000
+      internalID: -7578647855237001965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_66
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 98
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfe17e5535ad2d00800000000000000
+      internalID: 949596745081417682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_67
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 99
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd31359d14a302e0800000000000000
+      internalID: -2160702949243667017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_68
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2d584b95e6943b80800000000000000
+      internalID: -8415935890751726294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_69
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 101
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 165e94a7a05280270800000000000000
+      internalID: 8216858247069033825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_70
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 112
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17bb655aadef044f0800000000000000
+      internalID: -846396514915402895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_71
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 102
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e9ccf04bb7e2a90800000000000000
+      internalID: -7336790729650561378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_72
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 96
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beb3608c4e9d5f710800000000000000
+      internalID: 1726525608798075883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_73
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9b2da8080cda480800000000000000
+      internalID: -8886234831414707720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_74
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7cc66b8525c47950800000000000000
+      internalID: 6445993731717254269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_75
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 104
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0dced979d558ee0800000000000000
+      internalID: -1259497615009197868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_76
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a63fd94c14996070800000000000000
+      internalID: 8100168254021908137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_77
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 97
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e490e0852bd3a3780800000000000000
+      internalID: -8702575493749274290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 100
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304689f0937b48910800000000000000
+      internalID: 1838796003576669187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_79
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 98
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2490fb69845dccb0800000000000000
+      internalID: -4842121075155233750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_80
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 98
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53348565024a404d0800000000000000
+      internalID: -3169227778967452875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_81
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 102
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6490eec1bee43f0800000000000000
+      internalID: -914535164824435015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_82
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 64
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b51031fd32d38560800000000000000
+      internalID: 7314921383261115832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_83
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 64
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cdc83af77247b9c0800000000000000
+      internalID: -3911584668281418301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_84
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 64
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ca1d78fb6716bf0800000000000000
+      internalID: -332854332459209594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_85
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 64
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f72718a9b1dc0d70800000000000000
+      internalID: 9010807549780764658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_86
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 69
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a47c751c518fba0800000000000000
+      internalID: -6055065778854081967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_87
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 68
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8637c530cddeea8f0800000000000000
+      internalID: -527222577150790808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_88
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb0ea3fc440209e0800000000000000
+      internalID: -1656756984366625796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_89
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 65
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c96bbf879a8e470800000000000000
+      internalID: 8424169440080731191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_90
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 66
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64eb1b6f1b5685300800000000000000
+      internalID: 241054395086782022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_91
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 66
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e162640afee840a0800000000000000
+      internalID: -6897000071735123486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_92
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea2f99a14ddd7be0800000000000000
+      internalID: -1477781828619261211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_93
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a4006af7e3ad0a0800000000000000
+      internalID: -6856098764751353288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_94
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 64
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc16005f09311bf0800000000000000
+      internalID: -355440157655688013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_95
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 66
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9456a87f22193b0d0800000000000000
+      internalID: -3408220913621375671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_96
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe2f410d147a06b0800000000000000
+      internalID: -5329319541114720581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_97
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 70
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa33c1854751a1f0800000000000000
+      internalID: -1035450483277088003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_98
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 48
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e066bdbb0b1b1690800000000000000
+      internalID: -7630475406407737120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_99
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 42
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4059652be1d360a30800000000000000
+      internalID: 4181096506110416132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_100
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 33
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002d292566f791db0800000000000000
+      internalID: -4820681848674659840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_101
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f303b06f698464a10800000000000000
+      internalID: 1893280506566094911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_102
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 34
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca09126b3125cf540800000000000000
+      internalID: 5042995927361622188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_103
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5271d7e295846540800000000000000
+      internalID: 5000268352289075804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_104
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 35
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df23628511fa32130800000000000000
+      internalID: 3540866221071545085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_105
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 33
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc7e7a6b70f45500800000000000000
+      internalID: 384196281091652808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_106
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 33
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebeb70824cdf56e0800000000000000
+      internalID: -1846515144017056795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_107
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 32
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d849b0d2f37450fc0800000000000000
+      internalID: -3529336396310670195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_108
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 33
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2dc9e478292aecd0800000000000000
+      internalID: -2528162987078202068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_109
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75dbddee61ea4cb60800000000000000
+      internalID: 7765523071013600599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_110
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 33
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13f82595a3a917b00800000000000000
+      internalID: 824609782182874929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_111
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 33
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e3d6df13486aaa0800000000000000
+      internalID: -6150082890887774610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_112
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 32
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6477c57caea28b3b0800000000000000
+      internalID: -5496596157350250682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_113
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab4fae127ce49d1c0800000000000000
+      internalID: -4478461737268742982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_114
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 33
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49a4c114373238d0800000000000000
+      internalID: -2868169315905656500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_115
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 37
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bbc6615dcf855e0800000000000000
+      internalID: -1920507248939058358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_116
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 40
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4dca7fe8474c430800000000000000
+      internalID: 3802292142797018301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_117
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af696b61ee92f8200800000000000000
+      internalID: 184412212305499898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_118
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76250ef3f37c256f0800000000000000
+      internalID: -697275917820472729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_119
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 2
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5b8447332083f90800000000000000
+      internalID: -6973821602965703185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_120
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 2
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fd8208c6a7c7c40800000000000000
+      internalID: 5511414650419863319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_121
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56955b364e95d530800000000000000
+      internalID: 3879180678529914463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_122
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 5
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a82f64865b9d4e0800000000000000
+      internalID: -1956333103644243339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_123
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f59f0a801aa72a30800000000000000
+      internalID: 4190504966304011762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: items-foodicons-transparent_124
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854d66e6403269740800000000000000
+      internalID: 5158348925138555992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

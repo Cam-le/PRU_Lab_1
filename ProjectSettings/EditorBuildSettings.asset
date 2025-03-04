@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MinigameScene.unity
     guid: 111af7c8bf7f02742b448d681b19d6cb
+  - enabled: 1
+    path: Assets/Scenes/ObjectFallingScene.unity
+    guid: 2c515bc67a7fedd499de14c032c82617
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
