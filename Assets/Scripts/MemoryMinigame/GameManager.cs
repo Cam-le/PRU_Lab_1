@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
 
     private string firstGuessPuzzle, secondGuessPuzzle;
 
-    public GameObject GameWinPopup;
+    public GameObject gameWinPopup;
+
+    public GameObject instructionPopup;
 
     private void Awake()
     {
@@ -36,12 +38,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instructionPopup.SetActive(true);
+
         GetButtons();
         AddListeners();
         AddGamePuzzles();
         Shuffle(gamePuzzles);
 
         gameGuesses = gamePuzzles.Count / 2;
+
+        // Disable other buttons if needed
+        //foreach (Button btn in btns)
+        //{
+        //    btn.interactable = false;
+        //}
     }
 
     void GetButtons()
@@ -171,7 +181,7 @@ public class GameManager : MonoBehaviour
         if (countCorrectGuesses == gameGuesses)
         {
             print("Game Finished");
-            GameWinPopup.SetActive(true);
+            gameWinPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
         }
     }
@@ -180,6 +190,18 @@ public class GameManager : MonoBehaviour
     {
         print("Next Button Clicked");
     }
+
+    public void CloseInstructionPopup()
+    {
+        instructionPopup.SetActive(false);
+
+        // Disable other buttons if needed
+        //foreach (Button btn in btns)
+        //{
+        //    btn.interactable = true;
+        //}
+    }
+
 
     void Shuffle(List<Sprite> list)
     {
