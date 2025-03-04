@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DiceRoller : MonoBehaviour
 {
+    [System.Serializable]
+    public class DiceRolledEvent : UnityEvent<int> { }
+
     public int numberOfSides = 12;
     private int lastRoll;
     public TextMeshProUGUI resultText;
+
+    // Add event that will be triggered when dice is rolled
+    public DiceRolledEvent OnDiceRolled = new DiceRolledEvent();
 
     private Quaternion originalRotation;
 
@@ -21,24 +28,23 @@ public class DiceRoller : MonoBehaviour
         lastRoll = Random.Range(1, numberOfSides + 1);
         Debug.Log("Result Roll Dice: " + lastRoll);
         AnimateDiceRoll();
-        
     }
 
     private void AnimateDiceRoll()
     {
         StartCoroutine(RollCoroutine());
     }
+
     private void UpdateResultText()
     {
         if (resultText != null)
         {
             resultText.text = lastRoll.ToString(); // Cập nhật nội dung TextMeshPro
-
         }
     }
+
     private IEnumerator RollCoroutine()
     {
-
         resultText.text = "";
         Vector3 originalPosition = transform.position;
         float duration = 1f; // Tổng thời gian quay
@@ -59,6 +65,9 @@ public class DiceRoller : MonoBehaviour
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         UpdateResultText();
+
+        // Trigger the OnDiceRolled event with the roll result
+        OnDiceRolled.Invoke(lastRoll);
     }
 
     public int GetLastRoll()
