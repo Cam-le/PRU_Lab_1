@@ -13,10 +13,10 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] private Transform pathContainer; // Optional container for generated tiles
 
     [Header("Tile Placement Settings")]
-    [Tooltip("Distance between tiles along the path")]
+    [Tooltip("Distance between tiles along the path (can be decimal)")]
     [SerializeField] private float tileSpacing = 1.0f;
     [Tooltip("Whether to place tiles at exact integer grid positions")]
-    [SerializeField] private bool snapToGrid = true;
+    [SerializeField] private bool snapToGrid = false; // Changed to false to support decimal positions
     [Tooltip("Whether to include the path control points as tiles")]
     [SerializeField] private bool includeControlPoints = true;
 
@@ -61,13 +61,7 @@ public class PathGenerator : MonoBehaviour
                     float t = j / (float)subdivisions;
                     Vector3 interpolated = Vector3.Lerp(start, end, t);
 
-                    if (snapToGrid)
-                    {
-                        interpolated.x = Mathf.Round(interpolated.x);
-                        interpolated.y = Mathf.Round(interpolated.y);
-                        interpolated.z = 0;
-                    }
-
+                    // Draw interpolated position
                     Gizmos.DrawSphere(interpolated, gizmoSize * 0.5f);
                 }
 
@@ -99,9 +93,9 @@ public class PathGenerator : MonoBehaviour
         if (pathPoints.Count == 0)
             CreatePathPoints();
 
-        if (pathPoints.Count == 0)
+        if (pathPoints.Count < 2)
         {
-            Debug.LogError("No path points found!");
+            Debug.LogError("Need at least 2 path points to generate a path!");
             return;
         }
 
@@ -113,9 +107,9 @@ public class PathGenerator : MonoBehaviour
             container = containerObj.transform;
         }
 
-        // Dictionary to check for duplicate positions
-        Dictionary<Vector2Int, bool> positionUsed = new Dictionary<Vector2Int, bool>();
-        List<Vector2Int> allPathPositions = new List<Vector2Int>();
+        // Use a different approach to track positions for decimal support
+        Dictionary<Vector2, bool> positionUsed = new Dictionary<Vector2, bool>();
+        List<Vector2> allPathPositions = new List<Vector2>();
 
         // Process each segment between control points
         for (int i = 0; i < pathPoints.Count - 1; i++)
@@ -132,12 +126,31 @@ public class PathGenerator : MonoBehaviour
             // Place tile at start point if it's the first segment or if includeControlPoints is true
             if (i == 0 || includeControlPoints)
             {
-                Vector2Int startPos = new Vector2Int(
-                    Mathf.RoundToInt(start.x),
-                    Mathf.RoundToInt(start.y)
-                );
+                Vector2 startPos;
+                if (snapToGrid)
+                {
+                    startPos = new Vector2(
+                        Mathf.Round(start.x),
+                        Mathf.Round(start.y)
+                    );
+                }
+                else
+                {
+                    startPos = new Vector2(start.x, start.y);
+                }
 
-                if (!positionUsed.ContainsKey(startPos))
+                // Check for near duplicates when using decimal positions
+                bool isDuplicate = false;
+                foreach (Vector2 pos in positionUsed.Keys)
+                {
+                    if (Vector2.Distance(pos, startPos) < tileSpacing * 0.5f)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicate)
                 {
                     CreateTileAtPosition(startPos, container);
                     positionUsed[startPos] = true;
@@ -151,12 +164,31 @@ public class PathGenerator : MonoBehaviour
                 float t = j / (float)subdivisions;
                 Vector3 interpolated = Vector3.Lerp(start, end, t);
 
-                Vector2Int tilePos = new Vector2Int(
-                    Mathf.RoundToInt(interpolated.x),
-                    Mathf.RoundToInt(interpolated.y)
-                );
+                Vector2 tilePos;
+                if (snapToGrid)
+                {
+                    tilePos = new Vector2(
+                        Mathf.Round(interpolated.x),
+                        Mathf.Round(interpolated.y)
+                    );
+                }
+                else
+                {
+                    tilePos = new Vector2(interpolated.x, interpolated.y);
+                }
 
-                if (!positionUsed.ContainsKey(tilePos))
+                // Check for near duplicates
+                bool isDuplicate = false;
+                foreach (Vector2 pos in positionUsed.Keys)
+                {
+                    if (Vector2.Distance(pos, tilePos) < tileSpacing * 0.5f)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicate)
                 {
                     CreateTileAtPosition(tilePos, container);
                     positionUsed[tilePos] = true;
@@ -164,15 +196,71 @@ public class PathGenerator : MonoBehaviour
                 }
             }
 
-            // Place tile at end point if it's the last segment or if includeControlPoints is true
-            if (i == pathPoints.Count - 2 || includeControlPoints)
+            // Handle the end point (for segments other than the last one)
+            if (i < pathPoints.Count - 2) // Not the last segment
             {
-                Vector2Int endPos = new Vector2Int(
-                    Mathf.RoundToInt(end.x),
-                    Mathf.RoundToInt(end.y)
-                );
+                // Only add the end point if it's a control point
+                if (includeControlPoints)
+                {
+                    Vector2 endPos;
+                    if (snapToGrid)
+                    {
+                        endPos = new Vector2(
+                            Mathf.Round(end.x),
+                            Mathf.Round(end.y)
+                        );
+                    }
+                    else
+                    {
+                        endPos = new Vector2(end.x, end.y);
+                    }
 
-                if (!positionUsed.ContainsKey(endPos))
+                    // Check for near duplicates
+                    bool isDuplicate = false;
+                    foreach (Vector2 pos in positionUsed.Keys)
+                    {
+                        if (Vector2.Distance(pos, endPos) < tileSpacing * 0.5f)
+                        {
+                            isDuplicate = true;
+                            break;
+                        }
+                    }
+
+                    if (!isDuplicate)
+                    {
+                        CreateTileAtPosition(endPos, container);
+                        positionUsed[endPos] = true;
+                        allPathPositions.Add(endPos);
+                    }
+                }
+            }
+            else // Last segment - always add the final point
+            {
+                Vector2 endPos;
+                if (snapToGrid)
+                {
+                    endPos = new Vector2(
+                        Mathf.Round(end.x),
+                        Mathf.Round(end.y)
+                    );
+                }
+                else
+                {
+                    endPos = new Vector2(end.x, end.y);
+                }
+
+                // Check for near duplicates
+                bool isDuplicate = false;
+                foreach (Vector2 pos in positionUsed.Keys)
+                {
+                    if (Vector2.Distance(pos, endPos) < tileSpacing * 0.5f)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicate)
                 {
                     CreateTileAtPosition(endPos, container);
                     positionUsed[endPos] = true;
@@ -181,12 +269,26 @@ public class PathGenerator : MonoBehaviour
             }
         }
 
-        // Generate path code
-        string pathCode = "private Vector2Int[] _pathPositions = new Vector2Int[]\n{\n";
-        foreach (Vector2Int pos in allPathPositions)
+        // Generate path code with support for decimal positions
+        string pathCode = "";
+
+        if (snapToGrid)
         {
-            pathCode += $"    new Vector2Int({pos.x},{pos.y}),\n";
+            pathCode = "private Vector2Int[] _pathPositions = new Vector2Int[]\n{\n";
+            foreach (Vector2 pos in allPathPositions)
+            {
+                pathCode += $"    new Vector2Int({(int)pos.x},{(int)pos.y}),\n";
+            }
         }
+        else
+        {
+            pathCode = "private Vector2[] _pathPositions = new Vector2[]\n{\n";
+            foreach (Vector2 pos in allPathPositions)
+            {
+                pathCode += $"    new Vector2({pos.x}f,{pos.y}f),\n";
+            }
+        }
+
         pathCode += "};";
 
         // Copy path code to clipboard
@@ -196,10 +298,20 @@ public class PathGenerator : MonoBehaviour
         Debug.Log($"Path code copied to clipboard");
     }
 
-    private void CreateTileAtPosition(Vector2Int position, Transform container)
+    private void CreateTileAtPosition(Vector2 position, Transform container)
     {
         Tile tile = Instantiate(tilePrefab, new Vector3(position.x, position.y, 0), Quaternion.identity, container);
-        tile.name = $"Tile {position.x} {position.y}";
+
+        // Format name with decimal precision for non-grid positions
+        if (snapToGrid)
+        {
+            tile.name = $"Tile {(int)position.x} {(int)position.y}";
+        }
+        else
+        {
+            tile.name = $"Tile {position.x:F2} {position.y:F2}";
+        }
+
         tile.gameObject.tag = "GameTile"; // Tag for easy finding later
         tile.tileType = Tile.TileType.Normal; // Set as normal tile
         tile.Init(false);
@@ -264,9 +376,9 @@ public class PathGenerator : MonoBehaviour
         if (pathPoints.Count == 0)
             CreatePathPoints();
 
-        HashSet<Vector2Int> previewPositions = new HashSet<Vector2Int>();
+        int estimatedTileCount = 0;
 
-        // Process each segment
+        // Process each segment to estimate tiles
         for (int i = 0; i < pathPoints.Count - 1; i++)
         {
             if (pathPoints[i] == null || pathPoints[i + 1] == null) continue;
@@ -277,38 +389,19 @@ public class PathGenerator : MonoBehaviour
             float distance = Vector3.Distance(start, end);
             int subdivisions = Mathf.Max(1, Mathf.FloorToInt(distance / tileSpacing));
 
-            // Start point
+            // Count control points and subdivisions
             if (i == 0 || includeControlPoints)
-            {
-                previewPositions.Add(new Vector2Int(
-                    Mathf.RoundToInt(start.x),
-                    Mathf.RoundToInt(start.y)
-                ));
-            }
+                estimatedTileCount++; // Start point
 
-            // Intermediate points
-            for (int j = 1; j < subdivisions; j++)
-            {
-                float t = j / (float)subdivisions;
-                Vector3 interpolated = Vector3.Lerp(start, end, t);
+            estimatedTileCount += subdivisions - 1; // Intermediate points
 
-                previewPositions.Add(new Vector2Int(
-                    Mathf.RoundToInt(interpolated.x),
-                    Mathf.RoundToInt(interpolated.y)
-                ));
-            }
-
-            // End point
             if (i == pathPoints.Count - 2 || includeControlPoints)
-            {
-                previewPositions.Add(new Vector2Int(
-                    Mathf.RoundToInt(end.x),
-                    Mathf.RoundToInt(end.y)
-                ));
-            }
+                estimatedTileCount++; // End point
         }
 
-        Debug.Log($"Preview: Path will generate {previewPositions.Count} tiles");
+        Debug.Log($"Preview: Path will generate approximately {estimatedTileCount} tiles");
+        Debug.Log($"Tile spacing: {tileSpacing} units");
+        Debug.Log($"Grid snapping: {(snapToGrid ? "Enabled" : "Disabled")}");
     }
 #endif
 }
