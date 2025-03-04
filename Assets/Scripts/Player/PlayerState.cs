@@ -14,10 +14,6 @@ public static class PlayerState
     public static int MovesRemaining;
     public static int Score;
 
-    // Inventory
-    public static List<string> Inventory = new List<string>();
-    public static Dictionary<string, int> ItemQuantities = new Dictionary<string, int>();
-
     // Active buffs/debuffs
     public static Dictionary<string, float> BuffDurations = new Dictionary<string, float>();
 
@@ -26,38 +22,6 @@ public static class PlayerState
     public static GamePhase CurrentPhase = GamePhase.Move;
 
     // Helper methods
-    public static void AddItem(string itemId, int quantity = 1)
-    {
-        if (!Inventory.Contains(itemId))
-        {
-            Inventory.Add(itemId);
-            ItemQuantities[itemId] = quantity;
-        }
-        else
-        {
-            ItemQuantities[itemId] += quantity;
-        }
-    }
-
-    public static bool UseItem(string itemId)
-    {
-        if (Inventory.Contains(itemId) && ItemQuantities[itemId] > 0)
-        {
-            ItemQuantities[itemId]--;
-
-            // Remove item if quantity reaches 0
-            if (ItemQuantities[itemId] <= 0)
-            {
-                Inventory.Remove(itemId);
-                ItemQuantities.Remove(itemId);
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-
     public static void AddBuff(string buffId, float duration)
     {
         BuffDurations[buffId] = duration;
@@ -80,10 +44,6 @@ public static class PlayerState
         MovesRemaining = 0;
         Score = 0;
 
-        // Clear inventory
-        Inventory.Clear();
-        ItemQuantities.Clear();
-
         // Clear buffs
         BuffDurations.Clear();
 
@@ -100,6 +60,5 @@ public enum GamePhase
     Roll,
     Move,
     Action,
-    Item,
     End
 }

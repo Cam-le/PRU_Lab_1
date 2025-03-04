@@ -236,13 +236,6 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    // Optional: Add methods for item usage and other player actions
-    public void UseItem(string itemId)
-    {
-        // Implement item usage logic
-        Debug.Log($"Used item: {itemId}");
-    }
-
     // For external scripts to force player movement
     public void TeleportToTile(int tileIndex)
     {
