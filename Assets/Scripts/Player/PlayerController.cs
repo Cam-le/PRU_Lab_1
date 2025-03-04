@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
         {
             diceRoller.OnDiceRolled.AddListener(MovePlayer);
         }
+        else
+        {
+            Debug.LogError("No DiceRoller assigned to PlayerController!");
+        }
     }
 
     void Update()
@@ -92,9 +96,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!isMoving)
         {
+            Debug.Log($"Moving player {steps} steps based on dice roll");
             StartCoroutine(MovePlayerSteps(steps));
         }
     }
+
 
     IEnumerator MovePlayerSteps(int steps)
     {
