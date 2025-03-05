@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      trangquynh_object_falling_game_0: 6214665260621044747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
