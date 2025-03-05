@@ -23,10 +23,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float defaultZoom = 5f;
 
     [Header("Map Boundaries")]
-    [SerializeField] private float minX = -100f;
-    [SerializeField] private float maxX = 100f;
-    [SerializeField] private float minY = -100f;
-    [SerializeField] private float maxY = 100f;
+    [SerializeField] private float minX = -105.4f;
+    [SerializeField] private float maxX = 75.2f;
+    [SerializeField] private float minY = -61f;
+    [SerializeField] private float maxY = 38.4f;
 
     private Camera cam;
     private Vector3 targetPosition;
@@ -67,6 +67,14 @@ public class CameraController : MonoBehaviour
         if (cam != null && cam.orthographic)
         {
             cam.orthographicSize = currentZoom;
+        }
+
+        // Find and disable any GridManager.SetupCamera functionality to avoid conflicts
+        GridManager gridManager = FindObjectOfType<GridManager>();
+        if (gridManager != null)
+        {
+            Debug.Log("CameraController: Found GridManager - will handle camera positioning");
+            // We don't need to do anything here since our camera controller will handle positioning
         }
     }
 
