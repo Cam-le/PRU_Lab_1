@@ -110,8 +110,11 @@ public class GameManager : MonoBehaviour
         if (playerController != null && gridManager != null)
         {
             int currentTileIndex = PlayerState.CurrentTileIndex;
-            if (currentTileIndex == gridManager.PathLength - 1)
+            int finalTileIndex = gridManager.PathLength - 1;
+
+            if (currentTileIndex >= finalTileIndex)
             {
+                Debug.Log("Player reached final tile. Triggering victory!");
                 EndGame(true, "Chiến thắng!! Trạng Quỳnh đã hoàn thành chuyến phiêu lưu của mình!");
                 return;
             }

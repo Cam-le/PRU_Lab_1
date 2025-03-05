@@ -72,10 +72,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // For testing - allow manual movement with space bar
-        if (allowManualMovement && Input.GetKeyDown(KeyCode.Space) && !isMoving)
+        if (allowManualMovement && Input.GetKeyDown(KeyCode.M) && !isMoving)
         {
-            int steps = Random.Range(1, 7); // Simulate a dice roll
+            int steps = Random.Range(3, 3); // Simulate a dice roll
             StartCoroutine(MovePlayerSteps(steps));
+        }
+
+        // New debug teleport to near end of path
+        if (Input.GetKeyDown(KeyCode.E) && gridManager != null)
+        {
+            int nearEndIndex = gridManager.PathLength - 3; // 3 tiles before the end
+            TeleportToTile(nearEndIndex);
+            Debug.Log($"Teleporting to near end tile index: {nearEndIndex}");
         }
     }
 
@@ -241,6 +249,7 @@ public class PlayerController : MonoBehaviour
                 // Either loop back or stop at the end
                 // For this implementation, we'll stop at the end
                 Debug.Log("Reached the end of the path!");
+                Debug.Log(PlayerState.CurrentTileIndex);
                 break;
             }
 
@@ -395,15 +404,50 @@ public class PlayerController : MonoBehaviour
     // For external scripts to force player movement
     public void TeleportToTile(int tileIndex)
     {
-        if (isMoving) return;
+        // Validate references
+        if (gridManager == null)
+        {
+            Debug.LogError("GridManager is not assigned!");
+            return;
+        }
+
+        // Validate tile index
+        if (tileIndex < 0 || tileIndex >= gridManager.PathLength)
+        {
+            Debug.LogError($"Invalid tile index: {tileIndex}. Path length is {gridManager.PathLength}");
+            return;
+        }
+
+        // Prevent teleporting during movement
+        if (isMoving)
+        {
+            Debug.LogWarning("Cannot teleport while moving!");
+            return;
+        }
 
         Tile targetTile = gridManager.GetTileAtIndex(tileIndex);
-        if (targetTile != null)
+        if (targetTile == null)
         {
-            Vector2 targetPos = gridManager.GetTilePosition(targetTile);
-            transform.position = new Vector3(targetPos.x, targetPos.y, 0);
-            currentPosition = targetPos;
-            currentTileIndex = tileIndex;
+            Debug.LogError($"No tile found at index {tileIndex}");
+            return;
         }
+
+        Vector2 targetPos = gridManager.GetTilePosition(targetTile);
+
+        // Update transform position
+        transform.position = new Vector3(targetPos.x, targetPos.y, 0);
+
+        // Update current position tracking
+        currentPosition = targetPos;
+        currentTileIndex = tileIndex;
+
+        // Update PlayerState
+        PlayerState.CurrentPosition = currentPosition;
+        PlayerState.CurrentTileIndex = currentTileIndex;
+
+        // Trigger tile-specific events if needed
+        StartCoroutine(HandleSpecialTile(targetTile));
+
+        Debug.Log($"Teleported to tile {tileIndex} at position {targetPos}");
     }
 }
