@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         //puzzles = Resources.LoadAll<Sprite>("Fruits");
         puzzles = Resources.LoadAll<Sprite>("cardGame");
-        GetButtons();
     }
 
     // Start is called before the first frame update
@@ -44,15 +43,36 @@ public class GameManager : MonoBehaviour
         AddListeners();
         AddGamePuzzles();
         Shuffle(gamePuzzles);
+        //DebugGamePuzzles();
+        //DebugLoadedSprites();
 
         gameGuesses = gamePuzzles.Count / 2;
 
         // Disable other buttons if needed
-        //foreach (Button btn in btns)
-        //{
-        //    btn.interactable = false;
-        //}
+        foreach (Button btn in btns)
+        {
+            btn.interactable = false;
+        }
     }
+
+    void DebugGamePuzzles()
+    {
+        for (int i = 0; i < gamePuzzles.Count; i++)
+        {
+            Debug.Log($"Index {i}: {gamePuzzles[i].name}");
+        }
+    }
+
+    void DebugLoadedSprites()
+    {
+        Debug.Log("Tổng số hình ảnh load được: " + puzzles.Length);
+        for (int i = 0; i < puzzles.Length; i++)
+        {
+            Debug.Log($"Hình {i}: {puzzles[i].name}");
+        }
+    }
+
+
 
     void GetButtons()
     {
@@ -77,34 +97,44 @@ public class GameManager : MonoBehaviour
                 index = 0;
             }
             gamePuzzles.Add(puzzles[index]);
+            //gamePuzzles.Add(puzzles[index]);
             index++;
         }
     }
 
     //void AddGamePuzzles()
     //{
-    //    // Calculate how many unique pairs we need
-    //    int maxPairs = puzzles.Length; // Maximum possible pairs based on available sprites
-    //    int looper = btns.Count;
-    //    int index = 0;
+    //    gamePuzzles.Clear();
 
-    //    // Ensure we don't exceed available sprites
-    //    if (looper / 2 > maxPairs)
+    //    int totalPairs = btns.Count / 2; // Số cặp cần thiết
+    //    int maxAvailablePairs = puzzles.Length; // Số hình có sẵn
+
+    //    if (totalPairs > maxAvailablePairs)
     //    {
-    //        Debug.LogWarning($"Not enough sprite pairs available. Have {maxPairs} pairs, but UI has {looper / 2} pairs.");
-    //        looper = maxPairs * 2;
+    //        Debug.LogWarning($"Không đủ hình ảnh. Chỉ có {maxAvailablePairs} cặp, nhưng cần {totalPairs}.");
+    //        totalPairs = maxAvailablePairs;
     //    }
 
-    //    for (int i = 0; i < looper; i++)
+    //    List<Sprite> tempPuzzles = new List<Sprite>();
+
+    //    for (int i = 0; i < totalPairs; i++)
     //    {
-    //        if (index == looper / 2)
-    //        {
-    //            index = 0;
-    //        }
-    //        gamePuzzles.Add(puzzles[index]);
-    //        index++;
+    //        tempPuzzles.Add(puzzles[i]);
+    //        tempPuzzles.Add(puzzles[i]); // Thêm hai lần để tạo cặp
+    //    }
+
+    //    gamePuzzles = new List<Sprite>(tempPuzzles);
+
+    //    Shuffle(gamePuzzles);
+
+    //    // Debug danh sách gamePuzzles sau khi xáo trộn
+    //    Debug.Log("Danh sách gamePuzzles sau khi shuffle:");
+    //    for (int i = 0; i < gamePuzzles.Count; i++)
+    //    {
+    //        Debug.Log($"Index {i}: {gamePuzzles[i].name}");
     //    }
     //}
+
 
     void AddListeners()
     {
@@ -125,7 +155,7 @@ public class GameManager : MonoBehaviour
             firstGuessPuzzle = gamePuzzles[firstGuessIndex].name;
             btns[firstGuessIndex].image.sprite = gamePuzzles[firstGuessIndex];
         }
-        else if (!secondGuess)
+        else if (!secondGuess && firstGuessIndex != int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name))
         {
             secondGuess = true;
             secondGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
@@ -153,26 +183,29 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
 
-        if (firstGuessPuzzle == secondGuessPuzzle)
+        if (firstGuess && secondGuess)
         {
+            if (firstGuessPuzzle == secondGuessPuzzle)
+            {
+                yield return new WaitForSeconds(0.25f);
+                btns[firstGuessIndex].interactable = false;
+                btns[secondGuessIndex].interactable = false;
+
+                btns[firstGuessIndex].image.color = new Color(0, 0, 0, 0);
+                btns[secondGuessIndex].image.color = new Color(0, 0, 0, 0);
+
+                CheckTheGameIsFinished();
+            }
+            else
+            {
+                btns[firstGuessIndex].image.sprite = bgImage;
+                btns[secondGuessIndex].image.sprite = bgImage;
+            }
+
             yield return new WaitForSeconds(0.25f);
-            btns[firstGuessIndex].interactable = false;
-            btns[secondGuessIndex].interactable = false;
 
-            btns[firstGuessIndex].image.color = new Color(0, 0, 0, 0);
-            btns[secondGuessIndex].image.color = new Color(0, 0, 0, 0);
-
-            CheckTheGameIsFinished();
+            firstGuess = secondGuess = false;
         }
-        else
-        {
-            btns[firstGuessIndex].image.sprite = bgImage;
-            btns[secondGuessIndex].image.sprite = bgImage;
-        }
-
-        yield return new WaitForSeconds(0.25f);
-
-        firstGuess = secondGuess = false;
     }
 
     void CheckTheGameIsFinished()
@@ -196,12 +229,11 @@ public class GameManager : MonoBehaviour
         instructionPopup.SetActive(false);
 
         // Disable other buttons if needed
-        //foreach (Button btn in btns)
-        //{
-        //    btn.interactable = true;
-        //}
+        foreach (Button btn in btns)
+        {
+            btn.interactable = true;
+        }
     }
-
 
     void Shuffle(List<Sprite> list)
     {
@@ -213,4 +245,16 @@ public class GameManager : MonoBehaviour
             list[randomIndex] = temp;
         }
     }
+
+    //void Shuffle(List<Sprite> list)
+    //{
+    //    for (int i = list.Count - 1; i > 0; i--)
+    //    {
+    //        int randomIndex = Random.Range(0, i + 1);
+    //        Sprite temp = list[i];
+    //        list[i] = list[randomIndex];
+    //        list[randomIndex] = temp;
+    //    }
+    //}
+
 }
