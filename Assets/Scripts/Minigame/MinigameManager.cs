@@ -97,7 +97,7 @@ public class MinigameManager : MonoBehaviour
         ReturnToBoard();
     }
 
-    void ReturnToBoard()
+    public void ReturnToBoard()
     {
         PlayerState.ReturningFromMinigame = true;
         SceneManager.LoadScene("SampleScene"); // The main board scene name
