@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private int countGuesses;
     private int countCorrectGuesses;
     private int gameGuesses;
+    private int maxGuesses = 10;
 
     private int firstGuessIndex, secondGuessIndex;
 
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject gameWinPopup;
 
     public GameObject instructionPopup;
+
+    public GameObject gameOverPopup;
+
+    public Text attemptsText;
 
     private void Awake()
     {
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instructionPopup.SetActive(true);
+        attemptsText.enabled = false;
 
         GetButtons();
         AddListeners();
@@ -148,6 +154,12 @@ public class GameManager : MonoBehaviour
     {
         //string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
+        if(countGuesses >= maxGuesses)
+        {
+            GameOver();
+            return;
+        }
+
         if (!firstGuess)
         {
             firstGuess = true;
@@ -163,6 +175,8 @@ public class GameManager : MonoBehaviour
             btns[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
 
             countGuesses++;
+
+            UpdateAttemptsUI();
 
             if (firstGuessPuzzle == secondGuessPuzzle)
             {
@@ -233,7 +247,34 @@ public class GameManager : MonoBehaviour
         {
             btn.interactable = true;
         }
+
+        attemptsText.enabled = true;
     }
+
+    void UpdateAttemptsUI()
+    {
+        int remainingAttempts = maxGuesses - countGuesses;
+        attemptsText.text = "Lượt còn lại: " + remainingAttempts;
+
+        if (remainingAttempts <= 0)
+        {
+            GameOver();
+        }
+    }
+
+
+    void GameOver()
+    {
+        print("Bạn đã thua! Bạn đã hết lượt lật bài.");
+        gameOverPopup.SetActive(true); // Hiển thị popup thua cuộc
+
+        // Vô hiệu hóa tất cả các nút
+        foreach (Button btn in btns)
+        {
+            btn.interactable = false;
+        }
+    }
+
 
     void Shuffle(List<Sprite> list)
     {
