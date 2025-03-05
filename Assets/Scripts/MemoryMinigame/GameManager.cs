@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public Text attemptsText;
 
+    [SerializeField] private MinigameManager minigameManager;
     private void Awake()
     {
         //puzzles = Resources.LoadAll<Sprite>("Fruits");
@@ -58,6 +60,16 @@ public class GameManager : MonoBehaviour
         foreach (Button btn in btns)
         {
             btn.interactable = false;
+        }
+
+        // Find MinigameManager if not assigned
+        if (minigameManager == null)
+        {
+            minigameManager = FindObjectOfType<MinigameManager>();
+            if (minigameManager == null)
+            {
+                Debug.LogError("No MinigameManager found in the scene!");
+            }
         }
     }
 
@@ -227,6 +239,12 @@ public class GameManager : MonoBehaviour
             print("Game Finished");
             gameWinPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
+
+            // Report win to MinigameManager
+            if (minigameManager != null)
+            {
+                minigameManager.WinGame();
+            }
         }
     }
 
@@ -269,6 +287,12 @@ public class GameManager : MonoBehaviour
         foreach (Button btn in btns)
         {
             btn.interactable = false;
+        }
+
+        // Report loss to MinigameManager
+        if (minigameManager != null)
+        {
+            minigameManager.LoseGame();
         }
     }
 

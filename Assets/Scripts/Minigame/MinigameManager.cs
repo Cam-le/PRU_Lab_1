@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MinigameManager : MonoBehaviour
 {
-    [SerializeField] private Button returnButton;
+    [Header("Buttons")]
+    [SerializeField] private Button winButton;
+    [SerializeField] private Button loseButton;
+    [SerializeField] private Button returnToGameButton;
 
     // Add game result tracking
     public enum GameResult { None, Win, Lose }
@@ -18,39 +21,47 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private int loseMovePenalty = 1;
     [SerializeField] private int loseScorePenalty = 25;
 
+    // Add tile movement rewards/penalties
+    [SerializeField] private int winMoveForwardTiles = 3;
+    [SerializeField] private int loseMoveBackTiles = 2;
+
     // Store minigame type
-    public enum MinigameType { Quiz, Memory, ObjectFalling, Blackjack }
+    public enum MinigameType { Quiz, Memory, ObjectFalling }
     [SerializeField] private MinigameType gameType;
 
     void Start()
     {
-        if (returnButton != null)
-        {
-            returnButton.onClick.AddListener(ReturnToBoard);
-        }
+        if (winButton != null)
+            winButton.onClick.AddListener(WinGame);
+
+        if (loseButton != null)
+            loseButton.onClick.AddListener(LoseGame);
+
+        if (returnToGameButton != null)
+            returnToGameButton.onClick.AddListener(ReturnToBoard);
 
         // Reset result at the start of a new minigame
-        LastGameResult = GameResult.None;
+        //LastGameResult = GameResult.None;
+
+        // Reset position adjustment
+        PlayerState.TileMovementAdjustment = 0;
     }
 
     // Call this method when player wins
     public void WinGame()
     {
-        LastGameResult = GameResult.Win;
-        // Apply rewards immediately or return to board first
-        ApplyRewards();
-        // Optional: show win message before returning
-        StartCoroutine(ShowResultAndReturn(1.5f));
+        Debug.Log("Player won the minigame!");
+        PlayerState.TileMovementAdjustment = winMoveForwardTiles;
+        PlayerState.Score += 50; // Optional score bonus
+        ReturnToBoard();
     }
 
     // Call this method when player loses
     public void LoseGame()
     {
-        LastGameResult = GameResult.Lose;
-        // Apply penalties immediately or return to board first
-        ApplyPenalties();
-        // Optional: show lose message before returning
-        StartCoroutine(ShowResultAndReturn(1.5f));
+        Debug.Log("Player lost the minigame!");
+        PlayerState.TileMovementAdjustment = -loseMoveBackTiles;
+        ReturnToBoard();
     }
 
     private void ApplyRewards()
@@ -59,10 +70,10 @@ public class MinigameManager : MonoBehaviour
         PlayerState.MovesRemaining += winMoveBonus;
         PlayerState.Score += winScoreBonus;
 
-        // Add a buff if you have a buff system
-        PlayerState.AddBuff("LuckBoost", 3); // 3 turns of luck boost
+        // Set position adjustment for moving forward
+        PlayerState.TileMovementAdjustment = winMoveForwardTiles;
 
-        Debug.Log($"Applied rewards: +{winMoveBonus} moves, +{winScoreBonus} score");
+        Debug.Log($"Applied rewards: +{winMoveBonus} moves, +{winScoreBonus} score, move forward {winMoveForwardTiles} tiles");
     }
 
     private void ApplyPenalties()
@@ -71,7 +82,10 @@ public class MinigameManager : MonoBehaviour
         PlayerState.MovesRemaining = Mathf.Max(0, PlayerState.MovesRemaining - loseMovePenalty);
         PlayerState.Score = Mathf.Max(0, PlayerState.Score - loseScorePenalty);
 
-        Debug.Log($"Applied penalties: -{loseMovePenalty} moves, -{loseScorePenalty} score");
+        // Set position adjustment for moving backward
+        PlayerState.TileMovementAdjustment = -loseMoveBackTiles;
+
+        Debug.Log($"Applied penalties: -{loseMovePenalty} moves, -{loseScorePenalty} score, move backward {loseMoveBackTiles} tiles");
     }
 
     private IEnumerator ShowResultAndReturn(float delay)
@@ -86,6 +100,6 @@ public class MinigameManager : MonoBehaviour
     void ReturnToBoard()
     {
         PlayerState.ReturningFromMinigame = true;
-        SceneManager.LoadScene("DemoScene"); // The main board scene name
+        SceneManager.LoadScene("SampleScene"); // The main board scene name
     }
 }

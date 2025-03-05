@@ -28,6 +28,9 @@ public static class PlayerState
     public static int TotalMinigameWins;
     public static int TotalMinigameLosses;
 
+    // Track tile movement after minigames
+    public static int TileMovementAdjustment = 0;
+
     // Helper methods
     public static void AddBuff(string buffId, float duration)
     {
@@ -63,6 +66,8 @@ public static class PlayerState
         TotalMinigameWins = 0;
         TotalMinigameLosses = 0;
 
+        // Reset tile movement adjustment
+        TileMovementAdjustment = 0;
     }
 }
 

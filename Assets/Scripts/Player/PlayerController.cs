@@ -69,10 +69,17 @@ public class PlayerController : MonoBehaviour
         // Check if we're returning from another scene
         if (PlayerState.ReturningFromMinigame)
         {
+            // First restore original position
             transform.position = PlayerState.LastPosition;
             currentPosition = PlayerState.CurrentPosition;
             currentTileIndex = PlayerState.CurrentTileIndex;
             PlayerState.ReturningFromMinigame = false;
+
+            // Then check if we need to apply position adjustment from minigame
+            if (PlayerState.TileMovementAdjustment != 0)
+            {
+                StartCoroutine(ApplyMinigamePositionAdjustment());
+            }
         }
         else
         {
@@ -90,7 +97,96 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private IEnumerator ApplyMinigamePositionAdjustment()
+    {
+        // Wait a moment for the board to fully load
+        yield return new WaitForSeconds(0.5f);
 
+        int adjustment = PlayerState.TileMovementAdjustment;
+        PlayerState.TileMovementAdjustment = 0; // Reset the adjustment
+
+        // Calculate target tile index
+        int targetIndex = Mathf.Clamp(currentTileIndex + adjustment, 0, gridManager.PathLength - 1);
+
+        if (targetIndex != currentTileIndex)
+        {
+            if (adjustment > 0)
+            {
+                Debug.Log($"Moving forward {adjustment} tiles as minigame reward!");
+            }
+            else
+            {
+                Debug.Log($"Moving backward {-adjustment} tiles as minigame penalty!");
+            }
+
+            // Use existing movement system to animate the adjustment
+            StartCoroutine(MovePlayerToIndex(targetIndex));
+        }
+    }
+
+    private IEnumerator MovePlayerToIndex(int targetIndex)
+    {
+        if (isMoving) yield break;
+        isMoving = true;
+
+        // Play animation if available
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+
+        // Determine movement path and direction
+        int direction = targetIndex > currentTileIndex ? 1 : -1;
+        int steps = Mathf.Abs(targetIndex - currentTileIndex);
+
+        // Move one step at a time
+        for (int i = 0; i < steps; i++)
+        {
+            // Calculate next tile index
+            int nextTileIndex = currentTileIndex + direction;
+
+            // Check boundaries
+            if (nextTileIndex < 0 || nextTileIndex >= gridManager.PathLength) break;
+
+            Tile nextTile = gridManager.GetTileAtIndex(nextTileIndex);
+            if (nextTile == null) break;
+
+            Vector2 nextPosition = gridManager.GetTilePosition(nextTile);
+
+            // Move to the next position with bezier curve
+            yield return StartCoroutine(MoveAlongPath(transform.position, nextPosition));
+
+            // Update current position
+            currentPosition = nextPosition;
+            currentTileIndex = nextTileIndex;
+
+            // Play move sound if available
+            if (moveSoundEffect != null)
+            {
+                moveSoundEffect.Play();
+            }
+
+            // Small pause between steps
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        // Stop animation
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
+        isMoving = false;
+
+        // Note: We DON'T trigger special tile effects after minigame adjustment
+        // to avoid potential infinite loops
+
+        Tile currentTile = gridManager.GetTileAtIndex(currentTileIndex);
+        if (currentTile != null && currentTile.tileType != Tile.TileType.Normal)
+        {
+            yield return StartCoroutine(HandleSpecialTile(currentTile));
+        }
+    }
     // Called by dice roller
     public void MovePlayer(int steps)
     {
@@ -252,11 +348,11 @@ public class PlayerController : MonoBehaviour
     }
     private string ChooseMinigame()
     {
-        // Option 1: Random selection among available minigames
+        // Random selection among available minigames
         string[] minigames = new string[] {
-        "QuizScene",
-        "MemoryGameScene",
-        "ObjectFallingGame"
+        "QuestionScene",
+        "MemoryMinigame",
+        "ObjectFallingScene"
         };
 
         int index = Random.Range(0, minigames.Length);

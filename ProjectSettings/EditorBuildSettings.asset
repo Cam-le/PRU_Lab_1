@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/DemoScene.unity
-    guid: f09b7905abde6c0489e99a9402a67bb7
-  - enabled: 1
-    path: Assets/Scenes/MinigameScene.unity
-    guid: 111af7c8bf7f02742b448d681b19d6cb
-  - enabled: 1
     path: Assets/Scenes/ObjectFallingScene.unity
     guid: 2c515bc67a7fedd499de14c032c82617
+  - enabled: 1
+    path: Assets/Scenes/MemoryMinigame.unity
+    guid: ad6e35d4c3f221d4d8f4949ae015eb4b
+  - enabled: 1
+    path: Assets/Scenes/QuestionScene.unity
+    guid: 69e09d4d38e4eb94bb6fa20907a356c8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
