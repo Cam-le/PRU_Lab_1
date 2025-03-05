@@ -195,13 +195,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CheckThePuzzlesMatch()
     {
-        yield return new WaitForSeconds(0.25f);
-
         if (firstGuess && secondGuess)
         {
             if (firstGuessPuzzle == secondGuessPuzzle)
             {
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(0.5f);
                 btns[firstGuessIndex].interactable = false;
                 btns[secondGuessIndex].interactable = false;
 
@@ -212,11 +210,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                yield return new WaitForSeconds(1.5f);
                 btns[firstGuessIndex].image.sprite = bgImage;
                 btns[secondGuessIndex].image.sprite = bgImage;
             }
-
-            yield return new WaitForSeconds(0.25f);
 
             firstGuess = secondGuess = false;
         }
