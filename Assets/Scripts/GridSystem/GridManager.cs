@@ -15,10 +15,9 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private Vector2[] _pathPositions = new Vector2[]
 {
-    new Vector2(38.66f,-60.33647f),
-    new Vector2(38.66f,-58.81647f),
-    new Vector2(38.66f,-57.29647f),
-    new Vector2(38.66f,-55.77647f),
+    new Vector2(38.66f,-58.97647f),
+    new Vector2(38.66f,-57.40314f),
+    new Vector2(38.66f,-55.8298f),
     new Vector2(38.66f,-54.25647f),
     new Vector2(37.27546f,-54.25647f),
     new Vector2(35.89091f,-54.25647f),

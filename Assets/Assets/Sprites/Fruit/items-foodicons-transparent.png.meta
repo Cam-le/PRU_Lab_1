@@ -481,6 +481,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3247,7 +3260,132 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      items-foodicons-transparent_0: -7642457318954420226
+      items-foodicons-transparent_1: -6801234499570444544
+      items-foodicons-transparent_10: 83451417065870814
+      items-foodicons-transparent_100: -4820681848674659840
+      items-foodicons-transparent_101: 1893280506566094911
+      items-foodicons-transparent_102: 5042995927361622188
+      items-foodicons-transparent_103: 5000268352289075804
+      items-foodicons-transparent_104: 3540866221071545085
+      items-foodicons-transparent_105: 384196281091652808
+      items-foodicons-transparent_106: -1846515144017056795
+      items-foodicons-transparent_107: -3529336396310670195
+      items-foodicons-transparent_108: -2528162987078202068
+      items-foodicons-transparent_109: 7765523071013600599
+      items-foodicons-transparent_11: -6825720327407998170
+      items-foodicons-transparent_110: 824609782182874929
+      items-foodicons-transparent_111: -6150082890887774610
+      items-foodicons-transparent_112: -5496596157350250682
+      items-foodicons-transparent_113: -4478461737268742982
+      items-foodicons-transparent_114: -2868169315905656500
+      items-foodicons-transparent_115: -1920507248939058358
+      items-foodicons-transparent_116: 3802292142797018301
+      items-foodicons-transparent_117: 184412212305499898
+      items-foodicons-transparent_118: -697275917820472729
+      items-foodicons-transparent_119: -6973821602965703185
+      items-foodicons-transparent_12: 8836520493924978116
+      items-foodicons-transparent_120: 5511414650419863319
+      items-foodicons-transparent_121: 3879180678529914463
+      items-foodicons-transparent_122: -1956333103644243339
+      items-foodicons-transparent_123: 4190504966304011762
+      items-foodicons-transparent_124: 5158348925138555992
+      items-foodicons-transparent_13: 5615139066491174557
+      items-foodicons-transparent_14: 2073831860552532127
+      items-foodicons-transparent_15: 6653894404464899652
+      items-foodicons-transparent_16: 6989849239800424348
+      items-foodicons-transparent_17: 5976601240310374708
+      items-foodicons-transparent_18: 5095372932766814534
+      items-foodicons-transparent_19: -2120986330090470856
+      items-foodicons-transparent_2: 4807642072459981369
+      items-foodicons-transparent_20: 6168785394128949900
+      items-foodicons-transparent_21: 7580946796248669085
+      items-foodicons-transparent_22: -4709648899528895296
+      items-foodicons-transparent_23: 2967101018263081590
+      items-foodicons-transparent_24: 1096326040023482486
+      items-foodicons-transparent_25: 7787481155127738926
+      items-foodicons-transparent_26: -5293384061497752643
+      items-foodicons-transparent_27: 1877031681806162824
+      items-foodicons-transparent_28: -4227643138937121566
+      items-foodicons-transparent_29: -3305876219119254949
+      items-foodicons-transparent_3: -470665807823746801
+      items-foodicons-transparent_30: -4382760222880042420
+      items-foodicons-transparent_31: 4941498895604854777
+      items-foodicons-transparent_32: 518320718305167999
+      items-foodicons-transparent_33: 7303556953244250716
+      items-foodicons-transparent_34: 2830613397427389526
+      items-foodicons-transparent_35: -4754390705143509329
+      items-foodicons-transparent_36: 4326890405479563599
+      items-foodicons-transparent_37: -3334546730207147066
+      items-foodicons-transparent_38: -8725408154046563520
+      items-foodicons-transparent_39: 2147014626111574103
+      items-foodicons-transparent_4: 8272252746708537442
+      items-foodicons-transparent_40: 4604906793179496332
+      items-foodicons-transparent_41: 7596350850156300406
+      items-foodicons-transparent_42: -7148031810777298766
+      items-foodicons-transparent_43: -4807227660004272370
+      items-foodicons-transparent_44: -8492951699718644959
+      items-foodicons-transparent_45: -1569638889343018000
+      items-foodicons-transparent_46: -2353986746434468659
+      items-foodicons-transparent_47: 8589267500209063749
+      items-foodicons-transparent_48: 4310584684810264302
+      items-foodicons-transparent_49: -7099826011874123987
+      items-foodicons-transparent_5: 6382344277597897389
+      items-foodicons-transparent_50: -7102175878788883984
+      items-foodicons-transparent_51: 6349887954908869117
+      items-foodicons-transparent_52: 1477638197061159579
+      items-foodicons-transparent_53: 796576454642718780
+      items-foodicons-transparent_54: -4593388854683267125
+      items-foodicons-transparent_55: 2288549024545476181
+      items-foodicons-transparent_56: 6234609250968988625
+      items-foodicons-transparent_57: -1079285791788559493
+      items-foodicons-transparent_58: 7082830838511719553
+      items-foodicons-transparent_59: -1291586261736246837
+      items-foodicons-transparent_6: 5159431024058048060
+      items-foodicons-transparent_60: -6655996607149382249
+      items-foodicons-transparent_61: 7552898299343163585
+      items-foodicons-transparent_62: 8568300074211408316
+      items-foodicons-transparent_63: 3285191533350088671
+      items-foodicons-transparent_64: 4248104044009066425
+      items-foodicons-transparent_65: -7578647855237001965
+      items-foodicons-transparent_66: 949596745081417682
+      items-foodicons-transparent_67: -2160702949243667017
+      items-foodicons-transparent_68: -8415935890751726294
+      items-foodicons-transparent_69: 8216858247069033825
+      items-foodicons-transparent_7: 1188556950567395570
+      items-foodicons-transparent_70: -846396514915402895
+      items-foodicons-transparent_71: -7336790729650561378
+      items-foodicons-transparent_72: 1726525608798075883
+      items-foodicons-transparent_73: -8886234831414707720
+      items-foodicons-transparent_74: 6445993731717254269
+      items-foodicons-transparent_75: -1259497615009197868
+      items-foodicons-transparent_76: 8100168254021908137
+      items-foodicons-transparent_77: -8702575493749274290
+      items-foodicons-transparent_78: 1838796003576669187
+      items-foodicons-transparent_79: -4842121075155233750
+      items-foodicons-transparent_8: 678981310139938761
+      items-foodicons-transparent_80: -3169227778967452875
+      items-foodicons-transparent_81: -914535164824435015
+      items-foodicons-transparent_82: 7314921383261115832
+      items-foodicons-transparent_83: -3911584668281418301
+      items-foodicons-transparent_84: -332854332459209594
+      items-foodicons-transparent_85: 9010807549780764658
+      items-foodicons-transparent_86: -6055065778854081967
+      items-foodicons-transparent_87: -527222577150790808
+      items-foodicons-transparent_88: -1656756984366625796
+      items-foodicons-transparent_89: 8424169440080731191
+      items-foodicons-transparent_9: -8062872769331875457
+      items-foodicons-transparent_90: 241054395086782022
+      items-foodicons-transparent_91: -6897000071735123486
+      items-foodicons-transparent_92: -1477781828619261211
+      items-foodicons-transparent_93: -6856098764751353288
+      items-foodicons-transparent_94: -355440157655688013
+      items-foodicons-transparent_95: -3408220913621375671
+      items-foodicons-transparent_96: -5329319541114720581
+      items-foodicons-transparent_97: -1035450483277088003
+      items-foodicons-transparent_98: -7630475406407737120
+      items-foodicons-transparent_99: 4181096506110416132
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
