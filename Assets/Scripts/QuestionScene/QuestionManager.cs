@@ -1,154 +1,176 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Sử dụng TextMeshPro
+using TMPro;
+using System.Collections.Generic;
 
 public class QuestionManager : MonoBehaviour
 {
     [System.Serializable]
     public class Question
     {
-        public string questionText; // Nội dung câu hỏi
-        public string[] answers; // Danh sách các đáp án (4 đáp án)
-        public int correctAnswerIndex; // Vị trí của đáp án đúng (0-3)
+        public string questionText;
+        public string[] answers;
+        public int correctAnswerIndex;
     }
 
     [Header("UI Elements")]
-    public TMP_Text questionText; // TextMeshPro cho câu hỏi
-    public Button[] answerButtons; // 4 nút đáp án
-    public GameObject failScreen; // Màn hình thất bại
-    public GameObject successScreen; // Màn hình thành công
-    public Button retryButton; // Nút chơi lại
-    public Button nextQuestionButton; // Nút câu hỏi tiếp theo
+    public TMP_Text questionText;
+    public Button[] answerButtons;
+    public GameObject failScreen;
+    public GameObject successScreen;
+    public Button retryButton;
 
     [Header("Question Data")]
-    public Question currentQuestion; // Câu hỏi hiện tại
+    public List<Question> questions = new List<Question>
+    {
+        new Question { questionText = "Ăn quả nhớ ...?", answers = new string[] { "kẻ trồng cây", "người bán cây", "người hái quả", "người tưới cây" }, correctAnswerIndex = 0 },
+new Question { questionText = "Có công mài sắt, có ngày nên ...?", answers = new string[] { "nhà", "kim", "đá", "đồng" }, correctAnswerIndex = 1 },
+new Question { questionText = "Gần mực thì ...?", answers = new string[] { "đen", "trắng", "xám", "nâu" }, correctAnswerIndex = 0 },
+new Question { questionText = "Chọn bạn mà ...?", answers = new string[] { "chơi", "ăn", "uống", "đi" }, correctAnswerIndex = 0 },
+new Question { questionText = "Một cây làm chẳng nên ...?", answers = new string[] { "công", "chuyện", "rừng", "non" }, correctAnswerIndex = 3 },
+new Question { questionText = "Đói cho ... , rách cho ... ?", answers = new string[] { "sạch - thơm", "sạch - rắn", "sạch - tốt", "thơm - bền" }, correctAnswerIndex = 0 },
+new Question { questionText = "Cái khó ló cái ...?", answers = new string[] { "khôn", "ngu", "liều", "bạo" }, correctAnswerIndex = 0 },
+new Question { questionText = "Ăn .... học hay?", answers = new string[] { "vóc", "già", "tốt", "số" }, correctAnswerIndex = 0 },
+new Question { questionText = "Lời nói chẳng mất ...?", answers = new string[] { "tiền mua", "công sức", "đôi môi", "đồng nào" }, correctAnswerIndex = 0 },
+new Question { questionText = "Thương người như thể thương ...?", answers = new string[] { "mình", "nhà", "trời" ,"thân"}, correctAnswerIndex = 3 },
+new Question { questionText = "Tốt gỗ hơn tốt ...?", answers = new string[] {  "lời nói", "nước sơn", "hình hài", "người sang" }, correctAnswerIndex = 1 },
+new Question { questionText = "Uống nước nhớ ...?", answers = new string[] {  "giếng", "cây", "nguồn", "mưa" }, correctAnswerIndex = 2 },
+new Question { questionText = "Ăn cơm .... thấm về lâu?", answers = new string[] { "mắm", "trắng", "rừng", "hàng" }, correctAnswerIndex = 0 },
+new Question { questionText = "Con hơn cha là nhà có ...?", answers = new string[] {  "lộc", "phúc", "đức", "họ" }, correctAnswerIndex = 1 },
+new Question { questionText = "Học thầy không tày học ...?", answers = new string[] {  "cha", "mẹ", "bạn", "trò" }, correctAnswerIndex = 2 },
+new Question { questionText = "Đi một ngày đàng học một ...?", answers = new string[] {  "lời hay", "câu khôn", "sàng khôn", "chữ đẹp" }, correctAnswerIndex = 2 },
+new Question { questionText = "Cha nào con ...?", answers = new string[] { "ấy", "nấy", "kia", "nọ" }, correctAnswerIndex = 1 },
+new Question { questionText = "Đường dài mới biết ...?", answers = new string[] {  "người khôn", "lòng nhau", "đường gần","ngựa hay" }, correctAnswerIndex = 3 },
+new Question { questionText = "Bới bèo ra ...?", answers = new string[] { "rễ", "lá", "cỏ", "bọ" }, correctAnswerIndex = 3 },
+new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new string[] { "tròn", "vuông", "dài", "ngắn" }, correctAnswerIndex = 0 }
+    };
 
-    private int attempts = 0; // Số lần thử của người chơi
-    private const int maxAttempts = 2; // Giới hạn số lần thử
+    private int currentQuestionIndex = 0;
+    private int correctStreak = 0;
+    private const int requiredCorrectStreak = 3;
 
     private void Start()
     {
-        ValidateQuestionData();
-        DisplayQuestion();
-        AssignButtonListeners();
-        failScreen.SetActive(false); // Ẩn màn hình thất bại ban đầu
-        successScreen.SetActive(false); // Ẩn màn hình thành công ban đầu
-
-        if (retryButton != null)
-            retryButton.onClick.AddListener(RetryGame);
-
-        if (nextQuestionButton != null)
-            nextQuestionButton.onClick.AddListener(NextQuestion);
-    }
-
-    // Kiểm tra dữ liệu câu hỏi
-    void ValidateQuestionData()
-    {
-        if (currentQuestion == null)
+        if (questions.Count == 0)
         {
-            Debug.LogError("No question data found!");
+            Debug.LogError("Danh sách câu hỏi rỗng!");
             return;
         }
 
-        if (currentQuestion.answers == null || currentQuestion.answers.Length != 4)
+        failScreen.SetActive(false);
+        successScreen.SetActive(false);
+
+        retryButton.onClick.AddListener(RetryGame);
+
+        LoadQuestion();
+    }
+
+    void LoadQuestion()
+    {
+        if (questions.Count == 0)
         {
-            Debug.LogError("Dữ liệu câu hỏi không có đủ 4 đáp án!");
+            Debug.Log("Hết câu hỏi! Reset lại...");
+            ResetGame();
             return;
         }
 
-        if (currentQuestion.correctAnswerIndex < 0 || currentQuestion.correctAnswerIndex >= 4)
-        {
-            Debug.LogError("Chỉ số đáp án đúng không hợp lệ!");
-        }
-    }
-
-    // Hiển thị câu hỏi và đáp án lên màn hình
-    void DisplayQuestion()
-    {
+        currentQuestionIndex = Random.Range(0, questions.Count); // Lấy ngẫu nhiên 1 câu
+        Question currentQuestion = questions[currentQuestionIndex];
         questionText.text = currentQuestion.questionText;
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
             TMP_Text btnText = answerButtons[i].GetComponentInChildren<TMP_Text>();
             if (btnText != null)
-            {
                 btnText.text = currentQuestion.answers[i];
-            }
-            else
-            {
-                Debug.LogError($"Button {i} không có TMP_Text con.");
-            }
 
-            // Reset màu về trắng
             answerButtons[i].GetComponent<Image>().color = Color.white;
-        }
-    }
-
-    // Gán sự kiện click cho các nút
-    void AssignButtonListeners()
-    {
-        for (int i = 0; i < answerButtons.Length; i++)
-        {
-            int index = i; // Giữ index cố định cho lambda
             answerButtons[i].onClick.RemoveAllListeners();
+            int index = i;
             answerButtons[i].onClick.AddListener(() => CheckAnswer(index));
         }
     }
 
-    // Kiểm tra đáp án khi bấm nút
     void CheckAnswer(int selectedIndex)
     {
-        // Reset màu sắc tất cả các nút trước khi check
-        foreach (Button button in answerButtons)
-        {
-            button.GetComponent<Image>().color = Color.white;
-        }
+        Question currentQuestion = questions[currentQuestionIndex];
 
         if (selectedIndex == currentQuestion.correctAnswerIndex)
         {
-            answerButtons[selectedIndex].GetComponent<Image>().color = Color.green; // Đáp án đúng: Xanh
-            ShowSuccessScreen();
+            answerButtons[selectedIndex].GetComponent<Image>().color = Color.green;
+            correctStreak++;
+
+            if (correctStreak >= requiredCorrectStreak)
+            {
+                ShowSuccessScreen();
+            }
+            else
+            {
+                questions.RemoveAt(currentQuestionIndex); // Loại bỏ câu đã đúng
+                LoadQuestion(); // Chuyển câu mới
+            }
         }
         else
         {
-            answerButtons[selectedIndex].GetComponent<Image>().color = Color.red; // Đáp án sai: Đỏ
-            attempts++;
-            Debug.Log($"Wrong answer! Attempts: {attempts}/{maxAttempts}");
-
-            if (attempts >= maxAttempts)
-            {
-                ShowFailScreen();
-            }
+            answerButtons[selectedIndex].GetComponent<Image>().color = Color.red;
+            correctStreak = 0;
+            questions.RemoveAt(currentQuestionIndex); // Loại bỏ câu sai
+            ShowFailScreen();
         }
     }
 
-    // Hiển thị màn hình thất bại
+    void ResetGame()
+    {
+        // Khôi phục lại toàn bộ câu hỏi ban đầu
+        questions = new List<Question>
+    {
+       new Question { questionText = "Ăn quả nhớ ...?", answers = new string[] { "kẻ trồng cây", "người bán cây", "người hái quả", "người tưới cây" }, correctAnswerIndex = 0 },
+new Question { questionText = "Có công mài sắt, có ngày nên ...?", answers = new string[] { "nhà", "kim", "đá", "đồng" }, correctAnswerIndex = 1 },
+new Question { questionText = "Gần mực thì ...?", answers = new string[] { "đen", "trắng", "xám", "nâu" }, correctAnswerIndex = 0 },
+new Question { questionText = "Chọn bạn mà ...?", answers = new string[] { "chơi", "ăn", "uống", "đi" }, correctAnswerIndex = 0 },
+new Question { questionText = "Một cây làm chẳng nên ...?", answers = new string[] { "công", "chuyện", "rừng", "non" }, correctAnswerIndex = 3 },
+new Question { questionText = "Đói cho ... , rách cho ... ?", answers = new string[] { "sạch - thơm", "sạch - rắn", "sạch - tốt", "thơm - bền" }, correctAnswerIndex = 0 },
+new Question { questionText = "Cái khó ló cái ...?", answers = new string[] { "khôn", "ngu", "liều", "bạo" }, correctAnswerIndex = 0 },
+new Question { questionText = "Ăn .... học hay?", answers = new string[] { "vóc", "già", "tốt", "số" }, correctAnswerIndex = 0 },
+new Question { questionText = "Lời nói chẳng mất ...?", answers = new string[] { "tiền mua", "công sức", "đôi môi", "đồng nào" }, correctAnswerIndex = 0 },
+new Question { questionText = "Thương người như thể thương ...?", answers = new string[] { "mình", "nhà", "trời" ,"thân"}, correctAnswerIndex = 3 },
+new Question { questionText = "Tốt gỗ hơn tốt ...?", answers = new string[] {  "lời nói", "nước sơn", "hình hài", "người sang" }, correctAnswerIndex = 1 },
+new Question { questionText = "Uống nước nhớ ...?", answers = new string[] {  "giếng", "cây", "nguồn", "mưa" }, correctAnswerIndex = 2 },
+new Question { questionText = "Ăn cơm .... thấm về lâu?", answers = new string[] { "mắm", "trắng", "rừng", "hàng" }, correctAnswerIndex = 0 },
+new Question { questionText = "Con hơn cha là nhà có ...?", answers = new string[] {  "lộc", "phúc", "đức", "họ" }, correctAnswerIndex = 1 },
+new Question { questionText = "Học thầy không tày học ...?", answers = new string[] {  "cha", "mẹ", "bạn", "trò" }, correctAnswerIndex = 2 },
+new Question { questionText = "Đi một ngày đàng học một ...?", answers = new string[] {  "lời hay", "câu khôn", "sàng khôn", "chữ đẹp" }, correctAnswerIndex = 2 },
+new Question { questionText = "Cha nào con ...?", answers = new string[] { "ấy", "nấy", "kia", "nọ" }, correctAnswerIndex = 1 },
+new Question { questionText = "Đường dài mới biết ...?", answers = new string[] {  "người khôn", "lòng nhau", "đường gần","ngựa hay" }, correctAnswerIndex = 3 },
+new Question { questionText = "Bới bèo ra ...?", answers = new string[] { "rễ", "lá", "cỏ", "bọ" }, correctAnswerIndex = 3 },
+new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new string[] { "tròn", "vuông", "dài", "ngắn" }, correctAnswerIndex = 0 }
+    };
+
+        currentQuestionIndex = 0;
+        correctStreak = 0;
+        failScreen.SetActive(false);
+        successScreen.SetActive(false);
+        LoadQuestion();
+    }
+
+
     void ShowFailScreen()
     {
         failScreen.SetActive(true);
-        Debug.Log("You failed!");
+        Debug.Log("Bạn đã thất bại!");
     }
 
-    // Hiển thị màn hình thành công
     void ShowSuccessScreen()
     {
         successScreen.SetActive(true);
-        Debug.Log("Congratulations! You got it right!");
+        Debug.Log("Bạn đã qua màn!");
     }
 
-    // Chơi lại
     void RetryGame()
     {
-        attempts = 0;
+        currentQuestionIndex = 0;
+        correctStreak = 0;
         failScreen.SetActive(false);
-        DisplayQuestion();
-    }
-
-    // Chuyển sang câu hỏi tiếp theo
-    void NextQuestion()
-    {
-        successScreen.SetActive(false);
-        Debug.Log("Load next question...");
-        // Thêm logic load câu hỏi mới ở đây
+        LoadQuestion();
     }
 }

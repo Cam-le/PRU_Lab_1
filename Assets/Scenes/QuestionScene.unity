@@ -1254,7 +1254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &482572155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,7 +2063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1038400509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,15 +2611,42 @@ MonoBehaviour:
   failScreen: {fileID: 377432999}
   successScreen: {fileID: 176003988}
   retryButton: {fileID: 642438390}
-  nextQuestionButton: {fileID: 0}
-  currentQuestion:
-    questionText: "\u0110\xF3i \u0103n v\u1EE5ng, t\xFAng l\xE0m ..."
+  questions:
+  - questionText: "\u0102n qu\u1EA3 nh\u1EDB ...?"
     answers:
-    - "Lo\u1EA1n"
-    - "C\xE0n"
-    - "Li\u1EC1u"
-    - "B\u1EA1o"
+    - "k\u1EBB tr\u1ED3ng c\xE2y"
+    - "ng\u01B0\u1EDDi b\xE1n c\xE2y"
+    - "ng\u01B0\u1EDDi h\xE1i qu\u1EA3"
+    - "ng\u01B0\u1EDDi t\u01B0\u1EDBi c\xE2y"
+    correctAnswerIndex: 0
+  - questionText: "C\xF3 c\xF4ng m\xE0i s\u1EAFt, c\xF3 ng\xE0y n\xEAn ...?"
+    answers:
+    - "nh\xE0"
+    - kim
+    - "\u0111\xE1"
+    - "\u0111\u1ED3ng"
     correctAnswerIndex: 1
+  - questionText: "G\u1EA7n m\u1EF1c th\xEC ...?"
+    answers:
+    - "\u0111en"
+    - "tr\u1EAFng"
+    - "x\xE1m"
+    - "n\xE2u"
+    correctAnswerIndex: 0
+  - questionText: "Ch\u1ECDn b\u1EA1n m\xE0 ...?"
+    answers:
+    - "ch\u01A1i"
+    - "\u0103n"
+    - "u\u1ED1ng"
+    - "\u0111i"
+    correctAnswerIndex: 0
+  - questionText: "M\u1ED9t c\xE2y l\xE0m ch\u1EB3ng n\xEAn ...?"
+    answers:
+    - "c\xF4ng"
+    - "chuy\u1EC7n"
+    - "r\u1EEBng"
+    - non
+    correctAnswerIndex: 3
 --- !u!1 &1126533519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,8 +2975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: -55.0955}
-  m_SizeDelta: {x: 420.3333, y: 237.6227}
+  m_AnchoredPosition: {x: 54.3, y: -40.7}
+  m_SizeDelta: {x: 393.4064, y: 196.6201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187994059
 MonoBehaviour:
@@ -2974,8 +3001,9 @@ MonoBehaviour:
   m_text: "Lu\u1EADt ch\u01A1i:\r\n- B\u1EA1n s\u1EBD \u0111\u01B0\u1EE3c cho m\u1ED9t
     c\xE2u th\xE0nh ng\u1EEF ch\u01B0a ho\xE0n ch\u1EC9nh.\r\n- Ch\u1ECDn \u0111\xFAng
     t\u1EEB \u0111\u1EC3 ho\xE0n th\xE0nh c\xE2u.\r\n- Tr\u1EA3 l\u1EDDi \u0111\xFAng
-    s\u1EBD t\xF4 xanh, sai s\u1EBD t\xF4 \u0111\u1ECF.\r\nNh\u1EA5n 'B\u1EAFt \u0111\u1EA7u'
-    \u0111\u1EC3 ch\u01A1i!\r\n"
+    s\u1EBD t\xF4 xanh, sai s\u1EBD t\xF4 \u0111\u1ECF.\n- B\u1EA1n ph\u1EA3i tr\u1EA3
+    l\u1EDDi \u0111\xFAng 3 c\xE2u li\xEAn ti\u1EBFp \u0111\u1EC3 qua m\xE0n\r\nNh\u1EA5n
+    'B\u1EAFt \u0111\u1EA7u' \u0111\u1EC3 ch\u01A1i!\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3002,8 +3030,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3040,7 +3068,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -84.45294, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
