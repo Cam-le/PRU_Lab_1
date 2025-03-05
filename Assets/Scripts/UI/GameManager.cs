@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             int currentTileIndex = PlayerState.CurrentTileIndex;
             if (currentTileIndex == gridManager.PathLength - 1)
             {
-                EndGame(true, "Congratulations! You've reached the end of the journey!");
+                EndGame(true, "Chiến thắng!! Trạng Quỳnh đã hoàn thành chuyến phiêu lưu của mình!");
                 return;
             }
         }
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         // Check turn limit
         if (enableTurnLimit && currentTurn > maxTurns)
         {
-            EndGame(false, "Game Over! You've run out of turns.");
+            EndGame(false, "Thất bại...");
         }
     }
 
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOverMessage != null)
         {
-            gameOverMessage.text = message + "\nFinal Score: " + playerScore;
+            gameOverMessage.text = message + "\nTổng Điểm: " + playerScore;
         }
 
         // Disable dice roller
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         if (turnCounterText != null)
         {
             int remainingTurns = enableTurnLimit ? (maxTurns - currentTurn + 1) : 999;
-            turnCounterText.text = "Turns: " + currentTurn + " / " + maxTurns;
+            turnCounterText.text = "Lượt: " + currentTurn + " / " + maxTurns;
 
             // Change color if running out of turns
             if (enableTurnLimit && remainingTurns <= 3)
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
 
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + playerScore;
+            scoreText.text = "Điểm số: " + playerScore;
         }
     }
 
