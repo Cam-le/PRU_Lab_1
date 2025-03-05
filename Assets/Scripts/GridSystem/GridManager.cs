@@ -565,19 +565,19 @@ public class GridManager : MonoBehaviour
     }
 
     // Get the next tile position from current position
-    public Vector2 GetNextTilePosition(Vector2 currentPos)
-    {
-        // Find the closest path position
-        int closestIndex = GetClosestPathIndex(currentPos);
+    //public Vector2 GetNextTilePosition(Vector2 currentPos)
+    //{
+    //    // Find the closest path position
+    //    int closestIndex = GetClosestPathIndex(currentPos);
 
-        // Return the next position if available
-        if (closestIndex >= 0 && closestIndex < _pathPositions.Length - 1)
-        {
-            return _pathPositions[closestIndex + 1];
-        }
+    //    // Return the next position if available
+    //    if (closestIndex >= 0 && closestIndex < _pathPositions.Length - 1)
+    //    {
+    //        return _pathPositions[closestIndex + 1];
+    //    }
 
-        return currentPos; // Return same position if at end
-    }
+    //    return currentPos; // Return same position if at end
+    //}
 
     // Find the index of the closest path position
     private int GetClosestPathIndex(Vector2 position)
@@ -598,37 +598,37 @@ public class GridManager : MonoBehaviour
         return closestIndex;
     }
 
-    // Get tile at specific position
-    public Tile GetTileAtPosition(Vector2 position)
-    {
-        // Try exact match first
-        if (_tiles.ContainsKey(position))
-        {
-            return _tiles[position];
-        }
+    //// Get tile at specific position
+    //public Tile GetTileAtPosition(Vector2 position)
+    //{
+    //    // Try exact match first
+    //    if (_tiles.ContainsKey(position))
+    //    {
+    //        return _tiles[position];
+    //    }
 
-        // If no exact match, find the closest tile within threshold
-        float minDistance = float.MaxValue;
-        Tile closestTile = null;
+    //    // If no exact match, find the closest tile within threshold
+    //    float minDistance = float.MaxValue;
+    //    Tile closestTile = null;
 
-        foreach (var kvp in _tiles)
-        {
-            float distance = Vector2.Distance(position, kvp.Key);
-            if (distance < minDistance && distance < _positionThreshold)
-            {
-                minDistance = distance;
-                closestTile = kvp.Value;
-            }
-        }
+    //    foreach (var kvp in _tiles)
+    //    {
+    //        float distance = Vector2.Distance(position, kvp.Key);
+    //        if (distance < minDistance && distance < _positionThreshold)
+    //        {
+    //            minDistance = distance;
+    //            closestTile = kvp.Value;
+    //        }
+    //    }
 
-        return closestTile;
-    }
+    //    return closestTile;
+    //}
 
-    // Get index of tile in path
-    public int GetTileIndex(Tile tile)
-    {
-        return _pathTiles.IndexOf(tile);
-    }
+    //// Get index of tile in path
+    //public int GetTileIndex(Tile tile)
+    //{
+    //    return _pathTiles.IndexOf(tile);
+    //}
 
     // Calculate path from one tile to another
     public List<Vector2> GetPathBetween(int startIndex, int endIndex)

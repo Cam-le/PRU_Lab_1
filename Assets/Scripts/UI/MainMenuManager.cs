@@ -35,6 +35,11 @@ public class MainMenuManager : MonoBehaviour
         {
             fadePanel.SetActive(false);
         }
+        // Start background music
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBackgroundMusic("menuTheme");
+        }
     }
 
     private void OnPlayButtonClicked()

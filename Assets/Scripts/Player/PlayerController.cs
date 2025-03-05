@@ -14,7 +14,12 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GridManager gridManager;
     [SerializeField] private DiceRoller diceRoller;
-    [SerializeField] private AudioSource moveSoundEffect;
+
+    [Header("Sound Effects")]
+    //[SerializeField] private string moveStartSound = "playerMove";
+    [SerializeField] private string checkpointSound = "checkpoint";
+    [SerializeField] private string eventTileSound = "notification";
+    [SerializeField] private string specialTileSound = "notification";
 
     [Header("Debug")]
     [SerializeField] private bool allowManualMovement = true;
@@ -175,10 +180,10 @@ public class PlayerController : MonoBehaviour
             currentPosition = nextPosition;
             currentTileIndex = nextTileIndex;
 
-            // Play move sound if available
-            if (moveSoundEffect != null)
+            // Play start movement sound
+            if (AudioManager.Instance != null)
             {
-                moveSoundEffect.Play();
+                //AudioManager.Instance.PlaySound(moveStartSound);
             }
 
             // Small pause between steps
@@ -255,10 +260,10 @@ public class PlayerController : MonoBehaviour
             currentPosition = nextPosition;
             currentTileIndex = nextTileIndex;
 
-            // Play move sound if available
-            if (moveSoundEffect != null)
+            /// Play start movement sound
+            if (AudioManager.Instance != null)
             {
-                moveSoundEffect.Play();
+                //AudioManager.Instance.PlaySound(moveStartSound);
             }
 
             // Small pause between steps
@@ -328,12 +333,23 @@ public class PlayerController : MonoBehaviour
         {
             case Tile.TileType.Checkpoint:
                 Debug.Log("Landed on checkpoint");
+                // Play checkpoint sound
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySound(checkpointSound);
+                }
+
                 // Save checkpoint for respawn
                 PlayerState.LastCheckpointIndex = currentTileIndex;
                 break;
 
             case Tile.TileType.Event:
                 Debug.Log("Landed on event tile");
+                // Play event tile sound
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySound(eventTileSound);
+                }
                 // Find and trigger the event manager
                 EventManager eventManager = FindObjectOfType<EventManager>();
                 if (eventManager != null)
@@ -344,7 +360,11 @@ public class PlayerController : MonoBehaviour
 
             case Tile.TileType.Special:
                 Debug.Log("Landed on special tile");
-
+                // Play special tile sound
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySound(specialTileSound);
+                }
                 // Save current state
                 PlayerState.LastPosition = transform.position;
                 PlayerState.CurrentPosition = currentPosition;

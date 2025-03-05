@@ -17,13 +17,13 @@ public class MinigameManager : MonoBehaviour
     // Add reward/penalty configuration
     [Header("Rewards and Penalties")]
     [SerializeField] private int winMoveBonus = 2;
-    [SerializeField] private int winScoreBonus = 50;
+    [SerializeField] private int winScoreBonus = 500;
     [SerializeField] private int loseMovePenalty = 1;
-    [SerializeField] private int loseScorePenalty = 25;
+    [SerializeField] private int loseScorePenalty = 200;
 
     // Add tile movement rewards/penalties
-    [SerializeField] private int winMoveForwardTiles = 3;
-    [SerializeField] private int loseMoveBackTiles = 2;
+    [SerializeField] private int winMoveForwardTiles = 10;
+    [SerializeField] private int loseMoveBackTiles = 3;
 
     // Store minigame type
     public enum MinigameType { Quiz, Memory, ObjectFalling }

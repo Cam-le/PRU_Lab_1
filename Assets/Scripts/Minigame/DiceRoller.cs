@@ -8,6 +8,10 @@ public class DiceRoller : MonoBehaviour
     [System.Serializable]
     public class DiceRolledEvent : UnityEvent<int> { }
 
+    [Header("Sounds")]
+    [SerializeField] private string diceRollSound = "diceRoll";
+    [SerializeField] private string diceResultSound = "diceResult";
+
     public int numberOfSides = 12;
     private int lastRoll;
     public TextMeshProUGUI resultText;
@@ -50,6 +54,13 @@ public class DiceRoller : MonoBehaviour
         float duration = 1f; // Tổng thời gian quay
         float elapsed = 0f;
         float rotationSpeed = 0.01f;
+
+        // Play roll sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(diceRollSound);
+        }
+
         // Quay như bánh xe
         while (elapsed < duration)
         {
@@ -59,6 +70,12 @@ public class DiceRoller : MonoBehaviour
 
             elapsed += Time.deltaTime;
             yield return null;
+        }
+
+        // Play result sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(diceResultSound);
         }
 
         // Đặt lại vị trí và góc ban đầu

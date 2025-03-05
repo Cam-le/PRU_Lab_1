@@ -74,6 +74,12 @@ public class GameManager : MonoBehaviour
 
         // Update UI
         UpdateUI();
+
+        // Start background music
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBackgroundMusic("mainTheme");
+        }
     }
 
     private void Update()
