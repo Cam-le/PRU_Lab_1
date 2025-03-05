@@ -217,12 +217,18 @@ public class PlayerController : MonoBehaviour
         {
             case Tile.TileType.Checkpoint:
                 Debug.Log("Landed on checkpoint");
-                // Implement checkpoint logic
+                // Save checkpoint for respawn
+                PlayerState.LastCheckpointIndex = currentTileIndex;
                 break;
 
             case Tile.TileType.Event:
                 Debug.Log("Landed on event tile");
-                // Implement event logic
+                // Find and trigger the event manager
+                EventManager eventManager = FindObjectOfType<EventManager>();
+                if (eventManager != null)
+                {
+                    eventManager.TriggerRandomEvent(EventType.Neutral);
+                }
                 break;
 
             case Tile.TileType.Special:
@@ -234,14 +240,28 @@ public class PlayerController : MonoBehaviour
                 PlayerState.CurrentTileIndex = currentTileIndex;
                 PlayerState.ReturningFromMinigame = true;
 
+                // Determine which minigame to load based on position or random selection
+                string minigameScene = ChooseMinigame();
+
                 // Load minigame scene
-                SceneManager.LoadScene("MinigameScene");
+                SceneManager.LoadScene(minigameScene);
                 break;
         }
 
         yield return null;
     }
+    private string ChooseMinigame()
+    {
+        // Option 1: Random selection among available minigames
+        string[] minigames = new string[] {
+        "QuizScene",
+        "MemoryGameScene",
+        "ObjectFallingGame"
+        };
 
+        int index = Random.Range(0, minigames.Length);
+        return minigames[index];
+    }
     // For external scripts to force player movement
     public void TeleportToTile(int tileIndex)
     {

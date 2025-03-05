@@ -21,6 +21,13 @@ public static class PlayerState
     public static int CurrentTurn;
     public static GamePhase CurrentPhase = GamePhase.Move;
 
+    // Checkpoint tracking
+    public static int LastCheckpointIndex;
+
+    // Track minigame rewards
+    public static int TotalMinigameWins;
+    public static int TotalMinigameLosses;
+
     // Helper methods
     public static void AddBuff(string buffId, float duration)
     {
@@ -50,6 +57,12 @@ public static class PlayerState
         // Reset game state
         CurrentTurn = 1;
         CurrentPhase = GamePhase.Move;
+
+        // Reset additional tracking
+        LastCheckpointIndex = 0;
+        TotalMinigameWins = 0;
+        TotalMinigameLosses = 0;
+
     }
 }
 
