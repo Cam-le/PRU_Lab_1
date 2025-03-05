@@ -49,6 +49,7 @@ new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new st
     private int correctStreak = 0;
     private const int requiredCorrectStreak = 3;
 
+    [SerializeField] private MinigameManager minigameManager;
     private void Start()
     {
         if (questions.Count == 0)
@@ -60,9 +61,20 @@ new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new st
         failScreen.SetActive(false);
         successScreen.SetActive(false);
 
-        retryButton.onClick.AddListener(RetryGame);
+        // Không cần retry
+        //retryButton.onClick.AddListener(RetryGame);
 
         LoadQuestion();
+
+        // Find MinigameManager if not assigned
+        if (minigameManager == null)
+        {
+            minigameManager = FindObjectOfType<MinigameManager>();
+            if (minigameManager == null)
+            {
+                Debug.LogError("No MinigameManager found in the scene!");
+            }
+        }
     }
 
     void LoadQuestion()
@@ -116,6 +128,8 @@ new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new st
             correctStreak = 0;
             questions.RemoveAt(currentQuestionIndex); // Loại bỏ câu sai
             ShowFailScreen();
+
+
         }
     }
 

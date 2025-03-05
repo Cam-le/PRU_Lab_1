@@ -1235,6 +1235,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447618272}
   m_CullTransparentMesh: 1
+--- !u!1 &454368322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454368324}
+  - component: {fileID: 454368323}
+  m_Layer: 0
+  m_Name: MinigameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &454368323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454368322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd09d354660b3646a5b4d8971cc583f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winButton: {fileID: 447618274}
+  loseButton: {fileID: 642438390}
+  returnToGameButton: {fileID: 642438390}
+  winMoveBonus: 2
+  winScoreBonus: 50
+  loseMovePenalty: 1
+  loseScorePenalty: 25
+  winMoveForwardTiles: 3
+  loseMoveBackTiles: 2
+  gameType: 0
+--- !u!4 &454368324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454368322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.344626, y: -18.604456, z: -10.245136}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482572154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,7 +2260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ch\u01A1i l\u1EA1i"
+  m_text: "Tr\u1EDF v\u1EC1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2647,6 +2701,7 @@ MonoBehaviour:
     - "r\u1EEBng"
     - non
     correctAnswerIndex: 3
+  minigameManager: {fileID: 0}
 --- !u!1 &1126533519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,3 +4325,4 @@ SceneRoots:
   - {fileID: 1038400512}
   - {fileID: 1452143123}
   - {fileID: 1111938596}
+  - {fileID: 454368324}
