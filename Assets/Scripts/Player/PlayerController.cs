@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string eventTileSound = "notification";
     [SerializeField] private string specialTileSound = "notification";
 
+    [Header("Rewards and Penalties")]
+    [SerializeField] private int checkpointPoints = 1000;
+    [SerializeField] private int minEventSteps = -10;
+    [SerializeField] private int maxEventSteps = 10;
+
     [Header("Debug")]
     [SerializeField] private bool allowManualMovement = true;
 
@@ -348,6 +353,19 @@ public class PlayerController : MonoBehaviour
                     AudioManager.Instance.PlaySound(checkpointSound);
                 }
 
+                // Award checkpoint points 
+                if (gameManager != null)
+                {
+                    gameManager.AddScore(checkpointPoints);
+                    Debug.Log($"Checkpoint bonus: +{checkpointPoints} points!");
+                }
+                else
+                {
+                    // Update PlayerState directly if GameManager not available
+                    PlayerState.Score += checkpointPoints;
+                    Debug.Log($"Checkpoint bonus: +{checkpointPoints} points! (PlayerState updated directly)");
+                }
+
                 // Save checkpoint for respawn
                 PlayerState.LastCheckpointIndex = currentTileIndex;
                 break;
@@ -359,6 +377,26 @@ public class PlayerController : MonoBehaviour
                 {
                     AudioManager.Instance.PlaySound(eventTileSound);
                 }
+
+                // Random movement on event tile (NEW FEATURE)
+                int randomSteps = Random.Range(minEventSteps, maxEventSteps + 1);
+                if (randomSteps != 0)
+                {
+                    Debug.Log($"Event tile effect: Moving {(randomSteps > 0 ? "forward" : "backward")} {Mathf.Abs(randomSteps)} steps!");
+
+                    // Wait a moment before moving
+                    yield return new WaitForSeconds(1.0f);
+
+                    // Calculate target tile index
+                    int targetIndex = Mathf.Clamp(currentTileIndex + randomSteps, 0, gridManager.PathLength - 1);
+
+                    // Use existing movement system to animate the adjustment
+                    yield return StartCoroutine(MovePlayerToIndex(targetIndex));
+
+                    // Exit early since we've already handled the movement
+                    yield break;
+                }
+
                 // Find and trigger the event manager
                 EventManager eventManager = FindObjectOfType<EventManager>();
                 if (eventManager != null)
