@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool allowManualMovement = true;
 
+    [SerializeField] private GameManager gameManager;
     // Private variables
     private Vector2 currentPosition = Vector2.zero;
     private int currentTileIndex = 0;
@@ -52,6 +53,15 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("No DiceRoller assigned to PlayerController!");
         }
+
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+            if (gameManager == null)
+            {
+                Debug.LogWarning("GameManager not found! Score updates will not work.");
+            }
+        }
     }
 
     void Update()
@@ -79,6 +89,11 @@ public class PlayerController : MonoBehaviour
             if (PlayerState.TileMovementAdjustment != 0)
             {
                 StartCoroutine(ApplyMinigamePositionAdjustment());
+            }
+            // Update the score from PlayerState when returning from minigame
+            if (gameManager != null && PlayerState.ReturningFromMinigame)
+            {
+                gameManager.SetScore(PlayerState.Score);
             }
         }
         else
@@ -343,7 +358,6 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(minigameScene);
                 break;
         }
-
         yield return null;
     }
     private string ChooseMinigame()
