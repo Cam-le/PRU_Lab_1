@@ -54,7 +54,7 @@ public class MemoryGameManager : MonoBehaviour
         //DebugGamePuzzles();
         //DebugLoadedSprites();
 
-        gameGuesses = gamePuzzles.Count / 2;
+        gameGuesses = gamePuzzles.Count;
 
         // Disable other buttons if needed
         foreach (Button btn in btns)

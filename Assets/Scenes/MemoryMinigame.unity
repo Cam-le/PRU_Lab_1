@@ -1661,7 +1661,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "H\xE3y l\u1EADt c\xE1c \xF4 \u0111\u1EC3 t\xECm c\xE1c c\u1EB7p h\xECnh
     gi\u1ED1ng nhau.\nHo\xE0n th\xE0nh t\u1EA5t c\u1EA3 c\u1EB7p h\xECnh \u0111\u1EC3
-    chi\u1EBFn th\u1EAFng!\nCh\xFA \xFD b\u1EA1n ch\u1EC9 c\xF3 10 l\u01B0\u1EE3t
+    chi\u1EBFn th\u1EAFng!\nCh\xFA \xFD b\u1EA1n ch\u1EC9 c\xF3 20 l\u01B0\u1EE3t
     l\u1EADt b\xE0i\nCh\xFAc b\u1EA1n ch\u01A1i vui v\u1EBB!"
 --- !u!222 &1689504060
 CanvasRenderer:
@@ -1818,7 +1818,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "L\u01B0\u1EE3t c\xF2n l\u1EA1i: 10"
+  m_Text: "L\u01B0\u1EE3t c\xF2n l\u1EA1i: 20"
 --- !u!222 &1958618556
 CanvasRenderer:
   m_ObjectHideFlags: 0
