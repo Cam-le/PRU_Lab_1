@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +19,7 @@ public class MemoryGameManager : MonoBehaviour
     private int countGuesses;
     private int countCorrectGuesses;
     private int gameGuesses;
-    private int maxGuesses = 10;
+    private int maxGuesses;
 
     private int firstGuessIndex, secondGuessIndex;
 
@@ -34,6 +33,8 @@ public class MemoryGameManager : MonoBehaviour
 
     public Text attemptsText;
 
+    public GameObject difficultySelectionPopup;
+
     [SerializeField] private MinigameManager minigameManager;
     private void Awake()
     {
@@ -45,24 +46,21 @@ public class MemoryGameManager : MonoBehaviour
     void Start()
     {
         instructionPopup.SetActive(true);
+        difficultySelectionPopup.SetActive(false);
         attemptsText.enabled = false;
 
         GetButtons();
         AddListeners();
         AddGamePuzzles();
         Shuffle(gamePuzzles);
-        //DebugGamePuzzles();
-        //DebugLoadedSprites();
 
         gameGuesses = gamePuzzles.Count / 2;
 
-        // Disable other buttons if needed
         foreach (Button btn in btns)
         {
             btn.interactable = false;
         }
 
-        // Find MinigameManager if not assigned
         if (minigameManager == null)
         {
             minigameManager = FindObjectOfType<MinigameManager>();
@@ -73,24 +71,42 @@ public class MemoryGameManager : MonoBehaviour
         }
     }
 
-    void DebugGamePuzzles()
+    public void ShowDifficultySelection()
     {
-        for (int i = 0; i < gamePuzzles.Count; i++)
+        Debug.Log("Hiển thị menu chọn độ khó");
+        instructionPopup.SetActive(false);
+        difficultySelectionPopup.SetActive(true);
+
+        foreach (Button btn in btns)
         {
-            Debug.Log($"Index {i}: {gamePuzzles[i].name}");
+            btn.interactable = false;
         }
     }
 
-    void DebugLoadedSprites()
+    public void SetDifficulty(string difficulty)
     {
-        Debug.Log("Tổng số hình ảnh load được: " + puzzles.Length);
-        for (int i = 0; i < puzzles.Length; i++)
+        switch (difficulty)
         {
-            Debug.Log($"Hình {i}: {puzzles[i].name}");
+            case "Easy":
+                maxGuesses = 25;
+                break;
+            case "Normal":
+                maxGuesses = 20;
+                break;
+            case "Hard":
+                maxGuesses = 15;
+                break;
+        }
+
+        attemptsText.enabled = true;
+        attemptsText.text = "Lượt còn lại: " + maxGuesses;
+        difficultySelectionPopup.SetActive(false);
+
+        foreach (Button btn in btns)
+        {
+            btn.interactable = true;
         }
     }
-
-
 
     void GetButtons()
     {
@@ -166,7 +182,7 @@ public class MemoryGameManager : MonoBehaviour
     {
         //string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
-        if(countGuesses >= maxGuesses)
+        if (countGuesses >= maxGuesses)
         {
             GameOver();
             return;
@@ -188,6 +204,7 @@ public class MemoryGameManager : MonoBehaviour
 
             countGuesses++;
 
+            // Update attempts UI
             UpdateAttemptsUI();
 
             if (firstGuessPuzzle == secondGuessPuzzle)
@@ -218,25 +235,26 @@ public class MemoryGameManager : MonoBehaviour
                 btns[firstGuessIndex].image.color = new Color(0, 0, 0, 0);
                 btns[secondGuessIndex].image.color = new Color(0, 0, 0, 0);
 
-                CheckTheGameIsFinished();
+                countCorrectGuesses++;
+                CheckTheGameFinished();
             }
             else
             {
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(1);
                 btns[firstGuessIndex].image.sprite = bgImage;
                 btns[secondGuessIndex].image.sprite = bgImage;
+                CheckTheGameFinished();
             }
 
             firstGuess = secondGuess = false;
         }
     }
 
-    void CheckTheGameIsFinished()
+    void CheckTheGameFinished()
     {
-        countCorrectGuesses++;
-        if (countCorrectGuesses == gameGuesses / 2)
+        if (countCorrectGuesses == gameGuesses)
         {
-            print("Game Finished");
+            print("Game Finished: Win");
             gameWinPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
 
@@ -245,6 +263,10 @@ public class MemoryGameManager : MonoBehaviour
             {
                 minigameManager.WinGame();
             }
+        }
+        else if (countGuesses >= maxGuesses)
+        {
+            IsGameOver();
         }
     }
 
@@ -270,6 +292,11 @@ public class MemoryGameManager : MonoBehaviour
     {
         int remainingAttempts = maxGuesses - countGuesses;
         attemptsText.text = "Lượt còn lại: " + remainingAttempts;
+    }
+
+    void IsGameOver()
+    {
+        int remainingAttempts = maxGuesses - countGuesses;
 
         if (remainingAttempts <= 0)
         {
