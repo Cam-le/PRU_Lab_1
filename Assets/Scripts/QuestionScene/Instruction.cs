@@ -18,4 +18,9 @@ public class InstructionManager : MonoBehaviour
         instructionCanvas.SetActive(false);
         questionGame.SetActive(true);
     }
+
+    public void HideInstruction()
+    {
+        instructionCanvas.SetActive(false);
+    }
 }
