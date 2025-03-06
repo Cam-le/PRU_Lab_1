@@ -20,7 +20,7 @@ public class MemoryGameManager : MonoBehaviour
     private int countGuesses;
     private int countCorrectGuesses;
     private int gameGuesses;
-    private int maxGuesses = 20;
+    private int maxGuesses = 10;
 
     private int firstGuessIndex, secondGuessIndex;
 
@@ -54,7 +54,7 @@ public class MemoryGameManager : MonoBehaviour
         //DebugGamePuzzles();
         //DebugLoadedSprites();
 
-        gameGuesses = gamePuzzles.Count;
+        gameGuesses = gamePuzzles.Count / 2;
 
         // Disable other buttons if needed
         foreach (Button btn in btns)
@@ -234,7 +234,7 @@ public class MemoryGameManager : MonoBehaviour
     void CheckTheGameIsFinished()
     {
         countCorrectGuesses++;
-        if (countCorrectGuesses == gameGuesses)
+        if (countCorrectGuesses == gameGuesses / 2)
         {
             print("Game Finished");
             gameWinPopup.SetActive(true);
