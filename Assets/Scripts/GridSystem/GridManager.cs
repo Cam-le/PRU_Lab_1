@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
-
+using System;
+using Random = UnityEngine.Random;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private Tile _tilePrefab;
@@ -518,6 +519,14 @@ public class GridManager : MonoBehaviour
         }
 
         Debug.Log($"Set up special tiles: {eventTileCount} event tiles, {_pathTiles.Count} total tiles");
+        // Always make last tile a checkpoint (finish position)
+        if (_pathTiles.Count > 1)
+        {
+            int lastIndex = _pathTiles.Count - 1;
+            _pathTiles[lastIndex].tileType = Tile.TileType.Checkpoint;
+            _pathTiles[lastIndex].SetColor(_checkpointColor);
+        }
+
     }
 
     private void ShuffleList<T>(List<T> list)

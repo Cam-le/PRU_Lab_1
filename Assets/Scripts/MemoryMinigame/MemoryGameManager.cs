@@ -20,7 +20,7 @@ public class MemoryGameManager : MonoBehaviour
     private int countGuesses;
     private int countCorrectGuesses;
     private int gameGuesses;
-    private int maxGuesses = 10;
+    private int maxGuesses = 20;
 
     private int firstGuessIndex, secondGuessIndex;
 
