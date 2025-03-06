@@ -193,6 +193,11 @@ public class PlayerController : MonoBehaviour
             currentPosition = nextPosition;
             currentTileIndex = nextTileIndex;
 
+            // Update PlayerState to sync with current position
+            PlayerState.CurrentTileIndex = currentTileIndex;
+            PlayerState.CurrentPosition = currentPosition;
+            PlayerState.LastPosition = transform.position;
+
             // Play start movement sound
             if (AudioManager.Instance != null)
             {
@@ -273,6 +278,11 @@ public class PlayerController : MonoBehaviour
             // Update current position
             currentPosition = nextPosition;
             currentTileIndex = nextTileIndex;
+
+            // Update PlayerState to sync with current position
+            PlayerState.CurrentTileIndex = currentTileIndex;
+            PlayerState.CurrentPosition = currentPosition;
+            PlayerState.LastPosition = transform.position;
 
             /// Play start movement sound
             if (AudioManager.Instance != null)
