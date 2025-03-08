@@ -1,3 +1,4 @@
+using UnityEngine;
 using static EnhancedGameEvent;
 
 [System.Serializable]
