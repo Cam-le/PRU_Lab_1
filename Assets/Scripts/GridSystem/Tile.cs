@@ -16,6 +16,14 @@ public class Tile : MonoBehaviour
         Event,
         Special
     }
+    private void Awake()
+    {
+        // Initialize the event if it's null
+        if (OnTileEntered == null)
+        {
+            OnTileEntered = new UnityEvent();
+        }
+    }
 
     public void Init(bool isOffset)
     {

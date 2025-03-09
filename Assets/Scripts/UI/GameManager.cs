@@ -100,6 +100,9 @@ public class GameManager : MonoBehaviour
 
         // Update UI
         UpdateUI();
+
+        // Update buff durations at end of turn
+        PlayerState.UpdateBuffDurations();
     }
 
     private void CheckGameEndConditions()

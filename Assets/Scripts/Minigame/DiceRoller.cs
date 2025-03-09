@@ -29,7 +29,10 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
-        lastRoll = Random.Range(1, numberOfSides + 1);
+        int baseRoll = Random.Range(1, numberOfSides + 1);
+        // Bonus effect
+        lastRoll = ApplyDiceEffects(baseRoll);
+
         Debug.Log("Result Roll Dice: " + lastRoll);
         AnimateDiceRoll();
     }
@@ -98,5 +101,20 @@ public class DiceRoller : MonoBehaviour
         {
             RollDice();
         }
+    }
+
+    private int ApplyDiceEffects(int originalRoll)
+    {
+        int modifiedRoll = originalRoll;
+
+        // Check for dice modification effects
+        if (PlayerState.HasBuff("DiceBoost"))
+        {
+            int boostAmount = PlayerState.GetStatusEffectValue("DiceBoost", 0);
+            modifiedRoll += boostAmount;
+            Debug.Log($"Applied dice boost: {originalRoll} → {modifiedRoll}");
+        }
+
+        return modifiedRoll;
     }
 }

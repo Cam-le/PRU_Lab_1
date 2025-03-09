@@ -76,10 +76,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // For testing - allow manual movement with space bar
+        // For testing - allow manual movement with M
         if (allowManualMovement && Input.GetKeyDown(KeyCode.M) && !isMoving)
         {
-            int steps = Random.Range(3, 3); // Simulate a dice roll
+            int steps = Random.Range(1, 1); // Simulate a dice roll
             StartCoroutine(MovePlayerSteps(steps));
         }
 
