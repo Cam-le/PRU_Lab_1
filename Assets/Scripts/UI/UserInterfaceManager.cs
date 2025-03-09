@@ -26,6 +26,7 @@ public class UserInterfaceManager : MonoBehaviour
     [SerializeField] private GameObject gameControlMapPanel;
     [SerializeField] private GameObject gameInfoPanel;
     [SerializeField] private GameObject instructionImgPanel;
+    [SerializeField] private GameObject characterPanel;
 
     [SerializeField] private KeyCode toggleControlPanelKey = KeyCode.Tab;
     private void Start()
@@ -108,6 +109,12 @@ public class UserInterfaceManager : MonoBehaviour
         if (instructionImgPanel != null)
         {
             instructionImgPanel.SetActive(true);
+        }
+
+        // Show Character Panel
+        if (characterPanel != null)
+        {
+            characterPanel.SetActive(true);
         }
     }
 
