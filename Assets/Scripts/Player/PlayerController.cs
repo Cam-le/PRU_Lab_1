@@ -16,10 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private DiceRoller diceRoller;
 
     [Header("Sound Effects")]
-    //[SerializeField] private string moveStartSound = "playerMove";
+    [SerializeField] private string moveSound = "playerMove";
     [SerializeField] private string checkpointSound = "checkpoint";
-    [SerializeField] private string eventTileSound = "notification";
-    [SerializeField] private string specialTileSound = "notification";
+    [SerializeField] private string minigameTileSound = "minigameTile";
 
     [Header("Rewards and Penalties")]
     [SerializeField] private int checkpointPoints = 1000;
@@ -238,7 +237,11 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving) yield break;
         isMoving = true;
-
+        /// Play start movement sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(moveSound);
+        }
         // Play animation if available
         if (animator != null)
         {
@@ -282,12 +285,6 @@ public class PlayerController : MonoBehaviour
             PlayerState.CurrentPosition = currentPosition;
             PlayerState.LastPosition = transform.position;
 
-            /// Play start movement sound
-            if (AudioManager.Instance != null)
-            {
-                //AudioManager.Instance.PlaySound(moveStartSound);
-            }
-
             // Small pause between steps
             yield return new WaitForSeconds(0.2f);
         }
@@ -298,6 +295,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound(moveSound);
+        }
         isMoving = false;
 
         // Check if we landed on a special tile
@@ -380,11 +381,6 @@ public class PlayerController : MonoBehaviour
 
             case Tile.TileType.Event:
                 Debug.Log("Landed on event tile");
-                // Play event tile sound
-                if (AudioManager.Instance != null)
-                {
-                    AudioManager.Instance.PlaySound(eventTileSound);
-                }
 
                 // Find and trigger the event manager
                 EventManager eventManager = FindObjectOfType<EventManager>();
@@ -395,11 +391,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case Tile.TileType.Minigame:
-                Debug.Log("Landed on special tile");
+                Debug.Log("Landed on Minigame tile");
                 // Play special tile sound
                 if (AudioManager.Instance != null)
                 {
-                    AudioManager.Instance.PlaySound(specialTileSound);
+                    AudioManager.Instance.PlaySound(minigameTileSound);
                 }
                 // Save current state
                 PlayerState.LastPosition = transform.position;

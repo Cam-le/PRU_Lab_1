@@ -273,7 +273,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &768150753
+--- !u!1 &118826727
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,8 +281,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 768150755}
-  - component: {fileID: 768150754}
+  - component: {fileID: 118826729}
+  - component: {fileID: 118826728}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -290,26 +290,80 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &768150754
+--- !u!114 &118826728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768150753}
+  m_GameObject: {fileID: 118826727}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea92967e8100ba145b69889a8dad46db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic:
-  - clipName: menuTheme
-    clip: {fileID: 8300000, guid: c09dea6f31040794cb93e7c1b27c4fd7, type: 3}
-    volume: 1
+  - clipName: mainTheme
+    clip: {fileID: 8300000, guid: 8a20735753a509f458f8fd40391f701a, type: 3}
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  soundEffects: []
+  - clipName: menuTheme
+    clip: {fileID: 8300000, guid: c09dea6f31040794cb93e7c1b27c4fd7, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  soundEffects:
+  - clipName: playerMove
+    clip: {fileID: 8300000, guid: 1ae48f33019315240bb8e6081b4189cc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: diceRoll
+    clip: {fileID: 8300000, guid: 204575586d65a6849b59125773c91460, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: diceResult
+    clip: {fileID: 8300000, guid: 7c7e9572125b321498b9cf0ebc76560b, type: 3}
+    volume: 0.65
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: checkpoint
+    clip: {fileID: 8300000, guid: e24745c65245a7e499adaef93e010135, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: eventPositive
+    clip: {fileID: 8300000, guid: 0eab0ff9a1377e241aeeeb8a6c525a12, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: eventNegative
+    clip: {fileID: 8300000, guid: 0c647cfb55f2ba74f96d75b74d969539, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: minigameTile
+    clip: {fileID: 8300000, guid: 29d0248656371b749bdd6204809144d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: checkpoint
+    clip: {fileID: 8300000, guid: e24745c65245a7e499adaef93e010135, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   uiSounds:
   - clipName: buttonClick
     clip: {fileID: 8300000, guid: 25a89fad87b266148858e0762e1284cd, type: 3}
@@ -318,21 +372,21 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - clipName: notification
-    clip: {fileID: 0}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: 61526987d74c05644ae7ce28c4a44fae, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
---- !u!4 &768150755
+--- !u!4 &118826729
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768150753}
+  m_GameObject: {fileID: 118826727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.230895, y: -7.821121, z: -0.26125923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.230896, y: -7.821121, z: -0.2612592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1101,4 +1155,4 @@ SceneRoots:
   - {fileID: 91994852}
   - {fileID: 2070414911}
   - {fileID: 1839212052}
-  - {fileID: 768150755}
+  - {fileID: 118826729}
