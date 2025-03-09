@@ -46,7 +46,7 @@ public static class PlayerState
         return BuffDurations.ContainsKey(buffId) && BuffDurations[buffId] > 0;
     }
 
-    // NEW: Get status effect value
+    // Get status effect value
     public static int GetStatusEffectValue(string effectId, int defaultValue = 0)
     {
         if (StatusEffectValues.ContainsKey(effectId))
@@ -56,38 +56,35 @@ public static class PlayerState
         return defaultValue;
     }
 
-    // NEW: Update buffs durations at the end of turn
+    //Update buffs durations at the end of turn
     public static void UpdateBuffDurations()
     {
-        List<string> expiredBuffs = new List<string>();
+        // Create a copy of the keys to safely iterate through
+        string[] buffKeys = new string[BuffDurations.Count];
+        BuffDurations.Keys.CopyTo(buffKeys, 0);
 
-        foreach (KeyValuePair<string, float> buff in BuffDurations)
+        foreach (string buffId in buffKeys)
         {
-            string buffId = buff.Key;
-            float duration = buff.Value;
+            float duration = BuffDurations[buffId];
 
             if (duration <= 0)
             {
-                expiredBuffs.Add(buffId);
+                // Remove expired buff
+                BuffDurations.Remove(buffId);
+
+                // Also remove from status effect values if it exists
+                if (StatusEffectValues.ContainsKey(buffId))
+                {
+                    StatusEffectValues.Remove(buffId);
+                }
+
+                Debug.Log($"Buff {buffId} has expired");
             }
             else
             {
+                // Decrement duration
                 BuffDurations[buffId] = duration - 1;
             }
-        }
-
-        // Remove expired buffs
-        foreach (string buffId in expiredBuffs)
-        {
-            BuffDurations.Remove(buffId);
-
-            // Also remove from status effect values if it exists
-            if (StatusEffectValues.ContainsKey(buffId))
-            {
-                StatusEffectValues.Remove(buffId);
-            }
-
-            Debug.Log($"Buff {buffId} has expired");
         }
     }
 

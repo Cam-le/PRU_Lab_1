@@ -30,6 +30,14 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
+        // Check if player is currently moving
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null && player.IsMoving)
+        {
+            Debug.Log("Cannot roll dice while player is moving!");
+            return;
+        }
+
         // Prevent rolling while animation is playing
         if (isRolling)
         {

@@ -328,6 +328,10 @@ public class TileEffectManager : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        // Ensure object still exists
+        if (notification == null) yield break;
+
         canvasGroup.alpha = 1;
 
         // Wait for duration
@@ -335,16 +339,24 @@ public class TileEffectManager : MonoBehaviour
 
         // Fade out
         elapsed = 0;
-        while (elapsed < fadeOutTime)
+        while (elapsed < fadeOutTime && notification != null)
         {
             canvasGroup.alpha = Mathf.Lerp(1, 0, elapsed / fadeOutTime);
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        // Ensure object still exists
+        if (notification == null) yield break;
+
         canvasGroup.alpha = 0;
 
-        // Destroy the notification
-        Destroy(notification);
+        // Ensure object still exists before destroying
+        if (notification != null)
+        {
+            canvasGroup.alpha = 0;
+            Destroy(notification);
+        }
     }
 
     /// <summary>

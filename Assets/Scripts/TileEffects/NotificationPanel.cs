@@ -161,6 +161,10 @@ public class NotificationPanel : MonoBehaviour
             yield return null;
         }
 
+        // Wait until the animation is fully complete
+        yield return new WaitForSeconds(disappearDuration);
+        canvasGroup.alpha = 0;
+
         // Destroy after animation
         Destroy(gameObject);
     }
@@ -172,5 +176,11 @@ public class NotificationPanel : MonoBehaviour
     {
         yield return new WaitForSeconds(displayDuration);
         CloseNotification();
+    }
+
+    private void OnDestroy()
+    {
+        // Stop all coroutines when this object is destroyed
+        StopAllCoroutines();
     }
 }
