@@ -84,18 +84,14 @@ public class TileEffectManager : MonoBehaviour
 
         Debug.Log($"Distributing {effectCount} effects across {pathLength} tiles");
 
-        // Create list of valid tiles (exclude start and end)
+        // Create list of valid tiles (exclude start, end & only Normal tile)
         List<int> validTileIndices = new List<int>();
         for (int i = 1; i < pathLength - 1; i++)
         {
             Tile tile = gridManager.GetTileAtIndex(i);
-            if (tile != null)
+            if (tile != null && tile.tileType == Tile.TileType.Event)
             {
-                // Exclude checkpoints and other special tiles unless they support multiple effects
-                if (tile.tileType != Tile.TileType.Checkpoint)
-                {
-                    validTileIndices.Add(i);
-                }
+                validTileIndices.Add(i);
             }
         }
 
@@ -201,7 +197,7 @@ public class TileEffectManager : MonoBehaviour
         tileEffects[tile] = effect;
 
         // Update the tile to use the effect color
-        tile.SetColor(effect.EffectColor);
+        //tile.SetColor(effect.EffectColor);
 
         // Add listener to trigger the effect when the player lands on this tile
         tile.OnTileEntered.AddListener(() => {

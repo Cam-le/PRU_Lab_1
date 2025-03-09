@@ -14,7 +14,7 @@ public class Tile : MonoBehaviour
         Normal,
         Checkpoint,
         Event,
-        Special
+        Minigame
     }
     private void Awake()
     {
