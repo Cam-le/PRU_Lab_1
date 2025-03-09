@@ -15,6 +15,7 @@ public class DiceRoller : MonoBehaviour
     public int numberOfSides = 12;
     private int lastRoll;
     public TextMeshProUGUI resultText;
+    private bool isRolling = false;
 
     // Add event that will be triggered when dice is rolled
     public DiceRolledEvent OnDiceRolled = new DiceRolledEvent();
@@ -29,6 +30,11 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
+        // Prevent rolling while animation is playing
+        if (isRolling)
+        {
+            return;
+        }  
         int baseRoll = Random.Range(1, numberOfSides + 1);
         // Bonus effect
         lastRoll = ApplyDiceEffects(baseRoll);
@@ -52,6 +58,8 @@ public class DiceRoller : MonoBehaviour
 
     private IEnumerator RollCoroutine()
     {
+        isRolling = true;
+
         resultText.text = "";
         Vector3 originalPosition = transform.position;
         float duration = 1f; // Tổng thời gian quay
@@ -85,6 +93,9 @@ public class DiceRoller : MonoBehaviour
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         UpdateResultText();
+
+        // Set rolling flag to false
+        isRolling = false;
 
         // Trigger the OnDiceRolled event with the roll result
         OnDiceRolled.Invoke(lastRoll);
