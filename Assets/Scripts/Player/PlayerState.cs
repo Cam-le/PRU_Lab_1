@@ -9,6 +9,7 @@ public static class PlayerState
     public static Vector2 CurrentPosition;
     public static int CurrentTileIndex;
     public static bool ReturningFromMinigame;
+    public static bool HasSeenInstructions = false;
 
     // Player stats
     public static int MovesRemaining;
@@ -117,6 +118,9 @@ public static class PlayerState
 
         // Reset tile movement adjustment
         TileMovementAdjustment = 0;
+
+        // Reset instruction panel flag (only if you want to show instructions on a completely new game)
+        HasSeenInstructions = false;
     }
 }
 

@@ -36,22 +36,22 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern
+        // Singleton pattern with proper scene transition handling
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Initialize all sound clips
+            InitializeAudioSources(backgroundMusic);
+            InitializeAudioSources(soundEffects);
+            InitializeAudioSources(uiSounds);
         }
         else
         {
+            // This instance is a duplicate, destroy it
             Destroy(gameObject);
-            return;
         }
-
-        // Initialize all sound clips
-        InitializeAudioSources(backgroundMusic);
-        InitializeAudioSources(soundEffects);
-        InitializeAudioSources(uiSounds);
     }
 
     private void InitializeAudioSources(SoundClip[] clips)

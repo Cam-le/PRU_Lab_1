@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    // For choosing minigames
+    private string[] minigames = new string[] {
+        "QuestionScene",
+        "MemoryMinigame",
+        "ObjectFallingScene"
+        };
     // Property to check if player is currently moving
     public bool IsMoving => isMoving;
 
@@ -397,6 +403,12 @@ public class PlayerController : MonoBehaviour
                 {
                     AudioManager.Instance.PlaySound(minigameTileSound);
                 }
+                // Delay for sound effect loading
+                yield return new WaitForSeconds(0.5f);
+
+                // For debug
+                //break;
+
                 // Save current state
                 PlayerState.LastPosition = transform.position;
                 PlayerState.CurrentPosition = currentPosition;
@@ -415,12 +427,6 @@ public class PlayerController : MonoBehaviour
     private string ChooseMinigame()
     {
         // Random selection among available minigames
-        string[] minigames = new string[] {
-        "QuestionScene",
-        "MemoryMinigame",
-        "ObjectFallingScene"
-        };
-
         int index = Random.Range(0, minigames.Length);
         return minigames[index];
     }

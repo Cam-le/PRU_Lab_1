@@ -29,6 +29,7 @@ public class UserInterfaceManager : MonoBehaviour
     [SerializeField] private GameObject characterPanel;
 
     [SerializeField] private KeyCode toggleControlPanelKey = KeyCode.Tab;
+
     private void Start()
     {
         // Hide game over panel initially 
@@ -105,10 +106,20 @@ public class UserInterfaceManager : MonoBehaviour
             gameInfoPanel.SetActive(true);
         }
 
-        // Show instruction image
+        // Only show instruction image if player hasn't seen it yet
         if (instructionImgPanel != null)
         {
-            instructionImgPanel.SetActive(true);
+            if (!PlayerState.HasSeenInstructions)
+            {
+                instructionImgPanel.SetActive(true);
+                // Mark that the player has seen instructions
+                PlayerState.HasSeenInstructions = true;
+            }
+            else
+            {
+                // Hide instructions if already seen
+                instructionImgPanel.SetActive(false);
+            }
         }
 
         // Show Character Panel
