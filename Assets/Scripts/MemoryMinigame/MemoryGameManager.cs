@@ -265,10 +265,10 @@ public class MemoryGameManager : MonoBehaviour
             print("It took you " + countGuesses + " guesses to finish the game");
 
             // Report win to MinigameManager
-            if (minigameManager != null)
-            {
-                minigameManager.WinGame();
-            }
+            //if (minigameManager != null)
+            //{
+            //    minigameManager.WinGame();
+            //}
         }
         else if (countGuesses >= maxGuesses)
         {
@@ -323,10 +323,10 @@ public class MemoryGameManager : MonoBehaviour
         }
 
         // Report loss to MinigameManager
-        if (minigameManager != null)
-        {
-            minigameManager.LoseGame();
-        }
+        //if (minigameManager != null)
+        //{
+        //    minigameManager.LoseGame();
+        //}
     }
 
 
