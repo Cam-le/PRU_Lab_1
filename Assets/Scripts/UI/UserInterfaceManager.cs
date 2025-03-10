@@ -27,6 +27,7 @@ public class UserInterfaceManager : MonoBehaviour
     [SerializeField] private GameObject gameInfoPanel;
     [SerializeField] private GameObject instructionImgPanel;
     [SerializeField] private GameObject characterPanel;
+    [SerializeField] private GameObject dicePanel;
 
     [SerializeField] private KeyCode toggleControlPanelKey = KeyCode.Tab;
 
@@ -62,6 +63,18 @@ public class UserInterfaceManager : MonoBehaviour
 
     public void ShowGameOver(bool isVictory, int finalScore)
     {
+        // Hide Character Panel
+        if (characterPanel != null)
+        {
+            characterPanel.SetActive(false);
+        }
+
+        // Hide Dice Panel
+        if (dicePanel != null)
+        {
+            dicePanel.SetActive(false);
+        }
+
         // Show the game over panel
         if (gameOverPanel != null)
         {
@@ -126,6 +139,12 @@ public class UserInterfaceManager : MonoBehaviour
         if (characterPanel != null)
         {
             characterPanel.SetActive(true);
+        }
+
+        // Show Dice Panel
+        if (dicePanel != null)
+        {
+            dicePanel.SetActive(true);
         }
     }
 
