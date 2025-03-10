@@ -315,6 +315,24 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - clipName: fallingMinigameTheme
+    clip: {fileID: 8300000, guid: f47ff1cd437a3e44aa124d8ce59f2a06, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: memoryMinigameTheme
+    clip: {fileID: 8300000, guid: fc4050afbe44d21478bad3737cad3038, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: questionMinigameTheme
+    clip: {fileID: 8300000, guid: dc38775e6f9923344a3179ae2b9cabea, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   soundEffects:
   - clipName: playerMove
     clip: {fileID: 8300000, guid: 1ae48f33019315240bb8e6081b4189cc, type: 3}

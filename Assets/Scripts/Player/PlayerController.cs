@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string moveSound = "playerMove";
     [SerializeField] private string checkpointSound = "checkpoint";
     [SerializeField] private string minigameTileSound = "minigameTile";
+    [SerializeField] private string fallingMinigameSound = "fallingMinigameTheme";
+    [SerializeField] private string questionMinigameSound = "questionMinigameTheme";
+    [SerializeField] private string memoryMinigameSound = "memoryMinigameTheme";
 
     [Header("Rewards and Penalties")]
     [SerializeField] private int checkpointPoints = 1000;
@@ -404,7 +407,7 @@ public class PlayerController : MonoBehaviour
                     AudioManager.Instance.PlaySound(minigameTileSound);
                 }
                 // Delay for sound effect loading
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1f);
 
                 // For debug
                 //break;
@@ -415,9 +418,12 @@ public class PlayerController : MonoBehaviour
                 PlayerState.CurrentTileIndex = currentTileIndex;
                 PlayerState.ReturningFromMinigame = true;
 
+
+
                 // Determine which minigame to load based on position or random selection
                 string minigameScene = ChooseMinigame();
 
+                
                 // Load minigame scene
                 SceneManager.LoadScene(minigameScene);
                 break;
@@ -428,6 +434,34 @@ public class PlayerController : MonoBehaviour
     {
         // Random selection among available minigames
         int index = Random.Range(0, minigames.Length);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound("mainTheme");
+        }
+
+        //if (minigames[index] == "QuestionScene")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(questionMinigameSound);
+        //    }
+        //}
+        //else if (minigames[index] == "MemoryMinigame")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(memoryMinigameSound);
+        //    }
+        //}
+        //else if (minigames[index] == "ObjectFallingScene")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(fallingMinigameSound);
+        //    }
+        //}
+
         return minigames[index];
     }
     // For external scripts to force player movement

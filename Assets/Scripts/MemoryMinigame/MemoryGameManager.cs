@@ -69,6 +69,12 @@ public class MemoryGameManager : MonoBehaviour
                 Debug.LogError("No MinigameManager found in the scene!");
             }
         }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound("mainTheme");
+            AudioManager.Instance.PlaySound("memoryMinigameTheme");
+        }
     }
 
     public void ShowDifficultySelection()
