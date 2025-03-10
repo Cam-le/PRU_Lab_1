@@ -31,7 +31,11 @@ public class MemoryGameManager : MonoBehaviour
 
     public GameObject gameOverPopup;
 
+    public GameObject gameFinishedPopup;
+
     public Text attemptsText;
+
+    public Text finishedText;
 
     public GameObject difficultySelectionPopup;
 
@@ -48,6 +52,7 @@ public class MemoryGameManager : MonoBehaviour
         instructionPopup.SetActive(true);
         difficultySelectionPopup.SetActive(false);
         attemptsText.enabled = false;
+        gameFinishedPopup.SetActive(false);
 
         GetButtons();
         AddListeners();
@@ -261,14 +266,11 @@ public class MemoryGameManager : MonoBehaviour
         if (countCorrectGuesses == gameGuesses)
         {
             print("Game Finished: Win");
+            attemptsText.enabled = false;
             gameWinPopup.SetActive(true);
+            finishedText.text = "Ngươi may mắn lần này thôi.";
+            gameFinishedPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
-
-            // Report win to MinigameManager
-            //if (minigameManager != null)
-            //{
-            //    minigameManager.WinGame();
-            //}
         }
         else if (countGuesses >= maxGuesses)
         {
@@ -310,11 +312,12 @@ public class MemoryGameManager : MonoBehaviour
         }
     }
 
-
     void GameOver()
     {
         print("Bạn đã thua! Bạn đã hết lượt lật bài.");
+        attemptsText.enabled = false;
         gameOverPopup.SetActive(true); // Hiển thị popup thua cuộc
+        gameFinishedPopup.SetActive(true); // Hiển thị popup kết thúc game
 
         // Vô hiệu hóa tất cả các nút
         foreach (Button btn in btns)
