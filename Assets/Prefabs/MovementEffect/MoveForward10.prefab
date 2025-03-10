@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4437801151468948934}
   - component: {fileID: 7253085344233095803}
   m_Layer: 0
-  m_Name: MoveForward3
+  m_Name: MoveForward10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,16 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectName: "Ti\u1EBFn b\u01B0\u1EDBc!"
-  effectDescription: "Ti\u1EBFn 3 b\u01B0\u1EDBc"
+  effectDescription: "Ti\u1EBFn 10 b\u01B0\u1EDBc"
   effectWeight: 4
   showNotification: 1
   effectIcon: {fileID: 0}
   effectColor: {r: 0.029861212, g: 1, b: 0, a: 1}
-  effectSound: {fileID: 0}
+  effectSound: {fileID: 8300000, guid: 0eab0ff9a1377e241aeeeb8a6c525a12, type: 3}
   effectParticlesPrefab: {fileID: 0}
   effectDuration: 1
   movementType: 0
-  spaces: 3
+  spaces: 10
   targetTileIndex: -1
   randomRange: {x: 1, y: 6}
   useRandomSpaces: 0

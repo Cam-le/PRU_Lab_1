@@ -358,13 +358,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clipName: eventPositive
+  - clipName: positiveEvent
     clip: {fileID: 8300000, guid: 0eab0ff9a1377e241aeeeb8a6c525a12, type: 3}
     volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clipName: eventNegative
+  - clipName: negativeEffect
     clip: {fileID: 8300000, guid: 0c647cfb55f2ba74f96d75b74d969539, type: 3}
     volume: 0.7
     pitch: 1

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3126966011458256238}
   - component: {fileID: 1386383917647130562}
   m_Layer: 0
-  m_Name: ScoreBonus50
+  m_Name: ScoreBonus500
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,16 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectName: Score Bonus
-  effectDescription: Gain 50 points
+  effectDescription: Gain 500 points
   effectWeight: 5
   showNotification: 1
   effectIcon: {fileID: 0}
   effectColor: {r: 0.013511896, g: 1, b: 0, a: 1}
-  effectSound: {fileID: 0}
+  effectSound: {fileID: 8300000, guid: 0eab0ff9a1377e241aeeeb8a6c525a12, type: 3}
   effectParticlesPrefab: {fileID: 0}
   effectDuration: 1
   resourceType: 0
-  scoreChange: 50
+  scoreChange: 500
   movesChange: 0
   percentageBased: 0
   percentage: 10

@@ -50,7 +50,7 @@ MonoBehaviour:
   showNotification: 1
   effectIcon: {fileID: 0}
   effectColor: {r: 0.85593414, g: 1, b: 0, a: 1}
-  effectSound: {fileID: 0}
+  effectSound: {fileID: 8300000, guid: 0c647cfb55f2ba74f96d75b74d969539, type: 3}
   effectParticlesPrefab: {fileID: 0}
   effectDuration: 1
   movementType: 3

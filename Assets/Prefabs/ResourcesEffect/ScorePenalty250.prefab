@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &482286204625956552
+--- !u!1 &4444732283903144446
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8136016195587887524}
-  - component: {fileID: 1517152965837637010}
+  - component: {fileID: 4717598893754578566}
+  - component: {fileID: 2594718232506274051}
   m_Layer: 0
-  m_Name: MoveBackward2
+  m_Name: ScorePenalty250
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8136016195587887524
+--- !u!4 &4717598893754578566
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482286204625956552}
+  m_GameObject: {fileID: 4444732283903144446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.94332, y: 38.25107, z: -0.4950894}
+  m_LocalPosition: {x: -37.36151, y: 20.135048, z: -0.2944764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1517152965837637010
+--- !u!114 &2594718232506274051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482286204625956552}
+  m_GameObject: {fileID: 4444732283903144446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05495b60d87c0044380ca9d48e662f0d, type: 3}
+  m_Script: {fileID: 11500000, guid: af6fbc71ebca892439dbc8b29b5d77c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: "L\xF9i b\u01B0\u1EDBc!"
-  effectDescription: "L\xF9i 2 b\u01B0\u1EDBc"
-  effectWeight: 4
+  effectName: Score Penalty
+  effectDescription: Minus 250 points
+  effectWeight: 5
   showNotification: 1
   effectIcon: {fileID: 0}
-  effectColor: {r: 1, g: 0.0669384, b: 0, a: 1}
-  effectSound: {fileID: 0}
+  effectColor: {r: 1, g: 0.07372506, b: 0, a: 1}
+  effectSound: {fileID: 8300000, guid: 0c647cfb55f2ba74f96d75b74d969539, type: 3}
   effectParticlesPrefab: {fileID: 0}
   effectDuration: 1
-  movementType: 1
-  spaces: 2
-  targetTileIndex: -1
-  randomRange: {x: 1, y: 6}
-  useRandomSpaces: 0
-  movementDelay: 1
+  resourceType: 0
+  scoreChange: -250
+  movesChange: 0
+  percentageBased: 0
+  percentage: 10
