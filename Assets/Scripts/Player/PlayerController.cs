@@ -435,11 +435,6 @@ public class PlayerController : MonoBehaviour
         // Random selection among available minigames
         int index = Random.Range(0, minigames.Length);
 
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.StopSound("mainTheme");
-        }
-
         //if (minigames[index] == "QuestionScene")
         //{
         //    if (AudioManager.Instance != null)
