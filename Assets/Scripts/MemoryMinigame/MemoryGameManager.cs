@@ -35,6 +35,8 @@ public class MemoryGameManager : MonoBehaviour
 
     public Text attemptsText;
 
+    public Text finishedText;
+
     public GameObject difficultySelectionPopup;
 
     [SerializeField] private MinigameManager minigameManager;
@@ -103,7 +105,7 @@ public class MemoryGameManager : MonoBehaviour
                 maxGuesses = 20;
                 break;
             case "Hard":
-                maxGuesses = 1;
+                maxGuesses = 15;
                 break;
         }
 
@@ -264,7 +266,9 @@ public class MemoryGameManager : MonoBehaviour
         if (countCorrectGuesses == gameGuesses)
         {
             print("Game Finished: Win");
+            attemptsText.enabled = false;
             gameWinPopup.SetActive(true);
+            finishedText.text = "Ngươi may mắn lần này thôi.";
             gameFinishedPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
         }
@@ -311,6 +315,7 @@ public class MemoryGameManager : MonoBehaviour
     void GameOver()
     {
         print("Bạn đã thua! Bạn đã hết lượt lật bài.");
+        attemptsText.enabled = false;
         gameOverPopup.SetActive(true); // Hiển thị popup thua cuộc
         gameFinishedPopup.SetActive(true); // Hiển thị popup kết thúc game
 
