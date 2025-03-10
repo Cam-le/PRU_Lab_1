@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23b3cafe4b752e84fa5aad639505742d
+guid: d7aaefa5c46a7574e9f9a954816eebf7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6647535561107420233
-    second: ButtonV2_0
+      213: 2684447714269124895
+    second: cuongiayco_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonV2_0
+      name: cuongiayco_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 644
-        height: 640
+        x: 25
+        y: 10
+        width: 1648
+        height: 2242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bb4a6890a53fb3a0800000000000000
-      internalID: -6647535561107420233
+      spriteID: f19de1b29f2114520800000000000000
+      internalID: 2684447714269124895
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ButtonV2_0: -6647535561107420233
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
