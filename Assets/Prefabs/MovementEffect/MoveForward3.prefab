@@ -54,7 +54,7 @@ MonoBehaviour:
   effectParticlesPrefab: {fileID: 0}
   effectDuration: 1
   movementType: 0
-  spaces: 4
+  spaces: 3
   targetTileIndex: -1
   randomRange: {x: 1, y: 6}
   useRandomSpaces: 0

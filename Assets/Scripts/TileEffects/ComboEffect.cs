@@ -134,6 +134,6 @@ public class ComboEffect : TileEffect
         string executionText = sequentialExecution ? "sequential" : "parallel";
         string randomText = randomizeOrder ? ", randomized" : "";
 
-        return $"Combo: {validEffects} effects ({executionText}{randomText})";
+        return $"Combo: {validEffects} và ({executionText}{randomText})";
     }
 }

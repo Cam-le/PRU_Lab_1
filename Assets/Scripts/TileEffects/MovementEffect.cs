@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -129,32 +129,32 @@ public class MovementEffect : TileEffect
         {
             case MovementType.MoveForward:
                 summary = useRandomSpaces
-                    ? $"Move forward {randomRange.x}-{randomRange.y} spaces"
-                    : $"Move forward {spaces} spaces";
+                    ? $"Tiến {randomRange.x}-{randomRange.y} bước"
+                    : $"Tiến {spaces} bước";
                 break;
 
             case MovementType.MoveBackward:
                 summary = useRandomSpaces
-                    ? $"Move backward {randomRange.x}-{randomRange.y} spaces"
-                    : $"Move backward {spaces} spaces";
+                    ? $"Lùi {randomRange.x}-{randomRange.y} bước"
+                    : $"Lùi {spaces} bước";
                 break;
 
             case MovementType.Teleport:
                 summary = targetTileIndex >= 0
-                    ? $"Teleport to position {targetTileIndex}"
-                    : "Teleport to random position";
+                    ? $"Đi tới {targetTileIndex}"
+                    : "Đi tới vị trí ngẫu nhiên";
                 break;
 
             case MovementType.ReturnToCheckpoint:
-                summary = "Return to last checkpoint";
+                summary = "Về Checkpoint đã ghé!";
                 break;
 
             case MovementType.SkipNextTurn:
-                summary = "Skip next turn";
+                summary = "Mất lượt";
                 break;
 
             case MovementType.ExtraTurn:
-                summary = "Gain an extra turn";
+                summary = "Thêm lượt";
                 break;
         }
 

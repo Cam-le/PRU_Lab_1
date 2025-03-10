@@ -1602,11 +1602,11 @@ MonoBehaviour:
   loseButton: {fileID: 642438390}
   returnToGameButton: {fileID: 0}
   winMoveBonus: 2
-  winScoreBonus: 50
+  winScoreBonus: 500
   loseMovePenalty: 1
-  loseScorePenalty: 25
-  winMoveForwardTiles: 3
-  loseMoveBackTiles: 2
+  loseScorePenalty: 250
+  winMoveForwardTiles: 10
+  loseMoveBackTiles: 5
   gameType: 0
 --- !u!4 &532015362
 Transform:

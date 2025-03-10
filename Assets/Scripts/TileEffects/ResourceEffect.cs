@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Effect that modifies player resources (score, moves, etc.)
@@ -89,21 +89,21 @@ public class ResourceEffect : TileEffect
         {
             case ResourceType.Score:
                 summary = percentageBased
-                    ? $"{(scoreChange >= 0 ? "+" : "-")}{percentage}% Score"
-                    : $"{(scoreChange >= 0 ? "+" : "")}{scoreChange} Score";
+                    ? $"{(scoreChange >= 0 ? "+" : "-")}{percentage}% điểm"
+                    : $"{(scoreChange >= 0 ? "+" : "")}{scoreChange} điểm";
                 break;
             case ResourceType.Moves:
                 summary = percentageBased
-                    ? $"{(movesChange >= 0 ? "+" : "-")}{percentage}% Moves"
-                    : $"{(movesChange >= 0 ? "+" : "")}{movesChange} Moves";
+                    ? $"{(movesChange >= 0 ? "+" : "-")}{percentage}% lượt"
+                    : $"{(movesChange >= 0 ? "+" : "")}{movesChange} lượt";
                 break;
             case ResourceType.Both:
                 string scoreSummary = percentageBased
-                    ? $"{(scoreChange >= 0 ? "+" : "-")}{percentage}% Score"
-                    : $"{(scoreChange >= 0 ? "+" : "")}{scoreChange} Score";
+                    ? $"{(scoreChange >= 0 ? "+" : "-")}{percentage}% điểm"
+                    : $"{(scoreChange >= 0 ? "+" : "")}{scoreChange} điểm";
                 string movesSummary = percentageBased
-                    ? $"{(movesChange >= 0 ? "+" : "-")}{percentage}% Moves"
-                    : $"{(movesChange >= 0 ? "+" : "")}{movesChange} Moves";
+                    ? $"{(movesChange >= 0 ? "+" : "-")}{percentage}% lượt"
+                    : $"{(movesChange >= 0 ? "+" : "")}{movesChange} lượt";
                 summary = $"{scoreSummary}, {movesSummary}";
                 break;
         }
