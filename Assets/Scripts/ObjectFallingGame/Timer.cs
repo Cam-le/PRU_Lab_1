@@ -29,6 +29,8 @@ public class Timer : MonoBehaviour
 
         void OnGUI()
     {
-        GUI.Label(new Rect(10, 40, 200, 20), "Thời gian còn lại: " + Mathf.Ceil(timeLeft));  // Hiển thị thời gian còn lại
+        GUI.Label(new Rect(10, 40, 500, 100), "Thời gian còn lại: " + Mathf.Ceil(timeLeft));  // Hiển thị thời gian còn lại
+        GUI.skin.label.fontSize = 20;
+        GUI.skin.label.normal.textColor = Color.white;
     }
 }

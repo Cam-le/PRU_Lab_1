@@ -82,7 +82,9 @@ public class Main : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 70, 160, 30), "Điểm: " + score);  // Hiển thị thời gian còn lại
+        GUI.Label(new Rect(10, 80, 500, 100), "Điểm: " + score);  // Hiển thị thời gian còn lại
+        GUI.skin.label.fontSize = 20;
+        GUI.skin.label.normal.textColor = Color.white;
     }
 
     private void GameWon()
