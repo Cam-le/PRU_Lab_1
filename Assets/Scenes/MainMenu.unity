@@ -273,7 +273,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &768150753
+--- !u!1 &118826727
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,8 +281,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 768150755}
-  - component: {fileID: 768150754}
+  - component: {fileID: 118826729}
+  - component: {fileID: 118826728}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -290,26 +290,98 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &768150754
+--- !u!114 &118826728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768150753}
+  m_GameObject: {fileID: 118826727}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea92967e8100ba145b69889a8dad46db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic:
-  - clipName: menuTheme
-    clip: {fileID: 8300000, guid: c09dea6f31040794cb93e7c1b27c4fd7, type: 3}
-    volume: 1
+  - clipName: mainTheme
+    clip: {fileID: 8300000, guid: 8a20735753a509f458f8fd40391f701a, type: 3}
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  soundEffects: []
+  - clipName: menuTheme
+    clip: {fileID: 8300000, guid: c09dea6f31040794cb93e7c1b27c4fd7, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: fallingMinigameTheme
+    clip: {fileID: 8300000, guid: f47ff1cd437a3e44aa124d8ce59f2a06, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: memoryMinigameTheme
+    clip: {fileID: 8300000, guid: fc4050afbe44d21478bad3737cad3038, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: questionMinigameTheme
+    clip: {fileID: 8300000, guid: dc38775e6f9923344a3179ae2b9cabea, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  soundEffects:
+  - clipName: playerMove
+    clip: {fileID: 8300000, guid: 1ae48f33019315240bb8e6081b4189cc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: diceRoll
+    clip: {fileID: 8300000, guid: 204575586d65a6849b59125773c91460, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: diceResult
+    clip: {fileID: 8300000, guid: 7c7e9572125b321498b9cf0ebc76560b, type: 3}
+    volume: 0.65
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: checkpoint
+    clip: {fileID: 8300000, guid: e24745c65245a7e499adaef93e010135, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: positiveEvent
+    clip: {fileID: 8300000, guid: 0eab0ff9a1377e241aeeeb8a6c525a12, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: negativeEffect
+    clip: {fileID: 8300000, guid: 0c647cfb55f2ba74f96d75b74d969539, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: minigameTile
+    clip: {fileID: 8300000, guid: 29d0248656371b749bdd6204809144d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: checkpoint
+    clip: {fileID: 8300000, guid: e24745c65245a7e499adaef93e010135, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   uiSounds:
   - clipName: buttonClick
     clip: {fileID: 8300000, guid: 25a89fad87b266148858e0762e1284cd, type: 3}
@@ -318,21 +390,21 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - clipName: notification
-    clip: {fileID: 0}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: 61526987d74c05644ae7ce28c4a44fae, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
---- !u!4 &768150755
+--- !u!4 &118826729
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768150753}
+  m_GameObject: {fileID: 118826727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.230895, y: -7.821121, z: -0.26125923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.230896, y: -7.821121, z: -0.2612592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,7 +481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271839025
@@ -425,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -433,12 +505,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 57
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 853e462bfa46ebe4e987a3d0f53447d4, type: 3}
+    m_FontSize: 55
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 57
+    m_MaxSize: 59
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -551,15 +623,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4327954, g: 0.98490566, b: 0.40697044, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 649223268058989734, guid: 73d7515eabf17064ba7dabd6e3c2c6bf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -623,7 +695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4.6}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703538585
@@ -639,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.15462439, g: 0.645283, b: 0.16740748, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -647,9 +719,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 57
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 853e462bfa46ebe4e987a3d0f53447d4, type: 3}
+    m_FontSize: 56
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 57
@@ -659,7 +731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EAFt \u0110\u1EA7u"
+  m_Text: "Ch\u01A1i"
 --- !u!222 &1703538586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -765,15 +837,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9245283, g: 0.24081896, b: 0.033143338, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 649223268058989734, guid: 73d7515eabf17064ba7dabd6e3c2c6bf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1101,4 +1173,4 @@ SceneRoots:
   - {fileID: 91994852}
   - {fileID: 2070414911}
   - {fileID: 1839212052}
-  - {fileID: 768150755}
+  - {fileID: 118826729}

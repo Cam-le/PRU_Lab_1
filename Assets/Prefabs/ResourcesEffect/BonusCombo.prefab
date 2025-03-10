@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &459903427207608679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4995923322517733123}
+  - component: {fileID: 6491744207120219730}
+  m_Layer: 0
+  m_Name: BonusCombo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4995923322517733123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459903427207608679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -37.36151, y: 20.135048, z: -0.2944764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6491744207120219730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459903427207608679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6fbc71ebca892439dbc8b29b5d77c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: Combo!!
+  effectDescription: "Nh\u1EADn 100 \u0111i\u1EC3m V\xC0 ti\u1EBFn 2 b\u01B0\u1EDBc!"
+  effectWeight: 5
+  showNotification: 1
+  effectIcon: {fileID: 0}
+  effectColor: {r: 1, g: 0, b: 0.8829045, a: 1}
+  effectSound: {fileID: 0}
+  effectParticlesPrefab: {fileID: 0}
+  effectDuration: 1
+  resourceType: 2
+  scoreChange: 100
+  movesChange: 2
+  percentageBased: 0
+  percentage: 10

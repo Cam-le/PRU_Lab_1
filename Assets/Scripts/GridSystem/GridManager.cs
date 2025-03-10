@@ -7,14 +7,14 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private Tile _tilePrefab;
     [SerializeField] private Color _pathColor = Color.white;
-    [SerializeField] private Color _specialTileColor = Color.yellow;
+    [SerializeField] private Color _minigameTileColor = Color.yellow;
     [SerializeField] private Color _checkpointColor = Color.green;
     [SerializeField] private Color _eventTileColor = Color.cyan;
 
     [Header("Special Tile Settings")]
     [SerializeField] private float eventTileChance = 0.3f; // 30% chance for event tiles
     [SerializeField] private int minEventTiles = 5; // Minimum number of event tiles
-    [SerializeField] private int specialTilesFrequency = 15; // Place a special tile every ~15 tiles
+    [SerializeField] private int minigameTilesFrequency = 15; // Place a minigame tile every ~15 tiles
     [SerializeField] private int checkpointFrequency = 25; // Place checkpoints every ~25 tiles
 
     // Tile dictionaries and lists
@@ -469,11 +469,11 @@ public class GridManager : MonoBehaviour
                 continue;
             }
 
-            // Place special tiles at regular intervals
-            if (i % specialTilesFrequency == 0)
+            // Place Minigame tiles at regular intervals
+            if (i % minigameTilesFrequency == 0)
             {
-                _pathTiles[i].tileType = Tile.TileType.Special;
-                _pathTiles[i].SetColor(_specialTileColor);
+                _pathTiles[i].tileType = Tile.TileType.Minigame;
+                _pathTiles[i].SetColor(_minigameTileColor);
                 continue;
             }
 

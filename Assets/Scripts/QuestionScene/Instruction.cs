@@ -9,13 +9,25 @@ public class InstructionManager : MonoBehaviour
     {
         // Chỉ hiển thị màn hướng dẫn ban đầu
         instructionCanvas.SetActive(true);
-        questionGame.SetActive(false);
+        if (questionGame != null) 
+        {
+            questionGame.SetActive(false);
+        }
+        
     }
 
     public void StartGame()
     {
         // Ẩn màn hướng dẫn và hiện game
         instructionCanvas.SetActive(false);
-        questionGame.SetActive(true);
+        if (questionGame != null)
+        {
+            questionGame.SetActive(true);
+        }
+    }
+
+    public void HideInstruction()
+    {
+        instructionCanvas.SetActive(false);
     }
 }

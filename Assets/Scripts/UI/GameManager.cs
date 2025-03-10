@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEditor.Rendering.LookDev;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverMessage;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
+    [SerializeField] private GameObject characterPanel;
+    [SerializeField] private GameObject dicePanel;
+
 
     [Header("Game References")]
     [SerializeField] private DiceRoller diceRoller;
@@ -100,6 +104,9 @@ public class GameManager : MonoBehaviour
 
         // Update UI
         UpdateUI();
+
+        // Update buff durations at end of turn
+        PlayerState.UpdateBuffDurations();
     }
 
     private void CheckGameEndConditions()
@@ -130,6 +137,18 @@ public class GameManager : MonoBehaviour
     private void EndGame(bool isVictory, string message)
     {
         isGameOver = true;
+
+        // Hide Character Panel
+        if (characterPanel != null)
+        {
+            characterPanel.SetActive(false);
+        }
+
+        // Hide Dice Panel
+        if (dicePanel != null)
+        {
+            dicePanel.SetActive(false);
+        }
 
         // Update UI with game over message
         if (gameOverPanel != null)

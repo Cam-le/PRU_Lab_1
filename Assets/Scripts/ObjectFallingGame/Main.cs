@@ -48,6 +48,12 @@ public class Main : MonoBehaviour
         {
             minigameManager = FindObjectOfType<MinigameManager>();
         }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound("mainTheme");
+            AudioManager.Instance.PlaySound("fallingMinigameTheme");
+        }
     }
 
     // Update is called once per frame
@@ -109,10 +115,10 @@ public class Main : MonoBehaviour
         }
 
         // Report win to MinigameManager with delay
-        if (minigameManager != null)
-        {
-            Invoke("ReportWin", 2.0f); // Delay return by 2 seconds
-        }
+        //if (minigameManager != null)
+        //{
+        //    Invoke("ReportWin", 2.0f); // Delay return by 2 seconds
+        //}
 
         hasReportedGameResult = true;
     }
@@ -138,10 +144,10 @@ public class Main : MonoBehaviour
         }
 
         // Report loss to MinigameManager with delay
-        if (minigameManager != null)
-        {
-            Invoke("ReportLoss", 2.0f); // Delay return by 2 seconds
-        }
+        //if (minigameManager != null)
+        //{
+        //    Invoke("ReportLoss", 2.0f); // Delay return by 2 seconds
+        //}
 
         hasReportedGameResult = true;
     }

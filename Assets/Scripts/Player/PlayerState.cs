@@ -9,6 +9,7 @@ public static class PlayerState
     public static Vector2 CurrentPosition;
     public static int CurrentTileIndex;
     public static bool ReturningFromMinigame;
+    public static bool HasSeenInstructions = false;
 
     // Player stats
     public static int MovesRemaining;
@@ -16,6 +17,9 @@ public static class PlayerState
 
     // Active buffs/debuffs
     public static Dictionary<string, float> BuffDurations = new Dictionary<string, float>();
+
+    // NEW: Track status effect values (magnitude of effects)
+    public static Dictionary<string, int> StatusEffectValues = new Dictionary<string, int>();
 
     // Game state
     public static int CurrentTurn;
@@ -35,11 +39,54 @@ public static class PlayerState
     public static void AddBuff(string buffId, float duration)
     {
         BuffDurations[buffId] = duration;
+        Debug.Log($"Added buff {buffId} with duration {duration}");
     }
 
     public static bool HasBuff(string buffId)
     {
         return BuffDurations.ContainsKey(buffId) && BuffDurations[buffId] > 0;
+    }
+
+    // Get status effect value
+    public static int GetStatusEffectValue(string effectId, int defaultValue = 0)
+    {
+        if (StatusEffectValues.ContainsKey(effectId))
+        {
+            return StatusEffectValues[effectId];
+        }
+        return defaultValue;
+    }
+
+    //Update buffs durations at the end of turn
+    public static void UpdateBuffDurations()
+    {
+        // Create a copy of the keys to safely iterate through
+        string[] buffKeys = new string[BuffDurations.Count];
+        BuffDurations.Keys.CopyTo(buffKeys, 0);
+
+        foreach (string buffId in buffKeys)
+        {
+            float duration = BuffDurations[buffId];
+
+            if (duration <= 0)
+            {
+                // Remove expired buff
+                BuffDurations.Remove(buffId);
+
+                // Also remove from status effect values if it exists
+                if (StatusEffectValues.ContainsKey(buffId))
+                {
+                    StatusEffectValues.Remove(buffId);
+                }
+
+                Debug.Log($"Buff {buffId} has expired");
+            }
+            else
+            {
+                // Decrement duration
+                BuffDurations[buffId] = duration - 1;
+            }
+        }
     }
 
     public static void ResetState()
@@ -57,6 +104,9 @@ public static class PlayerState
         // Clear buffs
         BuffDurations.Clear();
 
+        // Clear status effect values
+        StatusEffectValues.Clear();
+
         // Reset game state
         CurrentTurn = 1;
         CurrentPhase = GamePhase.Move;
@@ -68,6 +118,9 @@ public static class PlayerState
 
         // Reset tile movement adjustment
         TileMovementAdjustment = 0;
+
+        // Reset instruction panel flag (only if you want to show instructions on a completely new game)
+        HasSeenInstructions = false;
     }
 }
 

@@ -30,7 +30,7 @@ public class Generator : MonoBehaviour
 
             if (chance <= 25)
             {
-                fallingObjects = new GameObject[] { gameObject[0], gameObject[2] }; 
+                fallingObjects = new GameObject[] { gameObject[0], gameObject[1] }; 
             }
             else if (chance <= 50)
             {

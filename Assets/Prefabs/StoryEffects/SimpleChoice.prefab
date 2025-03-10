@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2507028571321335564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4183797850480017502}
+  - component: {fileID: 418856792244109089}
+  m_Layer: 0
+  m_Name: SimpleChoice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4183797850480017502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507028571321335564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.94332, y: 38.25107, z: -0.4950894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418856792244109089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507028571321335564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74afc94b42211834da384cb89dca0122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: "Song \u0111\u1EC1"
+  effectDescription: "B\u1EA1n g\u1EB7p ph\u1EA3i 1 \xF4ng l\xE3o du m\u1EE5c..."
+  effectWeight: 5
+  showNotification: 1
+  effectIcon: {fileID: 0}
+  effectColor: {r: 1, g: 1, b: 1, a: 1}
+  effectSound: {fileID: 0}
+  effectParticlesPrefab: {fileID: 0}
+  effectDuration: 1
+  eventTitle: "Giao l\u1ED9"
+  eventText: 'A weary traveler offers you a choice: help them carry their belongings
+    for a reward, or continue on your path'
+  choices:
+  - choiceText: Help the traveler
+    resultText: The traveler thanks you and shares some treasure.
+    resultEffect: {fileID: 0}
+    choiceSound: {fileID: 0}
+  - choiceText: Continue on your way
+    resultText: You continue your journey, saving valuable time.
+    resultEffect: {fileID: 0}
+    choiceSound: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  delayAfterChoice: 2
+  storyEventPanelPrefab: {fileID: 0}

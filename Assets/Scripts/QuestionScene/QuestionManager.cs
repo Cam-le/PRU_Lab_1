@@ -75,6 +75,12 @@ new Question { questionText = "Yêu nhau củ ấu cũng ...?", answers = new st
                 Debug.LogError("No MinigameManager found in the scene!");
             }
         }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound("mainTheme");
+            AudioManager.Instance.PlaySound("questionMinigameTheme");
+        }
     }
 
     void LoadQuestion()

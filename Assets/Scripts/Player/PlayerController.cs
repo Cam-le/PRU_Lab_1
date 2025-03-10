@@ -16,15 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private DiceRoller diceRoller;
 
     [Header("Sound Effects")]
-    //[SerializeField] private string moveStartSound = "playerMove";
+    [SerializeField] private string moveSound = "playerMove";
     [SerializeField] private string checkpointSound = "checkpoint";
-    [SerializeField] private string eventTileSound = "notification";
-    [SerializeField] private string specialTileSound = "notification";
+    [SerializeField] private string minigameTileSound = "minigameTile";
+    [SerializeField] private string fallingMinigameSound = "fallingMinigameTheme";
+    [SerializeField] private string questionMinigameSound = "questionMinigameTheme";
+    [SerializeField] private string memoryMinigameSound = "memoryMinigameTheme";
 
     [Header("Rewards and Penalties")]
     [SerializeField] private int checkpointPoints = 1000;
-    [SerializeField] private int minEventSteps = -10;
-    [SerializeField] private int maxEventSteps = 10;
 
     [Header("Debug")]
     [SerializeField] private bool allowManualMovement = true;
@@ -37,6 +37,12 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    // For choosing minigames
+    private string[] minigames = new string[] {
+        "QuestionScene",
+        "MemoryMinigame",
+        "ObjectFallingScene"
+        };
     // Property to check if player is currently moving
     public bool IsMoving => isMoving;
 
@@ -76,10 +82,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // For testing - allow manual movement with space bar
+        // For testing - allow manual movement with M
         if (allowManualMovement && Input.GetKeyDown(KeyCode.M) && !isMoving)
         {
-            int steps = Random.Range(3, 3); // Simulate a dice roll
+            int steps = Random.Range(1, 1); // Simulate a dice roll
             StartCoroutine(MovePlayerSteps(steps));
         }
 
@@ -240,7 +246,11 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving) yield break;
         isMoving = true;
-
+        /// Play start movement sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(moveSound);
+        }
         // Play animation if available
         if (animator != null)
         {
@@ -284,12 +294,6 @@ public class PlayerController : MonoBehaviour
             PlayerState.CurrentPosition = currentPosition;
             PlayerState.LastPosition = transform.position;
 
-            /// Play start movement sound
-            if (AudioManager.Instance != null)
-            {
-                //AudioManager.Instance.PlaySound(moveStartSound);
-            }
-
             // Small pause between steps
             yield return new WaitForSeconds(0.2f);
         }
@@ -300,6 +304,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound(moveSound);
+        }
         isMoving = false;
 
         // Check if we landed on a special tile
@@ -382,30 +390,6 @@ public class PlayerController : MonoBehaviour
 
             case Tile.TileType.Event:
                 Debug.Log("Landed on event tile");
-                // Play event tile sound
-                if (AudioManager.Instance != null)
-                {
-                    AudioManager.Instance.PlaySound(eventTileSound);
-                }
-
-                // Random movement on event tile (NEW FEATURE)
-                int randomSteps = Random.Range(minEventSteps, maxEventSteps + 1);
-                if (randomSteps != 0)
-                {
-                    Debug.Log($"Event tile effect: Moving {(randomSteps > 0 ? "forward" : "backward")} {Mathf.Abs(randomSteps)} steps!");
-
-                    // Wait a moment before moving
-                    yield return new WaitForSeconds(1.0f);
-
-                    // Calculate target tile index
-                    int targetIndex = Mathf.Clamp(currentTileIndex + randomSteps, 0, gridManager.PathLength - 1);
-
-                    // Use existing movement system to animate the adjustment
-                    yield return StartCoroutine(MovePlayerToIndex(targetIndex));
-
-                    // Exit early since we've already handled the movement
-                    yield break;
-                }
 
                 // Find and trigger the event manager
                 EventManager eventManager = FindObjectOfType<EventManager>();
@@ -415,22 +399,31 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
 
-            case Tile.TileType.Special:
-                Debug.Log("Landed on special tile");
+            case Tile.TileType.Minigame:
+                Debug.Log("Landed on Minigame tile");
                 // Play special tile sound
                 if (AudioManager.Instance != null)
                 {
-                    AudioManager.Instance.PlaySound(specialTileSound);
+                    AudioManager.Instance.PlaySound(minigameTileSound);
                 }
+                // Delay for sound effect loading
+                yield return new WaitForSeconds(1f);
+
+                // For debug
+                //break;
+
                 // Save current state
                 PlayerState.LastPosition = transform.position;
                 PlayerState.CurrentPosition = currentPosition;
                 PlayerState.CurrentTileIndex = currentTileIndex;
                 PlayerState.ReturningFromMinigame = true;
 
+
+
                 // Determine which minigame to load based on position or random selection
                 string minigameScene = ChooseMinigame();
 
+                
                 // Load minigame scene
                 SceneManager.LoadScene(minigameScene);
                 break;
@@ -440,13 +433,30 @@ public class PlayerController : MonoBehaviour
     private string ChooseMinigame()
     {
         // Random selection among available minigames
-        string[] minigames = new string[] {
-        "QuestionScene",
-        "MemoryMinigame",
-        "ObjectFallingScene"
-        };
-
         int index = Random.Range(0, minigames.Length);
+
+        //if (minigames[index] == "QuestionScene")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(questionMinigameSound);
+        //    }
+        //}
+        //else if (minigames[index] == "MemoryMinigame")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(memoryMinigameSound);
+        //    }
+        //}
+        //else if (minigames[index] == "ObjectFallingScene")
+        //{
+        //    if (AudioManager.Instance != null)
+        //    {
+        //        AudioManager.Instance.PlaySound(fallingMinigameSound);
+        //    }
+        //}
+
         return minigames[index];
     }
     // For external scripts to force player movement

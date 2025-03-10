@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3746792427798246044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626849307075047394}
+  - component: {fileID: 199285317886201702}
+  m_Layer: 0
+  m_Name: LuckBoost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626849307075047394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746792427798246044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.94332, y: 38.25107, z: -0.4950894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199285317886201702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746792427798246044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a3eccd2d860f24cbd5f7704c8fefc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: "V\u1EADn may!"
+  effectDescription: "Hi\u1EC7u l\u1EF1c 3 l\u01B0\u1EE3t!"
+  effectWeight: 3
+  showNotification: 1
+  effectIcon: {fileID: 0}
+  effectColor: {r: 0, g: 1, b: 0.057418108, a: 1}
+  effectSound: {fileID: 0}
+  effectParticlesPrefab: {fileID: 0}
+  effectDuration: 1
+  statusType: 0
+  isPositive: 1
+  magnitude: 2
+  duration: 3
+  chance: 1

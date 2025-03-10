@@ -14,7 +14,15 @@ public class Tile : MonoBehaviour
         Normal,
         Checkpoint,
         Event,
-        Special
+        Minigame
+    }
+    private void Awake()
+    {
+        // Initialize the event if it's null
+        if (OnTileEntered == null)
+        {
+            OnTileEntered = new UnityEvent();
+        }
     }
 
     public void Init(bool isOffset)

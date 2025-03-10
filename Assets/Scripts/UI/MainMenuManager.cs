@@ -50,6 +50,10 @@ public class MainMenuManager : MonoBehaviour
             buttonSound.Play();
         }
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSound("menuTheme");
+        }
         // Start loading with fade transition
         StartCoroutine(LoadGameScene());
     }

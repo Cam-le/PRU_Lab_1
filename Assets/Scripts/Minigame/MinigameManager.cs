@@ -52,7 +52,7 @@ public class MinigameManager : MonoBehaviour
     {
         Debug.Log("Player won the minigame!");
         PlayerState.TileMovementAdjustment = winMoveForwardTiles;
-        PlayerState.Score += 50; // Optional score bonus
+        PlayerState.Score += winScoreBonus; // Optional score bonus
         ReturnToBoard();
     }
 
@@ -100,6 +100,12 @@ public class MinigameManager : MonoBehaviour
     public void ReturnToBoard()
     {
         PlayerState.ReturningFromMinigame = true;
+        // Stop current scene music
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopAllSounds();
+        }
+
         SceneManager.LoadScene("SampleScene"); // The main board scene name
     }
 }

@@ -15,6 +15,7 @@ public class DiceRoller : MonoBehaviour
     public int numberOfSides = 12;
     private int lastRoll;
     public TextMeshProUGUI resultText;
+    private bool isRolling = false;
 
     // Add event that will be triggered when dice is rolled
     public DiceRolledEvent OnDiceRolled = new DiceRolledEvent();
@@ -29,7 +30,23 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
-        lastRoll = Random.Range(1, numberOfSides + 1);
+        // Check if player is currently moving
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null && player.IsMoving)
+        {
+            Debug.Log("Cannot roll dice while player is moving!");
+            return;
+        }
+
+        // Prevent rolling while animation is playing
+        if (isRolling)
+        {
+            return;
+        }  
+        int baseRoll = Random.Range(1, numberOfSides + 1);
+        // Bonus effect
+        lastRoll = ApplyDiceEffects(baseRoll);
+
         Debug.Log("Result Roll Dice: " + lastRoll);
         AnimateDiceRoll();
     }
@@ -49,6 +66,8 @@ public class DiceRoller : MonoBehaviour
 
     private IEnumerator RollCoroutine()
     {
+        isRolling = true;
+
         resultText.text = "";
         Vector3 originalPosition = transform.position;
         float duration = 1f; // Tổng thời gian quay
@@ -83,6 +102,9 @@ public class DiceRoller : MonoBehaviour
         transform.rotation = originalRotation;
         UpdateResultText();
 
+        // Set rolling flag to false
+        isRolling = false;
+
         // Trigger the OnDiceRolled event with the roll result
         OnDiceRolled.Invoke(lastRoll);
     }
@@ -98,5 +120,20 @@ public class DiceRoller : MonoBehaviour
         {
             RollDice();
         }
+    }
+
+    private int ApplyDiceEffects(int originalRoll)
+    {
+        int modifiedRoll = originalRoll;
+
+        // Check for dice modification effects
+        if (PlayerState.HasBuff("DiceBoost"))
+        {
+            int boostAmount = PlayerState.GetStatusEffectValue("DiceBoost", 0);
+            modifiedRoll += boostAmount;
+            Debug.Log($"Applied dice boost: {originalRoll} → {modifiedRoll}");
+        }
+
+        return modifiedRoll;
     }
 }
