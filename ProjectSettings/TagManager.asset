@@ -6,6 +6,7 @@ TagManager:
   tags:
   - puzzleBtn
   - GameTile
+  - KeysText
   layers:
   - Default
   - TransparentFX

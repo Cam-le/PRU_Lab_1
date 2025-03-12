@@ -271,6 +271,7 @@ public class MemoryGameManager : MonoBehaviour
             finishedText.text = "Ngươi may mắn lần này thôi.";
             gameFinishedPopup.SetActive(true);
             print("It took you " + countGuesses + " guesses to finish the game");
+
         }
         else if (countGuesses >= maxGuesses)
         {
