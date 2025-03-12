@@ -294,6 +294,16 @@ public class PlayerController : MonoBehaviour
             PlayerState.CurrentPosition = currentPosition;
             PlayerState.LastPosition = transform.position;
 
+            // CHANGE 1: Check if this is a checkpoint tile we're passing through
+            CheckForCheckpoint(nextTile);
+
+            // CHANGE 2: Check if this is a minigame tile - if so, stop movement
+            if (nextTile.tileType == Tile.TileType.Minigame)
+            {
+                Debug.Log("Stopping on minigame tile during movement");
+                break; // Stop the movement loop immediately
+            }
+
             // Small pause between steps
             yield return new WaitForSeconds(0.2f);
         }
@@ -315,6 +325,37 @@ public class PlayerController : MonoBehaviour
         if (currentTile != null && currentTile.tileType != Tile.TileType.Normal)
         {
             yield return StartCoroutine(HandleSpecialTile(currentTile));
+        }
+    }
+
+    // CHANGE 1: New method to check for checkpoint tiles during movement
+    private void CheckForCheckpoint(Tile tile)
+    {
+        if (tile.tileType == Tile.TileType.Checkpoint)
+        {
+            Debug.Log("Passed through checkpoint");
+
+            // Play checkpoint sound
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound(checkpointSound);
+            }
+
+            // Save checkpoint for respawn
+            PlayerState.LastCheckpointIndex = currentTileIndex;
+
+            // Award checkpoint points (optional - can be removed if you don't want points for passing through)
+            if (gameManager != null)
+            {
+                gameManager.AddScore(checkpointPoints / 2); // Half points for passing through vs. landing on
+                Debug.Log($"Checkpoint pass-through bonus: +{checkpointPoints / 2} points!");
+            }
+            else
+            {
+                // Update PlayerState directly if GameManager not available
+                PlayerState.Score += checkpointPoints / 2;
+                Debug.Log($"Checkpoint pass-through bonus: +{checkpointPoints / 2} points! (PlayerState updated directly)");
+            }
         }
     }
 
@@ -423,33 +464,46 @@ public class PlayerController : MonoBehaviour
                 // Determine which minigame to load based on position or random selection
                 string minigameScene = ChooseMinigame();
 
-                
+
                 // Load minigame scene
                 SceneManager.LoadScene(minigameScene);
                 break;
         }
         yield return null;
     }
+    // CHANGE 3: Track the current minigame index to iterate through them in sequence
+    private static int currentMinigameIndex = 0;
+
     private string ChooseMinigame()
     {
-        // Random selection among available minigames
-        int index = Random.Range(0, minigames.Length);
+        // CHANGE 3: Sequential selection of minigames instead of random
+        if (currentMinigameIndex >= minigames.Length)
+        {
+            currentMinigameIndex = 0; // Loop back to first minigame
+        }
 
-        //if (minigames[index] == "QuestionScene")
+        string selectedMinigame = minigames[currentMinigameIndex];
+
+        // Increment for next time
+        currentMinigameIndex++;
+
+        Debug.Log($"Selected minigame: {selectedMinigame} (index {currentMinigameIndex - 1})");
+
+        //if (selectedMinigame == "QuestionScene")
         //{
         //    if (AudioManager.Instance != null)
         //    {
         //        AudioManager.Instance.PlaySound(questionMinigameSound);
         //    }
         //}
-        //else if (minigames[index] == "MemoryMinigame")
+        //else if (selectedMinigame == "MemoryMinigame")
         //{
         //    if (AudioManager.Instance != null)
         //    {
         //        AudioManager.Instance.PlaySound(memoryMinigameSound);
         //    }
         //}
-        //else if (minigames[index] == "ObjectFallingScene")
+        //else if (selectedMinigame == "ObjectFallingScene")
         //{
         //    if (AudioManager.Instance != null)
         //    {
@@ -457,7 +511,7 @@ public class PlayerController : MonoBehaviour
         //    }
         //}
 
-        return minigames[index];
+        return selectedMinigame;
     }
     // For external scripts to force player movement
     public void TeleportToTile(int tileIndex)
