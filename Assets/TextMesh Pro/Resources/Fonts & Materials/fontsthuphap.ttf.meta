@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 00acf2fe866c12747996d4a0dc55bbf1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - VNI-HLThuphap
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 84518d3b3f859744fa6f120b5109e66a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 1
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
