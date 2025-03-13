@@ -21,6 +21,8 @@ public class MemoryGameManager : MonoBehaviour
     private int gameGuesses;
     private int maxGuesses;
 
+    private int gridSize; // Số lượng ô chơi, sẽ được thiết lập theo độ khó
+
     private int firstGuessIndex, secondGuessIndex;
 
     private string firstGuessPuzzle, secondGuessPuzzle;
@@ -54,12 +56,14 @@ public class MemoryGameManager : MonoBehaviour
         attemptsText.enabled = false;
         gameFinishedPopup.SetActive(false);
 
-        GetButtons();
-        AddListeners();
-        AddGamePuzzles();
-        Shuffle(gamePuzzles);
+        //GetButtons();
+        //AddListeners();
+        //AddGamePuzzles();
+        //Shuffle(gamePuzzles);
 
-        gameGuesses = gamePuzzles.Count / 2;
+        //StartGame();
+
+        //gameGuesses = gamePuzzles.Count / 2;
 
         foreach (Button btn in btns)
         {
@@ -82,6 +86,14 @@ public class MemoryGameManager : MonoBehaviour
         }
     }
 
+    void StartGame()
+    {
+        GetButtons();  // Lấy lại danh sách button sau khi tạo
+        AddListeners();  // Gán sự kiện click cho các nút
+        AddGamePuzzles();  // Gán hình ảnh vào các ô
+        Shuffle(gamePuzzles);  // Xáo trộn ảnh
+    }
+
     public void ShowDifficultySelection()
     {
         Debug.Log("Hiển thị menu chọn độ khó");
@@ -99,13 +111,16 @@ public class MemoryGameManager : MonoBehaviour
         switch (difficulty)
         {
             case "Easy":
-                maxGuesses = 25;
+                maxGuesses = 20;
+                gridSize = 9; // 3x4
                 break;
             case "Normal":
                 maxGuesses = 20;
+                gridSize = 12; // 3x4
                 break;
             case "Hard":
-                maxGuesses = 15;
+                maxGuesses = 20;
+                gridSize = 16; // 4x4
                 break;
         }
 
@@ -113,10 +128,18 @@ public class MemoryGameManager : MonoBehaviour
         attemptsText.text = "Lượt còn lại: " + maxGuesses;
         difficultySelectionPopup.SetActive(false);
 
+        // Gửi giá trị gridSize đến AddButtons để tạo đúng số lượng ô chơi
+        FindObjectOfType<AddButtons>().GenerateButtons(gridSize);
+
+        StartGame();
+        gameGuesses = gamePuzzles.Count / 2;
+
+
         foreach (Button btn in btns)
         {
             btn.interactable = true;
         }
+
     }
 
     void GetButtons()
