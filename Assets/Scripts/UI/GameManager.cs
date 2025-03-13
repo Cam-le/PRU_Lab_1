@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private GameObject characterPanel;
     [SerializeField] private GameObject dicePanel;
+    [SerializeField] private TextMeshProUGUI keyCountText;
 
 
     [Header("Game References")]
@@ -185,6 +186,12 @@ public class GameManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Điểm số: " + playerScore;
+        }
+
+        // Update key count display
+        if (keyCountText != null)
+        {
+            keyCountText.text = "Chìa khóa: " + PlayerState.KeyCount;
         }
     }
 

@@ -116,13 +116,13 @@ public class KeyManager : MonoBehaviour
 
     public void SaveToPlayerState()
     {
-        PlayerState.KeyCount = _keys;
+        //PlayerState.KeyCount = _keys;
         Debug.Log($"Saved {_keys} keys to PlayerState");
     }
 
     public void LoadFromPlayerState()
     {
-        _keys = PlayerState.KeyCount;
+        //_keys = PlayerState.KeyCount;
         Debug.Log($"Loaded {_keys} keys from PlayerState");
         UpdateUI();
     }

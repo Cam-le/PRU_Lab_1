@@ -489,28 +489,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log($"Selected minigame: {selectedMinigame} (index {currentMinigameIndex - 1})");
 
-        //if (selectedMinigame == "QuestionScene")
-        //{
-        //    if (AudioManager.Instance != null)
-        //    {
-        //        AudioManager.Instance.PlaySound(questionMinigameSound);
-        //    }
-        //}
-        //else if (selectedMinigame == "MemoryMinigame")
-        //{
-        //    if (AudioManager.Instance != null)
-        //    {
-        //        AudioManager.Instance.PlaySound(memoryMinigameSound);
-        //    }
-        //}
-        //else if (selectedMinigame == "ObjectFallingScene")
-        //{
-        //    if (AudioManager.Instance != null)
-        //    {
-        //        AudioManager.Instance.PlaySound(fallingMinigameSound);
-        //    }
-        //}
-
+        
         return selectedMinigame;
     }
     // For external scripts to force player movement

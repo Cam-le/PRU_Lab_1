@@ -14,6 +14,7 @@ public static class PlayerState
     // Player stats
     public static int MovesRemaining;
     public static int Score;
+    public static int KeyCount = 0;
 
     // Active buffs/debuffs
     public static Dictionary<string, float> BuffDurations = new Dictionary<string, float>();

@@ -52,7 +52,12 @@ public class MinigameManager : MonoBehaviour
     {
         Debug.Log("Player won the minigame!");
         PlayerState.TileMovementAdjustment = winMoveForwardTiles;
-        PlayerState.Score += winScoreBonus; // Optional score bonus
+        PlayerState.Score += winScoreBonus;
+
+        // Add a key when winning a minigame
+        PlayerState.KeyCount++;
+        Debug.Log($"Key obtained! Total keys: {PlayerState.KeyCount}");
+
         ReturnToBoard();
     }
 
