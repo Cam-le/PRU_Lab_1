@@ -5,29 +5,39 @@ using TMPro;
 using UnityEngine.UI;
 
 /// <summary>
-/// Manages tile effects and notifications
+/// Completely redesigned TileEffectManager focused on quiz-based effects
 /// </summary>
 public class TileEffectManager : MonoBehaviour
 {
+    [Header("Quiz Effect System")]
+    [SerializeField] private QuizEffect quizEffectPrefab;
+    [SerializeField] private float quizDelayTime = 0.5f;
+
     [Header("Effect Distribution")]
-    [SerializeField] private List<TileEffect> availableEffects = new List<TileEffect>();
-    [SerializeField] private bool distributeEffectsOnStart = true;
-    [SerializeField] private float randomEffectChance = 0.3f;
+    [SerializeField] private float effectChance = 0.3f;
     [SerializeField] private int minEffectsOnPath = 10;
 
-    [Header("Effect Categories")]
-    [SerializeField] private List<TileEffect> positiveEffects = new List<TileEffect>();
-    [SerializeField] private List<TileEffect> negativeEffects = new List<TileEffect>();
-    [SerializeField] private List<TileEffect> neutralEffects = new List<TileEffect>();
-    [SerializeField] private List<TileEffect> specialEffects = new List<TileEffect>();
-    [SerializeField] private List<TileEffect> storyEffects = new List<TileEffect>();
-
     [Header("Effect Balance")]
-    [SerializeField] private float positiveEffectRatio = 0.5f;
-    [SerializeField] private float negativeEffectRatio = 0.3f;
-    [SerializeField] private float neutralEffectRatio = 0.1f;
-    [SerializeField] private float specialEffectRatio = 0.05f;
-    [SerializeField] private float storyEffectRatio = 0.05f;
+    [SerializeField] private float positiveEffectChance = 0.6f;
+    [SerializeField] private float negativeEffectChance = 0.4f;
+
+    [Header("Points Effects")]
+    [SerializeField] private int positivePointsMin = 200;
+    [SerializeField] private int positivePointsMax = 500;
+    [SerializeField] private int negativePointsMin = -300;
+    [SerializeField] private int negativePointsMax = -100;
+
+    [Header("Movement Effects")]
+    [SerializeField] private int forwardTilesMin = 1;
+    [SerializeField] private int forwardTilesMax = 3;
+    [SerializeField] private int backwardTilesMin = -2;
+    [SerializeField] private int backwardTilesMax = -1;
+
+    [Header("Moves/Turns Effects")]
+    [SerializeField] private int extraMovesMin = 1;
+    [SerializeField] private int extraMovesMax = 2;
+    [SerializeField] private int loseMovesMin = -1;
+    [SerializeField] private int loseMovesMax = -1;
 
     [Header("Notification UI")]
     [SerializeField] private GameObject notificationPrefab;
@@ -37,12 +47,20 @@ public class TileEffectManager : MonoBehaviour
     [SerializeField] private float fadeInTime = 0.5f;
     [SerializeField] private float fadeOutTime = 0.5f;
 
-    private GridManager gridManager;
+    // Track all tile effects
     private Dictionary<Tile, TileEffect> tileEffects = new Dictionary<Tile, TileEffect>();
+
+    // Reference to GridManager
+    private GridManager gridManager;
 
     private void Awake()
     {
+        // Find GridManager
         gridManager = FindObjectOfType<GridManager>();
+        if (gridManager == null)
+        {
+            Debug.LogError("TileEffectManager: GridManager not found in scene!");
+        }
 
         // Subscribe to effect triggered event
         TileEffect.OnEffectTriggered += HandleEffectTriggered;
@@ -50,20 +68,24 @@ public class TileEffectManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Unsubscribe from effect triggered event
+        // Unsubscribe from event
         TileEffect.OnEffectTriggered -= HandleEffectTriggered;
     }
 
     private void Start()
     {
-        if (distributeEffectsOnStart && gridManager != null)
-        {
-            DistributeEffects();
-        }
+        // Wait a moment before distributing effects
+        StartCoroutine(DelayedDistribution());
+    }
+
+    private IEnumerator DelayedDistribution()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DistributeEffects();
     }
 
     /// <summary>
-    /// Distributes effects across the game tiles
+    /// Distributes quiz effects across the game tiles
     /// </summary>
     public void DistributeEffects()
     {
@@ -73,16 +95,16 @@ public class TileEffectManager : MonoBehaviour
             return;
         }
 
-        // Clear existing effects
-        tileEffects.Clear();
+        // Clear any existing effects
+        ClearAllEffects();
 
         // Calculate how many tiles should have effects
         int pathLength = gridManager.PathLength;
-        int effectCount = Mathf.FloorToInt(pathLength * randomEffectChance);
+        int effectCount = Mathf.FloorToInt(pathLength * effectChance);
         effectCount = Mathf.Max(effectCount, minEffectsOnPath);
         effectCount = Mathf.Min(effectCount, pathLength - 2); // Don't use all tiles, and leave start/end free
 
-        Debug.Log($"Distributing {effectCount} effects across {pathLength} tiles");
+        Debug.Log($"Distributing {effectCount} quiz effects across {pathLength} tiles");
 
         // Create list of valid tiles (exclude start, end & only Normal tile)
         List<int> validTileIndices = new List<int>();
@@ -98,30 +120,6 @@ public class TileEffectManager : MonoBehaviour
         // Shuffle indices for random distribution
         ShuffleList(validTileIndices);
 
-        // Calculate effect distribution based on ratios
-        int positiveCount = Mathf.RoundToInt(effectCount * positiveEffectRatio);
-        int negativeCount = Mathf.RoundToInt(effectCount * negativeEffectRatio);
-        int neutralCount = Mathf.RoundToInt(effectCount * neutralEffectRatio);
-        int specialCount = Mathf.RoundToInt(effectCount * specialEffectRatio);
-        int storyCount = Mathf.RoundToInt(effectCount * storyEffectRatio);
-
-        // Ensure we have at least one of each if possible and adjust to match total count
-        int totalAssigned = positiveCount + negativeCount + neutralCount + specialCount + storyCount;
-        int difference = effectCount - totalAssigned;
-
-        // Adjust counts if needed
-        if (difference != 0)
-        {
-            positiveCount += difference;
-        }
-
-        // Track how many we've assigned for each category
-        int assignedPositive = 0;
-        int assignedNegative = 0;
-        int assignedNeutral = 0;
-        int assignedSpecial = 0;
-        int assignedStory = 0;
-
         // Assign effects to tiles
         for (int i = 0; i < validTileIndices.Count && i < effectCount; i++)
         {
@@ -129,119 +127,50 @@ public class TileEffectManager : MonoBehaviour
             Tile tile = gridManager.GetTileAtIndex(tileIndex);
             if (tile == null) continue;
 
-            TileEffect effect = null;
-
-            // Determine which category to use based on counts
-            if (assignedPositive < positiveCount && positiveEffects.Count > 0)
-            {
-                effect = GetRandomEffect(positiveEffects);
-                assignedPositive++;
-            }
-            else if (assignedNegative < negativeCount && negativeEffects.Count > 0)
-            {
-                effect = GetRandomEffect(negativeEffects);
-                assignedNegative++;
-            }
-            else if (assignedNeutral < neutralCount && neutralEffects.Count > 0)
-            {
-                effect = GetRandomEffect(neutralEffects);
-                assignedNeutral++;
-            }
-            else if (assignedSpecial < specialCount && specialEffects.Count > 0)
-            {
-                effect = GetRandomEffect(specialEffects);
-                assignedSpecial++;
-            }
-            else if (assignedStory < storyCount && storyEffects.Count > 0)
-            {
-                effect = GetRandomEffect(storyEffects);
-                assignedStory++;
-            }
-            else if (availableEffects.Count > 0)
-            {
-                // Fallback to any available effect
-                effect = GetRandomEffect(availableEffects);
-            }
-
-            // Assign effect to tile
-            if (effect != null)
-            {
-                AssignEffectToTile(tile, effect);
-            }
+            // Create a new quiz effect
+            CreateQuizEffectForTile(tile);
         }
 
-        Debug.Log($"Distributed effects - Positive: {assignedPositive}, Negative: {assignedNegative}, " +
-                  $"Neutral: {assignedNeutral}, Special: {assignedSpecial}, Story: {assignedStory}");
+        Debug.Log($"Distributed {effectCount} quiz effects");
     }
 
     /// <summary>
-    /// Assigns an effect to a specific tile
+    /// Creates a quiz effect for a specific tile with randomized effect settings
     /// </summary>
-    public void AssignEffectToTile(Tile tile, TileEffect effectPrefab)
+    private void CreateQuizEffectForTile(Tile tile)
     {
-        if (tile == null || effectPrefab == null) return;
+        if (tile == null || quizEffectPrefab == null) return;
 
-        // Remove existing effect if any
-        if (tileEffects.ContainsKey(tile))
-        {
-            TileEffect existingEffect = tileEffects[tile];
-            if (existingEffect != null)
-            {
-                Destroy(existingEffect);
-            }
-            tileEffects.Remove(tile);
-        }
+        // Create a new instance of the QuizEffect
+        QuizEffect effect = Instantiate(quizEffectPrefab, tile.transform);
 
-        // Create a new instance of the effect
-        TileEffect effect = Instantiate(effectPrefab, tile.transform);
+        // Customize the effect - we'll need to use reflection or public setters 
+        // if QuizEffect doesn't expose its properties
+
+        // For now, we'll rely on the inspector configuration of the quiz effect prefab
+        // In a full implementation, you could customize each instance here
+
+        // Store the effect
         tileEffects[tile] = effect;
-
-        // Update the tile to use the effect color
-        //tile.SetColor(effect.EffectColor);
 
         // Add listener to trigger the effect when the player lands on this tile
         tile.OnTileEntered.AddListener(() => {
-            PlayerController player = FindObjectOfType<PlayerController>();
-            if (player != null && !player.IsMoving)
-            {
-                effect.ApplyEffect(player);
-            }
+            StartCoroutine(TriggerEffectWithDelay(tile, effect));
         });
     }
 
     /// <summary>
-    /// Get a random effect from the provided list, weighted by effect weight
+    /// Triggers the effect with a small delay to ensure proper game state
     /// </summary>
-    private TileEffect GetRandomEffect(List<TileEffect> effectList)
+    private IEnumerator TriggerEffectWithDelay(Tile tile, TileEffect effect)
     {
-        if (effectList.Count == 0) return null;
+        yield return new WaitForSeconds(quizDelayTime);
 
-        int totalWeight = 0;
-        foreach (TileEffect effect in effectList)
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null && !player.IsMoving)
         {
-            if (effect != null)
-            {
-                totalWeight += effect.EffectWeight;
-            }
+            effect.ApplyEffect(player);
         }
-
-        int randomWeight = Random.Range(0, totalWeight);
-        int currentWeight = 0;
-
-        foreach (TileEffect effect in effectList)
-        {
-            if (effect != null)
-            {
-                currentWeight += effect.EffectWeight;
-                if (randomWeight < currentWeight)
-                {
-                    return effect;
-                }
-            }
-        }
-
-        // Fallback to first effect if something goes wrong
-        return effectList[0];
     }
 
     /// <summary>
@@ -351,12 +280,8 @@ public class TileEffectManager : MonoBehaviour
 
         canvasGroup.alpha = 0;
 
-        // Ensure object still exists before destroying
-        if (notification != null)
-        {
-            canvasGroup.alpha = 0;
-            Destroy(notification);
-        }
+        // Destroy after animation
+        Destroy(notification);
     }
 
     /// <summary>
@@ -392,10 +317,55 @@ public class TileEffectManager : MonoBehaviour
         {
             if (effect != null)
             {
-                Destroy(effect);
+                Destroy(effect.gameObject);
             }
         }
 
         tileEffects.Clear();
+    }
+
+    /// <summary>
+    /// Generate a random positive or negative effect value
+    /// </summary>
+    private int GetRandomEffectValue(bool positive)
+    {
+        if (positive)
+        {
+            float type = Random.value;
+            if (type < 0.33f)
+            {
+                // Points
+                return Random.Range(positivePointsMin, positivePointsMax + 1);
+            }
+            else if (type < 0.66f)
+            {
+                // Forward movement
+                return Random.Range(forwardTilesMin, forwardTilesMax + 1);
+            }
+            else
+            {
+                // Extra moves/turns
+                return Random.Range(extraMovesMin, extraMovesMax + 1);
+            }
+        }
+        else
+        {
+            float type = Random.value;
+            if (type < 0.33f)
+            {
+                // Points penalty
+                return Random.Range(negativePointsMin, negativePointsMax + 1);
+            }
+            else if (type < 0.66f)
+            {
+                // Backward movement
+                return Random.Range(backwardTilesMin, backwardTilesMax + 1);
+            }
+            else
+            {
+                // Lose moves/turns
+                return Random.Range(loseMovesMin, loseMovesMax + 1);
+            }
+        }
     }
 }
