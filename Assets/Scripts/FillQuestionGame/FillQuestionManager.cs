@@ -14,7 +14,8 @@ public class FillQuestionManager : MonoBehaviour
     public TMP_Text questionText; 
     public TMP_InputField answerInputField; 
     public TMP_Text resultText; 
-    public Question[] questions; 
+    public Question[] questions;
+    public GameObject fillQuestionImage;
 
     public GameObject successScreen; 
     public GameObject failedScreen; 
@@ -76,6 +77,7 @@ public class FillQuestionManager : MonoBehaviour
         else
         {
             // Hiển thị màn hình thành công nếu có đủ câu hỏi được trả lời
+            HideCurrentScreen();
             successScreen.SetActive(true);
             questionText.gameObject.SetActive(false);
             answerInputField.gameObject.SetActive(false);
@@ -110,5 +112,13 @@ public class FillQuestionManager : MonoBehaviour
                 DisplayQuestion();
             }
         }
+    }
+
+    private void HideCurrentScreen()
+    {
+        questionText.gameObject.SetActive(false);
+        answerInputField.gameObject.SetActive(false);
+        resultText.gameObject.SetActive(false);
+        fillQuestionImage.SetActive(false);
     }
 }
