@@ -5,39 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 
 /// <summary>
-/// Completely redesigned TileEffectManager focused on quiz-based effects
+/// Simplified TileEffectManager that works with the existing GridManager
+/// and just adds quiz effects to event tiles.
 /// </summary>
 public class TileEffectManager : MonoBehaviour
 {
-    [Header("Quiz Effect System")]
+    [Header("Quiz Effect")]
     [SerializeField] private QuizEffect quizEffectPrefab;
-    [SerializeField] private float quizDelayTime = 0.5f;
-
-    [Header("Effect Distribution")]
-    [SerializeField] private float effectChance = 0.3f;
-    [SerializeField] private int minEffectsOnPath = 10;
-
-    [Header("Effect Balance")]
-    [SerializeField] private float positiveEffectChance = 0.6f;
-    [SerializeField] private float negativeEffectChance = 0.4f;
-
-    [Header("Points Effects")]
-    [SerializeField] private int positivePointsMin = 200;
-    [SerializeField] private int positivePointsMax = 500;
-    [SerializeField] private int negativePointsMin = -300;
-    [SerializeField] private int negativePointsMax = -100;
-
-    [Header("Movement Effects")]
-    [SerializeField] private int forwardTilesMin = 1;
-    [SerializeField] private int forwardTilesMax = 3;
-    [SerializeField] private int backwardTilesMin = -2;
-    [SerializeField] private int backwardTilesMax = -1;
-
-    [Header("Moves/Turns Effects")]
-    [SerializeField] private int extraMovesMin = 1;
-    [SerializeField] private int extraMovesMax = 2;
-    [SerializeField] private int loseMovesMin = -1;
-    [SerializeField] private int loseMovesMax = -1;
 
     [Header("Notification UI")]
     [SerializeField] private GameObject notificationPrefab;
@@ -74,103 +48,70 @@ public class TileEffectManager : MonoBehaviour
 
     private void Start()
     {
-        // Wait a moment before distributing effects
-        StartCoroutine(DelayedDistribution());
+        // Wait a moment before setting up effects to ensure GridManager has created tiles
+        StartCoroutine(DelayedSetup());
     }
 
-    private IEnumerator DelayedDistribution()
+    private IEnumerator DelayedSetup()
     {
         yield return new WaitForSeconds(0.5f);
-        DistributeEffects();
+        SetupQuizEffects();
     }
 
     /// <summary>
-    /// Distributes quiz effects across the game tiles
+    /// Sets up quiz effects on all event tiles created by the GridManager
     /// </summary>
-    public void DistributeEffects()
+    public void SetupQuizEffects()
     {
         if (gridManager == null)
         {
-            Debug.LogError("Cannot distribute effects: GridManager not found");
+            Debug.LogError("Cannot setup effects: GridManager not found");
             return;
         }
 
         // Clear any existing effects
         ClearAllEffects();
 
-        // Calculate how many tiles should have effects
         int pathLength = gridManager.PathLength;
-        int effectCount = Mathf.FloorToInt(pathLength * effectChance);
-        effectCount = Mathf.Max(effectCount, minEffectsOnPath);
-        effectCount = Mathf.Min(effectCount, pathLength - 2); // Don't use all tiles, and leave start/end free
+        int effectsAdded = 0;
 
-        Debug.Log($"Distributing {effectCount} quiz effects across {pathLength} tiles");
-
-        // Create list of valid tiles (exclude start, end & only Normal tile)
-        List<int> validTileIndices = new List<int>();
-        for (int i = 1; i < pathLength - 1; i++)
+        // Go through all tiles and add quiz effects to event tiles
+        for (int i = 0; i < pathLength; i++)
         {
             Tile tile = gridManager.GetTileAtIndex(i);
             if (tile != null && tile.tileType == Tile.TileType.Event)
             {
-                validTileIndices.Add(i);
+                // Add a quiz effect to this event tile
+                AddQuizEffectToTile(tile);
+                effectsAdded++;
             }
         }
 
-        // Shuffle indices for random distribution
-        ShuffleList(validTileIndices);
-
-        // Assign effects to tiles
-        for (int i = 0; i < validTileIndices.Count && i < effectCount; i++)
-        {
-            int tileIndex = validTileIndices[i];
-            Tile tile = gridManager.GetTileAtIndex(tileIndex);
-            if (tile == null) continue;
-
-            // Create a new quiz effect
-            CreateQuizEffectForTile(tile);
-        }
-
-        Debug.Log($"Distributed {effectCount} quiz effects");
+        Debug.Log($"Added quiz effects to {effectsAdded} event tiles");
     }
 
     /// <summary>
-    /// Creates a quiz effect for a specific tile with randomized effect settings
+    /// Adds a quiz effect to a specific tile
     /// </summary>
-    private void CreateQuizEffectForTile(Tile tile)
+    private void AddQuizEffectToTile(Tile tile)
     {
         if (tile == null || quizEffectPrefab == null) return;
 
         // Create a new instance of the QuizEffect
         QuizEffect effect = Instantiate(quizEffectPrefab, tile.transform);
 
-        // Customize the effect - we'll need to use reflection or public setters 
-        // if QuizEffect doesn't expose its properties
-
-        // For now, we'll rely on the inspector configuration of the quiz effect prefab
-        // In a full implementation, you could customize each instance here
-
         // Store the effect
         tileEffects[tile] = effect;
 
-        // Add listener to trigger the effect when the player lands on this tile
+        // Add listener to trigger the effect directly when the player lands on this tile
         tile.OnTileEntered.AddListener(() => {
-            StartCoroutine(TriggerEffectWithDelay(tile, effect));
+            // Safety check - make sure both effect and player exist
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null && !player.IsMoving && effect != null)
+            {
+                effect.ApplyEffect(player);
+            }
         });
-    }
-
-    /// <summary>
-    /// Triggers the effect with a small delay to ensure proper game state
-    /// </summary>
-    private IEnumerator TriggerEffectWithDelay(Tile tile, TileEffect effect)
-    {
-        yield return new WaitForSeconds(quizDelayTime);
-
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if (player != null && !player.IsMoving)
-        {
-            effect.ApplyEffect(player);
-        }
     }
 
     /// <summary>
@@ -285,22 +226,6 @@ public class TileEffectManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Utility method to shuffle a list
-    /// </summary>
-    private void ShuffleList<T>(List<T> list)
-    {
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
-    }
-
-    /// <summary>
     /// Get all assigned effects for debugging
     /// </summary>
     public Dictionary<Tile, TileEffect> GetAllTileEffects()
@@ -325,47 +250,12 @@ public class TileEffectManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Generate a random positive or negative effect value
+    /// Manually refresh all effects (useful for debugging or after changing tile types)
     /// </summary>
-    private int GetRandomEffectValue(bool positive)
+    [ContextMenu("Refresh Quiz Effects")]
+    public void RefreshEffects()
     {
-        if (positive)
-        {
-            float type = Random.value;
-            if (type < 0.33f)
-            {
-                // Points
-                return Random.Range(positivePointsMin, positivePointsMax + 1);
-            }
-            else if (type < 0.66f)
-            {
-                // Forward movement
-                return Random.Range(forwardTilesMin, forwardTilesMax + 1);
-            }
-            else
-            {
-                // Extra moves/turns
-                return Random.Range(extraMovesMin, extraMovesMax + 1);
-            }
-        }
-        else
-        {
-            float type = Random.value;
-            if (type < 0.33f)
-            {
-                // Points penalty
-                return Random.Range(negativePointsMin, negativePointsMax + 1);
-            }
-            else if (type < 0.66f)
-            {
-                // Backward movement
-                return Random.Range(backwardTilesMin, backwardTilesMax + 1);
-            }
-            else
-            {
-                // Lose moves/turns
-                return Random.Range(loseMovesMin, loseMovesMax + 1);
-            }
-        }
+        ClearAllEffects();
+        SetupQuizEffects();
     }
 }

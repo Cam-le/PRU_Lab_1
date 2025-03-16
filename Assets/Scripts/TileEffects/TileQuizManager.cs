@@ -15,11 +15,12 @@ public class TileQuizManager : MonoBehaviour
     }
 
     [Header("UI References")]
-    [SerializeField] private GameObject quizPanel;
-    [SerializeField] private TextMeshProUGUI questionText;
-    [SerializeField] private Button[] answerButtons;
-    [SerializeField] private GameObject resultPanel;
-    [SerializeField] private TextMeshProUGUI resultText;
+    // Changed from private to public to fix CS0122 errors
+    public GameObject quizPanel;
+    public TextMeshProUGUI questionText;
+    public Button[] answerButtons;
+    public GameObject resultPanel;
+    public TextMeshProUGUI resultText;
 
     [Header("Question Database")]
     [SerializeField]

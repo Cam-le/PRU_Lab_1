@@ -55,7 +55,7 @@ public class GameInitializer : MonoBehaviour
         if (effectManager != null)
         {
             Debug.Log("Distributing effects across the board...");
-            effectManager.DistributeEffects();
+            effectManager.SetupQuizEffects();
         }
 
         // Signal game manager that initialization is complete

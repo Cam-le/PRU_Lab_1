@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4657769223771764078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4547625948506298398}
+  - component: {fileID: 7866845971135560884}
+  m_Layer: 0
+  m_Name: QuizEffectPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4547625948506298398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657769223771764078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7866845971135560884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657769223771764078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcb995564be92b40b5a1676d3dacdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: Unnamed Effect
+  effectDescription: No description
+  showNotification: 1
+  effectIcon: {fileID: 0}
+  effectColor: {r: 1, g: 1, b: 1, a: 1}
+  effectSound: {fileID: 8300000, guid: 25a89fad87b266148858e0762e1284cd, type: 3}
+  effectParticlesPrefab: {fileID: 0}
+  effectDuration: 1
+  positiveEffectType: 0
+  positiveEffectValue: 300
+  negativeEffectType: 0
+  negativeEffectValue: -150
+  correctAnswerMessage: "Tr\u1EA3 l\u1EDDi \u0111\xFAng! B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c
+    ph\u1EA7n th\u01B0\u1EDFng."
+  wrongAnswerMessage: "Tr\u1EA3 l\u1EDDi sai! B\u1EA1n b\u1ECB ph\u1EA1t."

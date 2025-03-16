@@ -16,6 +16,7 @@ public class QuizEffect : TileEffect
 
     private bool quizCompleted = false;
     private bool quizResult = false;
+    private bool isShowingQuiz = false;
 
     public override bool ApplyEffect(PlayerController player)
     {
@@ -30,11 +31,12 @@ public class QuizEffect : TileEffect
             TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
             if (effectManager != null && ShowNotification)
             {
-                effectManager.ShowNotification("Câu Đố", "Trả lời câu hỏi để nhận phần thưởng hoặc hình phạt!", EffectIcon, EffectColor);
+                effectManager.ShowNotification("Câu Đố", "Thử thách trí tuệ!", EffectIcon, Color.blue);
             }
 
-            // Short delay before showing quiz
-            Invoke("ShowQuizWithDelay", 1.0f);
+            // Use direct method call instead of Invoke to prevent reference issues
+            isShowingQuiz = true;
+            ShowQuizDirectly(player);
 
             return true;
         }
@@ -45,48 +47,50 @@ public class QuizEffect : TileEffect
         }
     }
 
-    private void ShowQuizWithDelay()
+    private void ShowQuizDirectly(PlayerController player)
     {
-        if (quizManager != null)
+        if (!isShowingQuiz || quizManager == null) return;
+
+        // Show the quiz and handle the result
+        quizManager.ShowQuiz((isCorrect, effectType, value) =>
         {
-            PlayerController player = FindObjectOfType<PlayerController>();
+            quizCompleted = true;
+            quizResult = isCorrect;
+            isShowingQuiz = false;
+
+            // Only proceed if we still have a valid player reference
             if (player == null) return;
 
-            // Show the quiz and handle the result
-            quizManager.ShowQuiz((isCorrect, effectType, value) =>
+            // Apply appropriate effect based on result
+            if (isCorrect)
             {
-                quizCompleted = true;
-                quizResult = isCorrect;
+                ApplyEffectBasedOnQuizResult(player, true, positiveEffectType, positiveEffectValue);
 
-                // Apply appropriate effect based on result
-                if (isCorrect)
+                // Show success notification
+                TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
+                if (effectManager != null && ShowNotification)
                 {
-                    ApplyEffectBasedOnQuizResult(player, true, positiveEffectType, positiveEffectValue);
-
-                    // Show success notification
-                    TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
-                    if (effectManager != null && ShowNotification)
-                    {
-                        effectManager.ShowNotification("Chính Xác!", correctAnswerMessage, EffectIcon, Color.green);
-                    }
+                    effectManager.ShowNotification("Chính Xác!", correctAnswerMessage, EffectIcon, Color.green);
                 }
-                else
+            }
+            else
+            {
+                ApplyEffectBasedOnQuizResult(player, false, negativeEffectType, negativeEffectValue);
+
+                // Show failure notification
+                TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
+                if (effectManager != null && ShowNotification)
                 {
-                    ApplyEffectBasedOnQuizResult(player, false, negativeEffectType, negativeEffectValue);
-
-                    // Show failure notification
-                    TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
-                    if (effectManager != null && ShowNotification)
-                    {
-                        effectManager.ShowNotification("Sai Rồi!", wrongAnswerMessage, EffectIcon, Color.red);
-                    }
+                    effectManager.ShowNotification("Sai Rồi!", wrongAnswerMessage, EffectIcon, Color.red);
                 }
+            }
 
-                // Trigger the effect event - using base.ApplyEffect() instead of directly accessing the event
-                // This fixes the CS0070 error
+            // Trigger the effect event - using base.ApplyEffect() instead of directly accessing the event
+            if (player != null)
+            {
                 base.ApplyEffect(player);
-            });
-        }
+            }
+        });
     }
 
     public override string GetEffectSummary()
