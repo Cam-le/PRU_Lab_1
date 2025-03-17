@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Question
@@ -26,9 +27,22 @@ public class FillQuestionManager : MonoBehaviour
 
     private int currentQuestionIndex = 0; // Chỉ số câu hỏi hiện tại
     private int incorrectAnswerCount = 0; // Số câu hỏi trả lời sai
+    // 
+    [Header("Final Challenge Settings")]
+    [SerializeField] private int baseMaxIncorrectAnswers = 1; // Default value
+    [SerializeField] private int requiredKeys = 4; // Target number of keys
+
+    private bool isFinalChallenge = false;
 
     void Start()
     {
+        // Check if this is the final challenge
+        isFinalChallenge = PlayerState.IsFinalChallenge;
+        // If this is the final challenge, adjust difficulty based on keys
+        if (isFinalChallenge)
+        {
+            AdjustDifficultyBasedOnKeys();
+        }
         InitializeQuestions(); // Gọi hàm để khởi tạo câu hỏi
         SelectRandomQuestions();
         DisplayQuestion();
@@ -120,5 +134,138 @@ public class FillQuestionManager : MonoBehaviour
         answerInputField.gameObject.SetActive(false);
         resultText.gameObject.SetActive(false);
         fillQuestionImage.SetActive(false);
+    }
+
+    /// <summary>
+    /// Called when the Win button is clicked
+    /// </summary>
+    public void OnWinButtonClick()
+    {
+        // Play victory sound if available
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("victorySound");
+        }
+
+        // If this is the final challenge, handle it specially
+        if (isFinalChallenge)
+        {
+            // Set the game result to victory
+            PlayerState.GameWon = true;
+            PlayerState.ShowEndGame = true;
+
+            // Award bonus points (optional)
+            PlayerState.Score += 5000;
+
+            // Return to main game after delay
+            Invoke("ReturnToMainGame", 3.0f);
+        }
+        else
+        {
+            // Handle regular minigame completion 
+            // (Your existing code for handling win)
+
+            // If you have a MinigameManager, you might want to call:
+            // MinigameManager minigameManager = FindObjectOfType<MinigameManager>();
+            // if (minigameManager != null)
+            // {
+            //     minigameManager.WinGame();
+            // }
+
+            // Otherwise, just return to the main scene
+            Invoke("ReturnToMainGame", 2.0f);
+        }
+    }
+
+    /// <summary>
+    /// Called when the Lose button is clicked
+    /// </summary>
+    public void OnLoseButtonClick()
+    {
+        // Play defeat sound if available
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("defeatSound");
+        }
+
+        // If this is the final challenge, handle it specially
+        if (isFinalChallenge)
+        {
+            // Set the game result to defeat
+            PlayerState.GameWon = false;
+            PlayerState.ShowEndGame = true;
+
+            // Return to main game after delay
+            Invoke("ReturnToMainGame", 3.0f);
+        }
+        else
+        {
+            // Handle regular minigame failure
+            // (Your existing code for handling loss)
+
+            // If you have a MinigameManager, you might want to call:
+            // MinigameManager minigameManager = FindObjectOfType<MinigameManager>();
+            // if (minigameManager != null)
+            // {
+            //     minigameManager.LoseGame();
+            // }
+
+            // Otherwise, just return to the main scene
+            Invoke("ReturnToMainGame", 2.0f);
+        }
+    }
+
+    /// <summary>
+    /// Returns to the main game scene
+    /// </summary>
+    private void ReturnToMainGame()
+    {
+        // Reset the final challenge flag if needed
+        PlayerState.IsFinalChallenge = false;
+
+        // Set the returning flag to tell the game we're coming back from a minigame
+        PlayerState.ReturningFromMinigame = true;
+
+        // Load the main scene
+        SceneManager.LoadScene("SampleScene"); // Replace with your main scene name if different
+    }
+    /// <summary>
+    /// Adjusts the question difficulty based on how many keys the player has collected
+    /// </summary>
+    private void AdjustDifficultyBasedOnKeys()
+    {
+        // Get the current key count
+        int keyCount = PlayerState.KeyCount;
+
+        // Log for debugging
+        Debug.Log($"Final Challenge: Player has {keyCount}/{requiredKeys} keys");
+
+        // Adjust maxAllowedIncorrectAnswers based on keys
+        // More keys = more mistakes allowed
+        if (keyCount >= requiredKeys)
+        {
+            // Player has all the keys - make it very easy
+            maxAllowedIncorrectAnswers = baseMaxIncorrectAnswers + 2;
+            Debug.Log($"Max incorrect answers set to {maxAllowedIncorrectAnswers} (Easy difficulty)");
+        }
+        else if (keyCount == requiredKeys - 1)
+        {
+            // Missing just one key - slightly harder
+            maxAllowedIncorrectAnswers = baseMaxIncorrectAnswers + 1;
+            Debug.Log($"Max incorrect answers set to {maxAllowedIncorrectAnswers} (Medium difficulty)");
+        }
+        else if (keyCount == requiredKeys - 2)
+        {
+            // Missing two keys - normal difficulty
+            maxAllowedIncorrectAnswers = baseMaxIncorrectAnswers;
+            Debug.Log($"Max incorrect answers set to {maxAllowedIncorrectAnswers} (Normal difficulty)");
+        }
+        else
+        {
+            // Few or no keys - make it challenging
+            maxAllowedIncorrectAnswers = 0;
+            Debug.Log($"Max incorrect answers set to {maxAllowedIncorrectAnswers} (Hard difficulty)");
+        }
+
     }
 }

@@ -266,12 +266,15 @@ public class PlayerController : MonoBehaviour
             // Check if we've reached the end of the path
             if (nextTileIndex >= gridManager.PathLength)
             {
-                // Either loop back or stop at the end
-                // For this implementation, we'll stop at the end
-                Debug.Log("Reached the end of the path!");
-                Debug.Log(PlayerState.CurrentTileIndex);
-                break;
+                // Finish the movement first
+                yield return new WaitForSeconds(0.2f);
+
+                // Then start the final challenge
+                isMoving = false;
+                StartCoroutine(HandleFinalTile());
+                yield break; // Skip the rest of the method
             }
+
 
             Tile nextTile = gridManager.GetTileAtIndex(nextTileIndex);
             if (nextTile == null)
@@ -541,4 +544,31 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log($"Teleported to tile {tileIndex} at position {targetPos}");
     }
+
+    private IEnumerator HandleFinalTile()
+    {
+        Debug.Log("Player reached the final tile!");
+
+        // Play a special sound effect
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound("finalTileSound");
+        }
+
+        // Wait a moment for dramatic effect
+        yield return new WaitForSeconds(1.5f);
+
+        // Save current state before leaving
+        PlayerState.LastPosition = transform.position;
+        PlayerState.CurrentPosition = currentPosition;
+        PlayerState.CurrentTileIndex = currentTileIndex;
+        PlayerState.ReturningFromMinigame = true;
+
+        // Set a flag to indicate this is the final challenge
+        PlayerState.IsFinalChallenge = true;
+
+        // Load the Fill Question Scene (your existing scene)
+        SceneManager.LoadScene("FillQuestionScence");
+    }
+
 }

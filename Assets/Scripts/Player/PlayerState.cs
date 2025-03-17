@@ -36,6 +36,11 @@ public static class PlayerState
     // Track tile movement after minigames
     public static int TileMovementAdjustment = 0;
 
+    // Track final game state
+    public static bool GameWon = false;
+    public static bool ShowEndGame = false;
+    public static bool IsFinalChallenge = false;
+
     // Helper methods
     public static void AddBuff(string buffId, float duration)
     {
@@ -122,6 +127,10 @@ public static class PlayerState
 
         // Reset instruction panel flag (only if you want to show instructions on a completely new game)
         HasSeenInstructions = false;
+
+        GameWon = false;
+        ShowEndGame = false;
+        IsFinalChallenge = false;
     }
 }
 

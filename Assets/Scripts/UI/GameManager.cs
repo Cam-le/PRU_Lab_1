@@ -85,6 +85,18 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlayBackgroundMusic("mainTheme");
         }
+
+        // Check if we're coming back from the final challenge with a game result
+        if (PlayerState.ShowEndGame)
+        {
+            // Show game over screen with appropriate result
+            EndGame(PlayerState.GameWon, PlayerState.GameWon ?
+                "Chiến thắng!! Trạng Quỳnh đã hoàn thành chuyến phiêu lưu của mình!" :
+                "Thất bại... Trạng Quỳnh cần phải thử lại!");
+
+            // Reset the flag
+            PlayerState.ShowEndGame = false;
+        }
     }
 
     private void Update()
@@ -122,8 +134,8 @@ public class GameManager : MonoBehaviour
 
             if (currentTileIndex >= finalTileIndex)
             {
-                Debug.Log("Player reached final tile. Triggering victory!");
-                EndGame(true, "Chiến thắng!! Trạng Quỳnh đã hoàn thành chuyến phiêu lưu của mình!");
+                // Don't end the game here, let the final challenge scene handle it
+                // This will be handled by the PlayerController's HandleFinalTile method
                 return;
             }
         }
