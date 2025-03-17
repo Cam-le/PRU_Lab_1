@@ -11,7 +11,7 @@ public class QuizEffect : TileEffect
     [SerializeField] private int pointsForIncorrect = -200;
 
     [SerializeField] private int stepsForCorrect = 2;
-    [SerializeField] private int stepsForIncorrect = -1;
+    [SerializeField] private int stepsForIncorrect = 0;
 
     [SerializeField] private string correctAnswerMessage = "Trả lời đúng! Bạn nhận được phần thưởng.";
     [SerializeField] private string wrongAnswerMessage = "Trả lời sai! Bạn bị phạt.";
@@ -122,15 +122,13 @@ public class QuizEffect : TileEffect
                 if (useDialogueBubble && dialogueManager != null)
                 {
                     dialogueManager.ShowMessage(GetRandomPositiveMessage());
-                }
-                else
-                {
+
                     // Show notification
                     TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
                     if (effectManager != null && ShowNotification)
                     {
                         effectManager.ShowNotification("Chính Xác!",
-                            $"{correctAnswerMessage}\n+{pointsForCorrect} điểm, Tiến {stepsForCorrect} bước",
+                            "Có thưởng!",
                             EffectIcon, Color.green);
                     }
                 }
@@ -152,22 +150,16 @@ public class QuizEffect : TileEffect
                 if (useDialogueBubble && dialogueManager != null)
                 {
                     dialogueManager.ShowMessage(GetRandomNegativeMessage());
-                }
-                else
-                {
                     // Show notification
                     TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
                     if (effectManager != null && ShowNotification)
                     {
                         effectManager.ShowNotification("Sai Rồi!",
-                            $"{wrongAnswerMessage}\n{pointsForIncorrect} điểm, Lùi {-stepsForIncorrect} bước",
+                            "Kém qua ta ôi",
                             EffectIcon, Color.red);
                     }
                 }
 
-                // Move player backward fixed steps
-                // Must be called after showing dialogue/notification
-                StartCoroutine(MovePlayerAfterDelay(player, stepsForIncorrect));
             }
 
             // Trigger the effect event
