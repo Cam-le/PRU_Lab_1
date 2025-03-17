@@ -27,30 +27,140 @@ public class TileQuizManager : MonoBehaviour
     private List<Question> questions = new List<Question>()
     {
         new Question {
-            questionText = "Ăn quả nhớ kẻ ...?",
-            answers = new string[] { "trồng cây", "bán hàng", "hái trái", "chăm sóc" },
-            correctAnswerIndex = 0
-        },
-        new Question {
-            questionText = "Có công mài sắt, có ngày nên ...?",
-            answers = new string[] { "giàu", "kim", "giỏi", "người" },
-            correctAnswerIndex = 1
-        },
-        new Question {
-            questionText = "Một cây làm chẳng nên ...?",
-            answers = new string[] { "gì", "rừng", "non", "cây" },
-            correctAnswerIndex = 1
-        },
-        new Question {
-            questionText = "Uống nước nhớ ...?",
-            answers = new string[] { "uống từ từ", "nguồn", "đầy đủ", "sạch sẽ" },
-            correctAnswerIndex = 1
-        },
-        new Question {
-            questionText = "Đi một ngày đàng, học một ...?",
-            answers = new string[] { "điều hay", "sàng khôn", "kinh nghiệm", "bài học" },
-            correctAnswerIndex = 1
-        }
+    questionText = "Uống nước nhớ ...?",
+    answers = new string[] { "uống từ từ", "nguồn", "đầy đủ", "sạch sẽ" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Đi một ngày đàng, học một ...?",
+    answers = new string[] { "điều hay", "sàng khôn", "kinh nghiệm", "bài học" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Tiên học lễ, hậu học ...?",
+    answers = new string[] { "văn", "lý", "sử", "địa" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Cây ngay không sợ ...?",
+    answers = new string[] { "gió bão", "chết đứng", "chết khô", "đổ ngã" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Ăn quả nhớ ...?",
+    answers = new string[] { "kẻ trồng cây", "người gieo", "kẻ hái", "người bán" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Gần mực thì ...?",
+    answers = new string[] { "sạch sẽ", "đen", "trắng", "sáng" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Có công mài sắt, có ngày ...?",
+    answers = new string[] { "rỉ sét", "lấp lánh", "nát vụn", "thành kim" },
+    correctAnswerIndex = 3
+},
+new Question {
+    questionText = "Nhất nước, nhì ...?",
+    answers = new string[] { "nhà", "đất", "phân", "kim" },
+    correctAnswerIndex = 2
+},
+new Question {
+    questionText = "Lá lành đùm ...?",
+    answers = new string[] { "lá rách", "lá xanh", "lá khô", "lá vàng" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Thất bại là mẹ của ...?",
+    answers = new string[] { "thành công", "nản chí", "thất vọng", "bỏ cuộc" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Một con ngựa đau, cả tàu ...?",
+    answers = new string[] { "bỏ cỏ", "chuồng bỏ", "đàn nghỉ", "chuồng buồn" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Trâu buộc thì ... trâu ăn?",
+    answers = new string[] { "khác", "giống", "ghét", "ngựa" },
+    correctAnswerIndex = 2
+},
+new Question {
+    questionText = "Nhàn cư vi ...?",
+    answers = new string[] { "chết", "lợi", "bất thiện", "hại" },
+    correctAnswerIndex = 2
+},
+new Question {
+    questionText = "Cẩn tắc vô ...?",
+    answers = new string[] { "lợi", "áy náy", "ái", "ái" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Ở hiền thì gặp ...?",
+    answers = new string[] { "lành", "dữ", "khó", "mệt" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Lời nói chẳng mất ... mua?",
+    answers = new string[] { "tiền", "lời", "mất", "nghĩa" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Tấc đất, tấc ...?",
+    answers = new string[] { "vàng", "bạc", "đồng", "đất" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Đừng thấy sóng cả mà ... tay chèo?",
+    answers = new string[] { "chèo", "ngã", "đổ", "ngại" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Trời sinh voi, trời sinh ...?",
+    answers = new string[] { "hổ", "sư tử", "cỏ", "ngựa" },
+    correctAnswerIndex = 2
+},
+new Question {
+    questionText = "Làm ít mà được ...?",
+    answers = new string[] { "nhiều", "ít", "không", "được" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Học ăn, học ...?",
+    answers = new string[] { "nói", "ngủ", "chơi", "đi" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Bán anh em xa, mua ... gần?",
+    answers = new string[] { "hàng xóm", "láng giềng", "bạn bè", "vợ" },
+    correctAnswerIndex = 1
+},
+new Question {
+    questionText = "Đừng để nước đến ...?",
+    answers = new string[] { "chân", "cổ", "đầu", "mắt" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Con hơn cha là ...?",
+    answers = new string[] { "nhà có phúc", "nhà có phước", "nhà có lộc", "nhà có tài" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Thời gian là ...?",
+    answers = new string[] { "vàng", "bạc", "đồng", "sắt" },
+    correctAnswerIndex = 0
+},
+new Question {
+    questionText = "Kính lão đắc ...?",
+    answers = new string[] { "hậu", "phúc", "lộc", "thọ" },
+    correctAnswerIndex = 3
+},
+new Question {
+    questionText = "Nhiễu điều phủ lấy ...?",
+    answers = new string[] { "giá gương", "người thương", "lá sương", "người tần" },
+    correctAnswerIndex = 0
+}
     };
 
     [Header("Effect Settings")]
