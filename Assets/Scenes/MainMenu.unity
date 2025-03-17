@@ -382,6 +382,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - clipName: eventTile
+    clip: {fileID: 8300000, guid: 767ed4cdfd3e5f74780ef0993632eef5, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   uiSounds:
   - clipName: buttonClick
     clip: {fileID: 8300000, guid: 25a89fad87b266148858e0762e1284cd, type: 3}

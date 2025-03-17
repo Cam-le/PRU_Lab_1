@@ -151,6 +151,26 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
 
+        // Stop all sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopAllSounds();
+        }
+        if (isVictory)
+        {
+            // Play sound
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound("positiveEvent");
+            }
+        } else
+        {
+            // Play sound
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound("negativeEffect");
+            }
+        }
         // Hide Character Panel
         if (characterPanel != null)
         {

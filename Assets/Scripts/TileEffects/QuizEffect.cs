@@ -121,12 +121,18 @@ public class QuizEffect : TileEffect
                 // Show success message in dialogue bubble if available
                 if (useDialogueBubble && dialogueManager != null)
                 {
+                    // Play sound
+                    if (AudioManager.Instance != null)
+                    {
+                        AudioManager.Instance.PlaySound("positiveEvent");
+                    }
                     dialogueManager.ShowMessage(GetRandomPositiveMessage());
 
                     // Show notification
                     TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();
                     if (effectManager != null && ShowNotification)
                     {
+                        
                         effectManager.ShowNotification("Chính Xác!",
                             "Có thưởng!",
                             EffectIcon, Color.green);
@@ -150,6 +156,11 @@ public class QuizEffect : TileEffect
                 // Show failure message in dialogue bubble if available
                 if (useDialogueBubble && dialogueManager != null)
                 {
+                    // Play sound
+                    if (AudioManager.Instance != null)
+                    {
+                        AudioManager.Instance.PlaySound("negativeEffect");
+                    }
                     dialogueManager.ShowMessage(GetRandomNegativeMessage());
                     // Show notification
                     TileEffectManager effectManager = FindObjectOfType<TileEffectManager>();

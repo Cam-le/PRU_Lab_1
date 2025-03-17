@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string moveSound = "playerMove";
     [SerializeField] private string checkpointSound = "checkpoint";
     [SerializeField] private string minigameTileSound = "minigameTile";
+    [SerializeField] private string eventTileSound = "eventTile";
     [SerializeField] private string fallingMinigameSound = "fallingMinigameTheme";
     [SerializeField] private string questionMinigameSound = "questionMinigameTheme";
     [SerializeField] private string memoryMinigameSound = "memoryMinigameTheme";
@@ -434,7 +435,11 @@ public class PlayerController : MonoBehaviour
 
             case Tile.TileType.Event:
                 Debug.Log("Landed on event tile");
-
+                // Play event tile sound
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySound(eventTileSound);
+                }
                 // Find and trigger the event manager
                 EventManager eventManager = FindObjectOfType<EventManager>();
                 if (eventManager != null)
