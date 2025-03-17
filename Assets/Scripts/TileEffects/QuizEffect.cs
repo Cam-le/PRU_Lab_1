@@ -10,7 +10,7 @@ public class QuizEffect : TileEffect
     [SerializeField] private int pointsForCorrect = 500;
     [SerializeField] private int pointsForIncorrect = -200;
 
-    [SerializeField] private int stepsForCorrect = 2;
+    [SerializeField] private int stepsForCorrect = 4;
     [SerializeField] private int stepsForIncorrect = 0;
 
     [SerializeField] private string correctAnswerMessage = "Trả lời đúng! Bạn nhận được phần thưởng.";
@@ -135,7 +135,8 @@ public class QuizEffect : TileEffect
 
                 // Move player forward fixed steps
                 // Must be called after showing dialogue/notification
-                StartCoroutine(MovePlayerAfterDelay(player, stepsForCorrect));
+                //StartCoroutine(MovePlayerAfterDelay(player, stepsForCorrect));
+                StartCoroutine(MovePlayerAfterDelay(player, 4));
             }
             else
             {
@@ -155,7 +156,7 @@ public class QuizEffect : TileEffect
                     if (effectManager != null && ShowNotification)
                     {
                         effectManager.ShowNotification("Sai Rồi!",
-                            "Kém qua ta ôi",
+                            "Kém qua ta ơi",
                             EffectIcon, Color.red);
                     }
                 }
